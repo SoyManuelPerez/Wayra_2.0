@@ -5,7 +5,7 @@ const Bar = require('../controllers/bar_controllers')
 router.get('/Bar',Bar.mostrar,(req,res)=>{
     res.render('bar')
 })
-//Devolver a la cuenta
-router.get('/CuentaHB1/:id',Bar.Crear)
+//Devolver a la cuenta De HB1
+router.get('/CuentaHB-1/:id',Bar.Crear)
 
 module.exports = router
