@@ -18,12 +18,7 @@ module.exports.Crear = async (req, res) => {
         const Hora =producto.Hora
         const newUsuario = new HB({ Producto, Precio, Usuario, Tipo, Hora });
         await newUsuario.save();
-
-        console.log("Nuevo usuario guardado:", newUsuario);
-
-        const deletedProduct = await Bar.findByIdAndDelete(id).lean().exec();
-        console.log("Producto eliminado:", deletedProduct);
-
+        await Bar.findByIdAndDelete(id).lean().exec();
         res.redirect('/Bar');
     } catch (err) {
         console.error(err);

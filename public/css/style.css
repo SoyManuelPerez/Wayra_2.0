@@ -118,7 +118,7 @@ button {
     color: #000000 !important;
 }
 .contenedor-tabla {
-    max-height: 250px; /* Altura máxima del contenedor */
+    max-height: 280px; /* Altura máxima del contenedor */
     overflow-y: auto; /* Habilitar la barra de desplazamiento vertical */
     padding: 10px; /* Espaciado interior */
     margin-right: 3px;
