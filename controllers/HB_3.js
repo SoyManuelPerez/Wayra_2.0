@@ -43,6 +43,13 @@ module.exports.Crear = async (req,res)=>{
         const newUsuario = new HB({Producto,Precio,Usuario,Tipo,Hora})
         console.lognewUsuario
         await newUsuario.save()
+                    // Actualizar la cantidad del producto en la colección Productos
+                    let Cantidad = producto.Cantidad ;
+                    if(Cantidad > 0){
+                      const id = producto._id.toString()
+                      Cantidad =  Cantidad -= 1; 
+                      await Productos.findByIdAndUpdate(id,{Cantidad});
+                    }
     } 
     })
     .catch(err => {
