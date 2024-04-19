@@ -85,7 +85,7 @@ module.exports.Login =  (req,res)=>{
             res.redirect('/mesero') 
           }   else if(type === "bar"){
             res.redirect('/Bar') 
-          } else if(type === "restaurante"){
+          } else if(type === "cocina"){
             res.redirect('/cocina') 
           }
     })
