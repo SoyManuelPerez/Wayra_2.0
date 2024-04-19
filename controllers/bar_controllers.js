@@ -13,6 +13,19 @@ const HB10 = require('../models/HB-10')
 const HB11 = require('../models/HB-11')
 const HB12 = require('../models/HB-12')
 const HB13 = require('../models/HB-13')
+const CB14 = require('../models/CB-14')
+const CB15 = require('../models/CB-15')
+const CB16 = require('../models/CB-16')
+const CB17 = require('../models/CB-17')
+const CB18 = require('../models/CB-18')
+const CB19 = require('../models/CB-19')
+const CB20 = require('../models/CB-20')
+const CB21 = require('../models/CB-21')
+const CB22 = require('../models/CB-22')
+const CB23 = require('../models/CB-23')
+const CB24 = require('../models/CB-24')
+const CB25 = require('../models/CB-25')
+
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
     Bar.find({})
@@ -346,4 +359,294 @@ module.exports.HB13 = async (req, res) => {
         res.status(500).send("Error interno del servidor");
     }
 };
+//Cabañas
+module.exports.CB14 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB14({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB15 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB15({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB16 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB16({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB17 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB17({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB18 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB18({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB19 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB19({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB20 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB20({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB21 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB21({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB22 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB22({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB23 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB23({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB24 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB24({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+module.exports.CB25 = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const producto = await Bar.findById(id).lean().exec();
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora =producto.Hora
+        const newUuario = new CB25({ Producto, Precio, Usuario, Tipo, Hora });
+        await newUsuario.save();
+        // Buscar el documento correspondiente en la colección Productos
+        const productoEnProductos = await Productos.findOne({ Producto });
+        if (productoEnProductos && productoEnProductos.Cantidad > 0) {
+            // Reducir la cantidad en 1
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+        }
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+
 

@@ -15,10 +15,12 @@ Usuarios = require("./routers/user.routes")
 Main = require("./routers/main.routes")
 Productos = require("./routers/productos.routes")
 Bar = require("./routers/Bar.routes")
+Cocina = require("./routers/Cocina.routes")
 app.use(Bar)
 app.use(Main)
 app.use(Usuarios)
 app.use(Productos)
+app.use(Cocina)
 
 // Servidor 
 app.set('port',process.env.PORT || 4000);

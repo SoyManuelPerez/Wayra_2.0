@@ -34,6 +34,29 @@ router.get('/CuentaHB-11/:id',Bar.HB11)
 router.get('/CuentaHB-12/:id',Bar.HB12)
 //Devolver a la cuenta De HB13
 router.get('/CuentaHB-13/:id',Bar.HB13)
-
+//Devolver a la cuenta De CB14
+router.get('/CuentaCB-14/:id',Bar.CB14)
+//Devolver a la cuenta De CB15
+router.get('/CuentaCB-15/:id',Bar.CB15)
+//Devolver a la cuenta De CB16
+router.get('/CuentaCB-16/:id',Bar.CB16)
+//Devolver a la cuenta De CB17
+router.get('/CuentaCB-17/:id',Bar.CB17)
+//Devolver a la cuenta De CB18
+router.get('/CuentaCB-18/:id',Bar.CB18)
+//Devolver a la cuenta De CB19
+router.get('/CuentaCB-19/:id',Bar.CB19)
+//Devolver a la cuenta De CB20
+router.get('/CuentaCB-20/:id',Bar.CB20)
+//Devolver a la cuenta De CB21
+router.get('/CuentaCB-21/:id',Bar.CB21)
+//Devolver a la cuenta De CB22
+router.get('/CuentaCB-22/:id',Bar.CB22)
+//Devolver a la cuenta De CB23
+router.get('/CuentaCB-23/:id',Bar.CB23)
+//Devolver a la cuenta De CB24
+router.get('/CuentaCB-24/:id',Bar.CB24)
+//Devolver a la cuenta De CB25
+router.get('/CuentaCB-25/:id',Bar.CB25)
 
 module.exports = router

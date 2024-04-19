@@ -1,4 +1,4 @@
-const HB = require('../models/CBC-25')
+const HB = require('../models/CB-25')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
@@ -9,7 +9,7 @@ module.exports.mostrar = (req, res) => {
         Productos.find({})
     ])
     .then(([HB, Productos,]) => {
-        res.render('CBC-25', { HB: HB, productos: Productos});
+        res.render('CB-25', { HB: HB, productos: Productos});
     })
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
@@ -22,7 +22,7 @@ module.exports.Crear = async (req,res)=>{
             const ahora = new Date();
             const hora = ahora.getHours();
             const minutos = ahora.getMinutes();
-            const Mesa = "CBC-25"
+            const Mesa = "CB-25"
             const Producto = producto.Producto;
             const Precio = producto.Precio;
             const Tipo = producto.Tipo;
@@ -55,7 +55,7 @@ module.exports.Crear = async (req,res)=>{
     .catch(err => {
         console.error(err);
     });
-     res.redirect('/CBC-25')
+     res.redirect('/CB-25')
 }
 module.exports.pagar = async (req, res) => {
   try {
@@ -87,5 +87,5 @@ module.exports.eliminar = (req,res) =>{
   .catch(error => {
     console.log(error) 
   });
-    res.redirect('/CBC-25')       
+    res.redirect('/CB-25')       
 }

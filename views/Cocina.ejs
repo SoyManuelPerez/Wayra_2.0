@@ -31,15 +31,15 @@
                 </tr>
             </thead>
             <tbody>
-                <% cocina.forEach( (cocina) => { %>
+                <% Cocina.forEach( (Cocina) => { %>
                     <tr>
-                        <td> <%= cocina.Mesa %></td>
-                        <td> <%= cocina.Usuario %></td>
-                        <td> <%= cocina.Producto %></td>
-                        <td> <%= cocina.Hora %></td>
+                        <td> <%= Cocina.Mesa %></td>
+                        <td> <%= Cocina.Usuario %></td>
+                        <td> <%= Cocina.Producto %></td>
+                        <td> <%= Cocina.Hora %></td>
                         <td> 
-                            <a href="/eliminarcocina/<%= cocina.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
-                            <a href="/Cuenta<%= cocina.Mesa %>/<%= bar.id %>" type="button" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"> </a>
+                            <a href="/eliminarCocina/<%= Cocina.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
+                            <a href="/Cuenta<%= Cocina.Mesa %>/<%= bar.id %>" type="button" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"> </a>
                         </td>
                     </tr>
                <% }) %>
