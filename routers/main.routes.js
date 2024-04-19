@@ -13,6 +13,19 @@ const HB10 = require('../controllers/HB_10')
 const HB11 = require('../controllers/HB_11')
 const HB12 = require('../controllers/HB_12')
 const HB13 = require('../controllers/HB_13')
+const CB14 = require('../controllers/CB_14')
+const CB15 = require('../controllers/CB_15')
+const CB16 = require('../controllers/CB_16')
+const CB17 = require('../controllers/CB_17')
+const CB18 = require('../controllers/CB_18')
+const CB19 = require('../controllers/CB_19')
+const CB20 = require('../controllers/CB_20')
+const CB21 = require('../controllers/CB_21')
+const CB22 = require('../controllers/CB_22')
+const CB23 = require('../controllers/CB_23')
+const CB24 = require('../controllers/CB_24')
+const CB25 = require('../controllers/CB_25')
+
 
 router.get('/hospedaje',(req,res)=>{
     res.render('hospedaje')
@@ -126,5 +139,113 @@ router.get('/HB-13',HB13.mostrar,(req,res)=>{
 router.get('/AgregarHB13/:id',HB13.Crear);
 //Eliminar de la cuentaHB13
 router.get('/eliminarHB13/:id',HB13.eliminar);
+
+//CB14
+router.get('/CB-14',CB14.mostrar,(req,res)=>{
+    res.render('CB-14')
+})
+////Agregar a la cuenta CB14
+router.get('/AgregarCB14/:id',CB14.Crear);
+//Eliminar de la cuentaCB14
+router.get('/eliminarCB14/:id',CB14.eliminar);
+
+//CB15
+router.get('/CB-15',CB15.mostrar,(req,res)=>{
+    res.render('CB-15')
+})
+////Agregar a la cuenta CB15
+router.get('/AgregarCB15/:id',CB15.Crear);
+//Eliminar de la cuentaCB15
+router.get('/eliminarCB15/:id',CB15.eliminar);
+
+//CB16
+router.get('/CB-16',CB16.mostrar,(req,res)=>{
+    res.render('CB-16')
+})
+////Agregar a la cuenta CB16
+router.get('/AgregarCB16/:id',CB16.Crear);
+//Eliminar de la cuentaCB16
+router.get('/eliminarCB16/:id',CB16.eliminar);
+
+//CB17
+router.get('/CB-17',CB17.mostrar,(req,res)=>{
+    res.render('CB-17')
+})
+////Agregar a la cuenta CB17
+router.get('/AgregarCB17/:id',CB17.Crear);
+//Eliminar de la cuentaCB17
+router.get('/eliminarCB17/:id',CB17.eliminar);
+
+//CB18
+router.get('/CB-18',CB18.mostrar,(req,res)=>{
+    res.render('CB-18')
+})
+////Agregar a la cuenta CB18
+router.get('/AgregarCB18/:id',CB18.Crear);
+//Eliminar de la cuentaCB18
+router.get('/eliminarCB18/:id',CB18.eliminar);
+
+//CB19
+router.get('/CB-19',CB19.mostrar,(req,res)=>{
+    res.render('CB-19')
+})
+////Agregar a la cuenta CB19
+router.get('/AgregarCB19/:id',CB19.Crear);
+//Eliminar de la cuentaCB19
+router.get('/eliminarCB19/:id',CB19.eliminar);
+
+//CB20
+router.get('/CB-20',CB20.mostrar,(req,res)=>{
+    res.render('CB-20')
+})
+////Agregar a la cuenta CB20
+router.get('/AgregarCB20/:id',CB20.Crear);
+//Eliminar de la cuentaCB20
+router.get('/eliminarCB20/:id',CB20.eliminar);
+
+//CB21
+router.get('/CB-21',CB21.mostrar,(req,res)=>{
+    res.render('CB-21')
+})
+////Agregar a la cuenta CB21
+router.get('/AgregarCB21/:id',CB21.Crear);
+//Eliminar de la cuentaCB21
+router.get('/eliminarCB21/:id',CB21.eliminar);
+
+//CB22
+router.get('/CB-22',CB22.mostrar,(req,res)=>{
+    res.render('CB-22')
+})
+////Agregar a la cuenta CB22
+router.get('/AgregarCB22/:id',CB22.Crear);
+//Eliminar de la cuentaCB22
+router.get('/eliminarCB22/:id',CB22.eliminar);
+
+//CB23
+router.get('/CB-23',CB23.mostrar,(req,res)=>{
+    res.render('CB-23')
+})
+////Agregar a la cuenta CB23
+router.get('/AgregarCB23/:id',CB23.Crear);
+//Eliminar de la cuentaCB23
+router.get('/eliminarCB23/:id',CB23.eliminar);
+
+//CB24
+router.get('/CB-24',CB23.mostrar,(req,res)=>{
+    res.render('CB-24')
+})
+////Agregar a la cuenta CB24
+router.get('/AgregarCB24/:id',CB23.Crear);
+//Eliminar de la cuentaCB24
+router.get('/eliminarCB23/:id',CB24.eliminar);
+
+//CB25
+router.get('/CB-25',CB25.mostrar,(req,res)=>{
+    res.render('CB-25')
+})
+////Agregar a la cuenta CB25
+router.get('/AgregarCB25/:id',CB25.Crear);
+//Eliminar de la cuentaCB25
+router.get('/eliminarCB25/:id',CB25.eliminar);
 
 module.exports= router
