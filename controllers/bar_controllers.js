@@ -345,7 +345,7 @@ module.exports.HB13 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new HB13({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -370,7 +370,7 @@ module.exports.CB14 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB14({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -394,7 +394,7 @@ module.exports.CB15 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB15({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -418,7 +418,7 @@ module.exports.CB16 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB16({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -442,7 +442,7 @@ module.exports.CB17 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB17({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -466,7 +466,7 @@ module.exports.CB18 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB18({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -490,7 +490,7 @@ module.exports.CB19 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB19({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -514,7 +514,7 @@ module.exports.CB20 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB20({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -538,7 +538,7 @@ module.exports.CB21 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB21({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -562,7 +562,7 @@ module.exports.CB22 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB22({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -586,7 +586,7 @@ module.exports.CB23 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB23({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -610,7 +610,7 @@ module.exports.CB24 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB24({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
@@ -634,7 +634,7 @@ module.exports.CB25 = async (req, res) => {
         const Usuario = "Manuel";
         const Hora =producto.Hora
         const newUuario = new CB25({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUsuario.save();
+        await newUuario.save();
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
