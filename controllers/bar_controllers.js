@@ -18,6 +18,18 @@ module.exports.mostrar = (req, res) => {
         .then(Bar => res.render('bar', { bar: Bar }))
         .catch(err => console.log(err, 'Error mostrar producto no encontrado'))
 }
+//Elinar
+module.exports.eliminar = (req,res) =>{
+    const id = req.params.id
+    Bar.findByIdAndDelete({_id:id}).exec()
+  .then(resultado => {
+    console.log("Objeto eliminado : ", resultado); 
+  })
+  .catch(error => {
+    console.log(error) 
+  });
+    res.redirect('/Bar')       
+}
 //Cuenta Correspondiente
 module.exports.HB1 = async (req, res) => {
     const id = req.params.id;

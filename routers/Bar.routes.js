@@ -5,6 +5,9 @@ const Bar = require('../controllers/bar_controllers')
 router.get('/Bar',Bar.mostrar,(req,res)=>{
     res.render('bar')
 })
+//Eliminar
+//Eliminar de la cuentaHB1
+router.get('/eliminarBar/:id',Bar.eliminar);
 //Devolver a la cuenta De HB1
 router.get('/CuentaHB-1/:id',Bar.HB1)
 //Devolver a la cuenta De HB2
