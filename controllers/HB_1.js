@@ -2,6 +2,7 @@ const HB = require('../models/HB-1')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
+const Huesped = require('../models/Hospedaje')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
     Promise.all([
@@ -89,4 +90,26 @@ module.exports.eliminar = (req,res) =>{
     console.log(error) 
   });
     res.redirect('/HB-1')       
+}
+module.exports.agregar = async(req,res) =>{
+  const HB = req.body.Habitacion
+  const Nombres = req.body.Nombre
+  const Apellidos = req.body.Apellido
+  const Tipo = req.body.tipo
+  const Documento = req.body.Documento
+  const Abono = req.body.Abono
+  const Final = req.body.Pago
+  const Ingreso = req.body.Fecha
+  const Salida = req.body.Salida
+  console.log(Ingreso)
+  const newUsuario = new Huesped({HB,Nombres,Apellidos,Tipo,Documento,Abono,Final,Ingreso,Salida})
+  console.log(newUsuario)
+  await newUsuario.save()
+  res.redirect('/HB-1')  
+}
+//Mostrar Hospedaje
+module.exports.mostrarH = (req, res) => {
+  Huesped.find({})
+  .then(Huesped => res.render('hospedaje', {Huesped: Huesped}))
+  .catch(err => console.log(err, 'Error mostrar'))
 }

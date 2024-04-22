@@ -27,7 +27,7 @@ const CB24 = require('../controllers/CB_24')
 const CB25 = require('../controllers/CB_25')
 
 
-router.get('/hospedaje',(req,res)=>{
+router.get('/hospedaje',HB.mostrarH,(req,res)=>{
     res.render('hospedaje')
 })
 //HB1
@@ -247,5 +247,30 @@ router.get('/CB-25',CB25.mostrar,(req,res)=>{
 router.get('/AgregarCB25/:id',CB25.Crear);
 //Eliminar de la cuentaCB25
 router.get('/eliminarCB25/:id',CB25.eliminar);
-
+//Agregar Huesped
+router.post('/IngresarCliente',HB.agregar);
+router.post('/IngresarCliente2',HB2.agregar);
+router.post('/IngresarCliente3',HB3.agregar);
+router.post('/IngresarCliente4',HB4.agregar);
+router.post('/IngresarCliente5',HB5.agregar);
+router.post('/IngresarCliente6',HB6.agregar);
+router.post('/IngresarCliente7',HB7.agregar);
+router.post('/IngresarCliente8',HB8.agregar);
+router.post('/IngresarCliente9',HB9.agregar);
+router.post('/IngresarCliente10',HB10.agregar);
+router.post('/IngresarCliente11',HB11.agregar);
+router.post('/IngresarCliente12',HB12.agregar);
+router.post('/IngresarCliente13',HB13.agregar);
+router.post('/IngresarCliente14',CB14.agregar);
+router.post('/IngresarCliente15',CB15.agregar);
+router.post('/IngresarCliente16',CB16.agregar);
+router.post('/IngresarCliente17',CB17.agregar);
+router.post('/IngresarCliente18',CB18.agregar);
+router.post('/IngresarCliente19',CB19.agregar);
+router.post('/IngresarCliente20',CB20.agregar);
+router.post('/IngresarCliente21',CB21.agregar);
+router.post('/IngresarCliente22',CB22.agregar);
+router.post('/IngresarCliente23',CB23.agregar);
+router.post('/IngresarCliente24',CB24.agregar);
+router.post('/IngresarCliente25',CB25.agregar);
 module.exports= router

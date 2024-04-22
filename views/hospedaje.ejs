@@ -156,8 +156,12 @@
                 </a>
         </div>
 
-    <div class="container espacio">
-    <h5 class="anuncio">Cantidad de huespedes:<p id="hp"></p></h5>
+    <div class="container espacio">       
+        <% let cantidadItems = 0 
+            Huesped.forEach( (Huesped) => { %>
+            <%cantidadItems++;%>
+       <% }) %>
+    <h5 class="anuncio">Cantidad de huespedes: <%= cantidadItems %></h5>
     <h5 class="anuncio">Cantidad de dias de sol: <p id="ds"></p></h5>
     </div>
 
