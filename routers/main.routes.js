@@ -25,10 +25,19 @@ const CB22 = require('../controllers/CB_22')
 const CB23 = require('../controllers/CB_23')
 const CB24 = require('../controllers/CB_24')
 const CB25 = require('../controllers/CB_25')
+const Huesped = require('../controllers/Husped_controlles')
 
 
 router.get('/hospedaje',HB.mostrarH,(req,res)=>{
     res.render('hospedaje')
+})
+//Huesped
+router.get('/huespedes',Huesped.mostrar,(req,res)=>{
+    res.render('huespedes')
+})
+//Huesped
+router.get('/eliminarHuesped/:id',Huesped.eliminar,(req,res)=>{
+    res.render('huespedes')
 })
 //HB1
 router.get('/HB-1',HB.mostrar,(req,res)=>{
