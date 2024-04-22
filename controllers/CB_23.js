@@ -1,5 +1,6 @@
 const HB = require('../models/CB-23')
 const Productos = require('../models/Producto')
+const Huesped = require('../models/Hospedaje')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
 //Mostrar productos

@@ -157,10 +157,17 @@
         </div>
 
     <div class="container espacio">       
-        <% let cantidadItems = 0 
-            Huesped.forEach( (Huesped) => { %>
-            <%cantidadItems++;%>
-       <% }) %>
+        <%
+        let cantidadItems = 0;
+        const fechaHoy = new Date();
+        Huesped.forEach((Huesped) => {
+            // Verificar si la fecha de salida del huésped es mayor a la fecha de hoy
+            if (new Date(Huesped.Salida) > fechaHoy) {
+                cantidadItems++;
+            }
+        });
+        %>
+        
     <h5 class="anuncio">Cantidad de huespedes: <%= cantidadItems %></h5>
     <h5 class="anuncio">Cantidad de dias de sol: <p id="ds"></p></h5>
     </div>

@@ -1,6 +1,7 @@
 const HB = require('../models/HB-11')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
+v
 const Bar = require('../models/Bar')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {

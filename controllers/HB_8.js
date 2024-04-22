@@ -2,6 +2,7 @@ const HB = require('../models/HB-8')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
+const Huesped = require('../models/Hospedaje')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
     Promise.all([
