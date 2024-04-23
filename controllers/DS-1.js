@@ -1,17 +1,16 @@
-const HB = require('../models/HB-1')
+const DS = require('../models/DS-1')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
-const DS = require('../models/DS')
-const Huesped = require('../models/Hospedaje')
+const DiasSol = require('../models/DS')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
     Promise.all([
-        HB.find({}),
+        DS.find({}),
         Productos.find({})
     ])
-    .then(([HB, Productos,]) => {
-        res.render('HB-1', { HB: HB, productos: Productos});
+    .then(([DS, Productos,]) => {
+        res.render('DS-1', { DS: DS, productos: Productos});
     })
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
@@ -24,7 +23,7 @@ module.exports.Crear = async (req,res)=>{
             const ahora = new Date();
             const hora = ahora.getHours();
             const minutos = ahora.getMinutes();
-            const Mesa = "HB-1"
+            const Mesa = "DS-1"
             const Producto = producto.Producto;
             const Precio = producto.Precio;
             const Tipo = producto.Tipo;
@@ -42,7 +41,7 @@ module.exports.Crear = async (req,res)=>{
         const Tipo = producto.Tipo;
         const Usuario = "Manuel";
         const Hora = hora+":"+minutos;
-        const newUsuario = new HB({Producto,Precio,Usuario,Tipo,Hora})
+        const newUsuario = new DS({Producto,Precio,Usuario,Tipo,Hora})
         console.lognewUsuario
         await newUsuario.save()
               // Actualizar la cantidad del producto en la colección Productos
@@ -58,12 +57,12 @@ module.exports.Crear = async (req,res)=>{
     .catch(err => {
         console.error(err);
     });
-     res.redirect('/HB-1')
+     res.redirect('/DS-1')
 }
 module.exports.pagar = async (req, res) => {
   try {
       // Obtener todos los documentos de ModeloOrigen
-      const documentosOrigen = await HB.find();
+      const documentosOrigen = await DS.find();
       // Iterar sobre los documentos obtenidos
       for (const documento of documentosOrigen) {
           // Crear un nuevo documento basado en el documento actual
@@ -83,17 +82,18 @@ module.exports.pagar = async (req, res) => {
 }
 module.exports.eliminar = (req,res) =>{
     const id = req.params.id
-    HB.findByIdAndDelete({_id:id}).exec()
+    DS.findByIdAndDelete({_id:id}).exec()
   .then(resultado => {
     console.log("Objeto eliminado : ", resultado); 
   })
   .catch(error => {
     console.log(error) 
   });
-    res.redirect('/HB-1')       
+    res.redirect('/DS-1')       
 }
 module.exports.agregar = async(req,res) =>{
-  const HB = req.body.Habitacion
+  const DS = req.body.Ds
+  const Comanda = req.body.Comanda
   const Nombres = req.body.Nombre
   const Apellidos = req.body.Apellido
   const Tipo = req.body.tipo
@@ -101,21 +101,9 @@ module.exports.agregar = async(req,res) =>{
   const Abono = req.body.Abono
   const Final = req.body.Pago
   const Ingreso = req.body.Fecha
-  const Salida = req.body.Salida
   console.log(Ingreso)
-  const newUsuario = new Huesped({HB,Nombres,Apellidos,Tipo,Documento,Abono,Final,Ingreso,Salida})
+  const newUsuario = new DiasSol({DS,Comanda,Nombres,Apellidos,Tipo,Documento,Abono,Final,Ingreso})
   console.log(newUsuario)
   await newUsuario.save()
-  res.redirect('/HB-1')  
-}
-//Mostrar Hospedaje
-module.exports.mostrarH = (req, res) => {
-  Promise.all([
-    Huesped.find({}),
-    DS.find({})
-])
-.then(([Huesped, DS,]) => {
-    res.render('hospedaje', {Huesped: Huesped, DS: DS});
-})
-.catch(err => console.log(err, 'Error mostrando datos'));
+  res.redirect('/DS-1')  
 }

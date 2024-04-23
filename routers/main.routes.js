@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const DS = require('../controllers/DS-1')
 const HB = require('../controllers/HB_1')
 const HB2 = require('../controllers/HB_2')
 const HB3 = require('../controllers/HB_3')
@@ -27,10 +28,19 @@ const CB24 = require('../controllers/CB_24')
 const CB25 = require('../controllers/CB_25')
 const Huesped = require('../controllers/Husped_controlles')
 
-
+//Inicio
 router.get('/hospedaje',HB.mostrarH,(req,res)=>{
     res.render('hospedaje')
 })
+//Dias de sol
+router.get('/DS',(req,res)=>{
+    res.render('DS')
+})
+//Dias de sol 1
+router.get('/DS-1',DS.mostrar,(req,res)=>{
+    res.render('DS-1')
+})
+router.post('/IngresarDS',DS.agregar);
 //Huesped
 router.get('/huespedes',Huesped.mostrar,(req,res)=>{
     res.render('huespedes')

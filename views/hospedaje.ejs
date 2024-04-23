@@ -168,8 +168,22 @@
         });
         %>
         
+        <%
+        let cantidaDS = 0;
+        DS.forEach((DS) => {
+            // Verificar si la fecha de ingreso de DS es igual a la fecha de hoy
+            const fechaIngresoDS = new Date(DS.Ingreso);
+            if (fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
+                fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
+                fechaIngresoDS.getDate() === fechaHoy.getDate()) {
+                cantidaDS++;
+            }
+        });
+        %>
+        
+        
     <h5 class="anuncio">Cantidad de huespedes: <%= cantidadItems %></h5>
-    <h5 class="anuncio">Cantidad de dias de sol: <p id="ds"></p></h5>
+    <h5 class="anuncio">Cantidad de dias de sol: <%= cantidaDS %></h5>
     </div>
 
 </body>
