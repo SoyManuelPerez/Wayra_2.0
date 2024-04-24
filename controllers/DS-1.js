@@ -92,7 +92,7 @@ module.exports.eliminar = (req,res) =>{
     res.redirect('/DS-1')       
 }
 module.exports.agregar = async(req,res) =>{
-  const DS = req.body.Ds
+  const DS = "DS-1"
   const Comanda = req.body.Comanda
   const Nombres = req.body.Nombre
   const Apellidos = req.body.Apellido

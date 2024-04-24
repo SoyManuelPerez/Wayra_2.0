@@ -23,7 +23,8 @@
         </center>
     </div>
     <%
-    let Ds1 = ""; 
+    let Ds = []; 
+
     let fechaIngresoDS = "";
     DS.forEach((DS) => {
         const fechaHoy = new Date();
@@ -32,10 +33,12 @@
         const mes = parseInt(partesFecha[1]) - 1; 
         const dia = parseInt(partesFecha[2]);
         fechaIngresoDS = new Date(año, mes, dia);
-        if(DS.DS === "DS-1" && fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
+        let ds = DS.DS.split('-')
+        let lugar = parseInt(ds[1])
+        if(fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
         fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
         fechaIngresoDS.getDate() === fechaHoy.getDate()) {
-            Ds1 = DS.Comanda; // Asignación del valor a la variable existente
+            Ds[lugar] = DS.Comanda; // Asignación del valor a la variable existente
         }
     });
 %>
@@ -43,73 +46,184 @@
         <div class="row ">
             <div class="col">
                 <a href="/DS-1"><div class=" col">
-                    <div class="DS"><h5> <%= Ds1 %></h5></div>
+                    <div class="DS"><h5> <%= Ds[1] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                
-                <a href="/DS-1M"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-2"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[2] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                
-                <a href="/DS-1M"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-3"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[3] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                
-                <a href="DS-1.html"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-4"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[4] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                
-                <a href="DS-1.html"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-5"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[5] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                
-                <a href="DS-1.html"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-6"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[6] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                
-                <a href="DS-1.html"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-7"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[7] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                
-                <a href="DS-1.html"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-8"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[8] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                
-                <a href="DS-1.html"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-9"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[9] %></h5></div>
                 </div> 
                 </a>
             </div>
             <div class="col">
-                <a href="DS-1.html"><div class="HB col">
-                    <div class="DS"><h5 id="Extra1" class="ds"></h5></div>
+                <a href="/DS-10"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[10] %></h5></div>
                 </div> 
                 </a>
             </div>
-            
+            <div class="col">
+                <a href="/DS-11"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[11] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-12"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[12] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-13"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[13] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-14"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[14] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-15"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[15] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-16"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[16] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-17"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[17] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-18"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[18] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-19"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[19] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-20"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[20] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-21"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[21] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-22"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[22] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-23"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[23] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-24"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[24] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-25"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[25] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-26"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[26] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-27"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[27] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-28"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[28] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-29"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[29] %></h5></div>
+                </div> 
+                </a>
+            </div>
+            <div class="col">
+                <a href="/DS-30"><div class=" col">
+                    <div class="DS"><h5> <%= Ds[30] %></h5></div>
+                </div> 
+                </a>
+            </div>
         </div>
     </div>
 </body>
