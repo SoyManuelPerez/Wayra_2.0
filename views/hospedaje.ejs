@@ -169,10 +169,18 @@
         %>
         
         <%
+        let fechaIngresoDS = ""
         let cantidaDS = 0;
         DS.forEach((DS) => {
             // Verificar si la fecha de ingreso de DS es igual a la fecha de hoy
-            const fechaIngresoDS = new Date(DS.Ingreso);
+             fechaIngresoDS = new Date(DS.Ingreso);
+            const fechaHoy = new Date();
+            const partesFecha = DS.Ingreso.split('-'); // Suponiendo que el formato es YYYY-MM-DD
+            const año = parseInt(partesFecha[0]);
+            const mes = parseInt(partesFecha[1]) - 1; // Los meses en JavaScript van de 0 a 11
+            const dia = parseInt(partesFecha[2]);
+            fechaIngresoDS = new Date(año, mes, dia);
+
             if (fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
                 fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
                 fechaIngresoDS.getDate() === fechaHoy.getDate()) {
@@ -180,6 +188,7 @@
             }
         });
         %>
+        
         
         
     <h5 class="anuncio">Cantidad de huespedes: <%= cantidadItems %></h5>

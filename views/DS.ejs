@@ -22,11 +22,28 @@
             </div>
         </center>
     </div>
+    <%
+    let Ds1 = ""; 
+    let fechaIngresoDS = "";
+    DS.forEach((DS) => {
+        const fechaHoy = new Date();
+        const partesFecha = DS.Ingreso.split('-');
+        const año = parseInt(partesFecha[0]);
+        const mes = parseInt(partesFecha[1]) - 1; 
+        const dia = parseInt(partesFecha[2]);
+        fechaIngresoDS = new Date(año, mes, dia);
+        if(DS.DS === "DS-1" && fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
+        fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
+        fechaIngresoDS.getDate() === fechaHoy.getDate()) {
+            Ds1 = DS.Comanda; // Asignación del valor a la variable existente
+        }
+    });
+%>
     <div class="container">
         <div class="row ">
             <div class="col">
-                <a href="/DS-1"><div class="HB col">
-                    <div class="DS"><h5></h5></div>
+                <a href="/DS-1"><div class=" col">
+                    <div class="DS"><h5> <%= Ds1 %></h5></div>
                 </div> 
                 </a>
             </div>

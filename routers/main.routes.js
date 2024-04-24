@@ -27,13 +27,13 @@ const CB23 = require('../controllers/CB_23')
 const CB24 = require('../controllers/CB_24')
 const CB25 = require('../controllers/CB_25')
 const Huesped = require('../controllers/Husped_controlles')
-
+const Ds = require('../controllers/Ds_controllers')
 //Inicio
 router.get('/hospedaje',HB.mostrarH,(req,res)=>{
     res.render('hospedaje')
 })
 //Dias de sol
-router.get('/DS',(req,res)=>{
+router.get('/DS',Ds.mostrar,(req,res)=>{
     res.render('DS')
 })
 //Dias de sol 1

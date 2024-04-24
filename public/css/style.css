@@ -69,7 +69,12 @@ body{
     border: 4px solid #000000; /* Borde negro de 2 píxeles */
     margin: 10px; /* Margen entre rectángulos */
     text-align: center;
+
+}
+a{
     text-decoration: none;
+    color: #000000;
+    text-align: center;
 }
 .habitacion{
     display: flex;
