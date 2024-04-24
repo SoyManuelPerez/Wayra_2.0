@@ -58,7 +58,7 @@
                             <td> <%= productos.Precio %></td>
                             <td> <%= productos.Tipo %></td>
                             <td> 
-                                <a href="/AgregarDS1/<%= productos.id %>" type="button" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"> </a>
+                                <a href="/AgregarDS24/<%= productos.id %>" type="button" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"> </a>
                             </td>
                         </tr>
                    <% }) %>
@@ -89,7 +89,7 @@
                             <td> <%= DS.Usuario%></td>
                             <td> <%= DS.Hora %></td>
                             <td> 
-                                <a href="/eliminarDS1/<%= DS.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
+                                <a href="/eliminarDS24/<%= DS.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
                             </td>
                             <% totalPrecio += DS.Precio; %> <!-- Suma el precio del producto al total -->
                         </tr>
