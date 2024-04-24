@@ -35,20 +35,19 @@
                 </tr>
             </thead>
             <tbody>
-                <%  Huesped.forEach((Huesped) => { %>
+                <%  DS.forEach((DS) => { %>
                     <tr>
-                        <td> <%= Huesped.HB %></td>
-                        <td> <%= Huesped.Nombres %></td>
-                        <td> <%= Huesped.Apellidos %></td>
-                        <td> <%= Huesped.Tipo %></td>
-                        <td> <%= Huesped.Documento %></td>
-                        <td> <%= Huesped.Abono %></td>
-                        <td> <%= Huesped.Final %></td>
-                        <td> <%= Huesped.Ingreso %></td>
-                        <td> <%= Huesped.Salida %></td>
+                        <td> <%= DS.Comanda %></td>
+                        <td> <%= DS.Nombres %></td>
+                        <td> <%= DS.Apellidos %></td>
+                        <td> <%= DS.Tipo %></td>
+                        <td> <%= DS.Documento %></td>
+                        <td> <%= DS.Abono %></td>
+                        <td> <%= DS.Final %></td>
+                        <td> <%= DS.Ingreso %></td>
                         <td> 
-                            <a href="/eliminarHuesped/<%= Huesped.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-trash"> </a>
-                            <a href="/editarHuesped/<%= Huesped.id %>" type="button" class="btnAgregarProducto btn btn-outline-primary bi bi-pencil"> </a>
+                            <a href="/eliminarDS/<%= DS.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-trash"> </a>
+                            <a href="/editarDS/<%= DS.id %>" type="button" class="btnAgregarProducto btn btn-outline-primary bi bi-pencil"> </a>
                         </td>
                     </tr>
                <% }) %>

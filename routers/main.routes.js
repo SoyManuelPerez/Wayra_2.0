@@ -11,6 +11,10 @@ router.get('/hospedaje',HB.mostrarH,(req,res)=>{
 router.get('/DS',Ds.mostrar,(req,res)=>{
     res.render('DS')
 })
+//Historial Ds
+router.get('/HDS',Ds.mostrarH,(req,res)=>{
+    res.render('HDS')
+})
 //Huesped
 router.get('/huespedes',Huesped.mostrar,(req,res)=>{
     res.render('huespedes')
