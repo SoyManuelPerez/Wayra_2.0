@@ -160,9 +160,16 @@
         <%
         let cantidadItems = 0;
         const fechaHoy = new Date();
+        const fechaHoyStr = fechaHoy.toISOString().split('T')[0];
         Huesped.forEach((Huesped) => {
-            // Verificar si la fecha de salida del huésped es mayor a la fecha de hoy
-            if (new Date(Huesped.Salida) > fechaHoy) {
+            const partesFecha = Huesped.Salida.split('-'); // Suponiendo que el formato es YYYY-MM-DD
+            const año = parseInt(partesFecha[0]);
+            const mes = parseInt(partesFecha[1]) - 1; // Los meses en JavaScript van de 0 a 11
+            const dia = parseInt(partesFecha[2]);
+            const fechaSalida = new Date(año, mes, dia);
+            const fechaSalidaStr = fechaSalida.toISOString().split('T')[0];
+            // Verificar si la fecha de salida del huésped es mayor o igual a la fecha de hoy
+            if (fechaSalidaStr >= fechaHoyStr) {
                 cantidadItems++;
             }
         });
