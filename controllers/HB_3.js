@@ -96,12 +96,14 @@ module.exports.agregar = async(req,res) =>{
   const Apellidos = req.body.Apellido
   const Tipo = req.body.tipo
   const Documento = req.body.Documento
+  const Celular = req.body.Celular
+  const Correo = req.body.Correo
   const Abono = req.body.Abono
   const Final = req.body.Pago
   const Ingreso = req.body.Fecha
   const Salida = req.body.Salida
   console.log(Ingreso)
-  const newUsuario = new Huesped({HB,Nombres,Apellidos,Tipo,Documento,Abono,Final,Ingreso,Salida})
+  const newUsuario = new Huesped({HB,Nombres,Apellidos,Tipo,Documento,Celular,Correo,Abono,Final,Ingreso,Salida})
   console.log(newUsuario)
   await newUsuario.save()
   res.redirect('/HB-3')  

@@ -5,6 +5,8 @@ const Huesped = new mongoose.Schema ({
     Apellidos:String,
     Tipo:String,
     Documento:String,
+    Celular:String,
+    Correo:String,
     Abono: Number,
     Final: Number,
     Ingreso: String, 
