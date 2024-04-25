@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const DS = require('../controllers/DS-1')
+const Ds = require('../controllers/Ds_controllers')
 //Dias de sol 1
 router.get('/DS-1',DS.mostrar,(req,res)=>{
     res.render('DS-1')
@@ -134,5 +135,9 @@ router.get('/DS-30',DS.mostrar,(req,res)=>{
     res.render('DS-30')
 })
 //Ingresar dias de sol
-router.post('/IngresarDS',DS.agregar);
+router.post('/IngresarDS',Ds.agregar);
+module.exports= router
+//Ingresar dias de sol
+router.post('/IngresarDS2',Ds.agregar);
+
 module.exports= router
