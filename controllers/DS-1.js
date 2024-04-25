@@ -2,6 +2,7 @@ const DS = require('../models/DS-1')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
+const Cocina = require('../models/Cocina')
 const DiasSol = require('../models/DS')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
@@ -32,7 +33,20 @@ module.exports.Crear = async (req, res) => {
         const bar = new Bar({ Mesa, Producto, Precio, Usuario, Tipo, Hora })
         console.lognewUsuario
         await bar.save()
-      } else {
+      } else if (producto.Tipo == "Cocina"){
+        const ahora = new Date();
+        const hora = ahora.getHours();
+        const minutos = ahora.getMinutes();
+        const Mesa = "DS-1"
+        const Producto = producto.Producto;
+        const Precio = producto.Precio;
+        const Tipo = producto.Tipo;
+        const Usuario = "Manuel";
+        const Hora = hora + ":" + minutos;
+        const cocina = new Cocina({ Mesa, Producto, Precio, Usuario, Tipo, Hora })
+        console.lognewUsuario
+        await cocina.save()
+      }else {
         const ahora = new Date();
         const hora = ahora.getHours();
         const minutos = ahora.getMinutes();
@@ -59,6 +73,7 @@ module.exports.Crear = async (req, res) => {
     });
   res.redirect('/DS-1')
 }
+//Cancelar cuenta
 module.exports.pagar = async (req, res) => {
   try {
     // Obtener todos los documentos de ModeloOrigen
@@ -80,6 +95,7 @@ module.exports.pagar = async (req, res) => {
     res.status(500).send('Ocurrió un error al copiar los datos: ' + error.message);
   }
 }
+//Eliminar de la cuenta
 module.exports.eliminar = (req, res) => {
   const id = req.params.id
   DS.findByIdAndDelete({ _id: id }).exec()
@@ -91,8 +107,9 @@ module.exports.eliminar = (req, res) => {
     });
   res.redirect('/DS-1')
 }
+//Agregar al dia de sol
 module.exports.agregar = async (req, res) => {
-  const DS = "DS-1"
+  const DS = req.body.DS
   const Comanda = req.body.Comanda
   const Nombres = req.body.Nombre
   const Apellidos = req.body.Apellido
@@ -105,5 +122,6 @@ module.exports.agregar = async (req, res) => {
   const newUsuario = new DiasSol({ DS, Comanda, Nombres, Apellidos, Tipo, Documento, Abono, Final, Ingreso })
   console.log(newUsuario)
   await newUsuario.save()
-  res.redirect('/DS-1')
+  console.log('/'+DS)
+  res.redirect('/'+DS)
 }

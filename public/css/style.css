@@ -97,6 +97,9 @@ button {
 .espacio{
     padding-top: 4%;
 }
+.incognito{
+    display: none;
+}
 .espacios{
     padding-top: 7%;
 }
