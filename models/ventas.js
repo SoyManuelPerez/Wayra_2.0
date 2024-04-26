@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 const venta = new mongoose.Schema ({
     Producto: String,
-    Precio:Number,
-    Usuario: String,
+    Precio:Number,  
     Tipo: String,
-    Hora: String, 
+    Fecha: String, 
 })
 module.exports = mongoose.model('Ventas', venta)

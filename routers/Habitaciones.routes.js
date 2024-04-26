@@ -34,7 +34,7 @@ router.get('/HB-1',HB.mostrar,(req,res)=>{
 router.get('/AgregarHB1/:id',HB.Crear);
 //Eliminar de la cuentaHB1
 router.get('/eliminarHB1/:id',HB.eliminar);
-
+router.get('/PagarHB',HB.pagar);
 //HB2
 router.get('/HB-2',HB2.mostrar,(req,res)=>{
     res.render('HB-2')

@@ -31,12 +31,12 @@ module.exports.agregar = async (req, res) => {
   }
   module.exports.eliminar = (req,res) =>{
     const id = req.params.id
-    Huesped.findByIdAndDelete({_id:id}).exec()
+    DiasSol.findByIdAndDelete({_id:id}).exec()
   .then(resultado => {
     console.log("Objeto eliminado : ", resultado); 
   })
   .catch(error => {
     console.log(error) 
   });
-    res.redirect('/huespedes')       
+    res.redirect('/HDS')       
 }

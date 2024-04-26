@@ -1,8 +1,16 @@
 const express = require('express')
 const router = express.Router()
 const HB = require('../controllers/HB_1')
+const ventas = require('../controllers/Ventas_controllers')
 const Huesped = require('../controllers/Husped_controlles')
 const Ds = require('../controllers/Ds_controllers')
+//Ventas
+router.get('/ventas',ventas.mostrar,(req,res)=>{
+    res.render('Ventas')
+})
+router.get('/eliminarventas/:id',ventas.eliminar,(req,res)=>{
+    res.render('Ventas')
+})
 //Inicio
 router.get('/hospedaje',HB.mostrarH,(req,res)=>{
     res.render('hospedaje')
