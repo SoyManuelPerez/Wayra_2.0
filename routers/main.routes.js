@@ -11,6 +11,9 @@ router.get('/hospedaje',HB.mostrarH,(req,res)=>{
 router.get('/DS',Ds.mostrar,(req,res)=>{
     res.render('DS')
 })
+router.get('/eliminarDS/:id',Ds.eliminar,(req,res)=>{
+    res.render('HDS')
+})
 //Historial Ds
 router.get('/HDS',Ds.mostrarH,(req,res)=>{
     res.render('HDS')
