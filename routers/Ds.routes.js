@@ -168,7 +168,25 @@ router.get('/DS-30',DS30.mostrar,(req,res)=>{
 //Ingresar dias de sol
 router.post('/IngresarDS',Ds.agregar);
 module.exports= router
-//Ingresar dias de sol
-router.post('/IngresarDS2',Ds.agregar);
+//Ingresar dias de sol 2
+router.post('/IngresarDS2',DS2.agregar);
+//Ingresar dias de sol 3
+router.post('/IngresarDS3',DS3.agregar);
+//Ingresar dias de sol 4
+router.post('/IngresarDS4',DS4.agregar);
+//Ingresar dias de sol 5
+router.post('/IngresarDS5',DS5.agregar);
+//Ingresar dias de sol 6
+router.post('/IngresarDS6',DS6.agregar);
+//Ingresar dias de sol 7
+router.post('/IngresarDS7',DS7.agregar);
+//Ingresar dias de sol 8
+router.post('/IngresarDS8',DS8.agregar);
+//Ingresar dias de sol 9
+router.post('/IngresarDS9',DS9.agregar);
+//Ingresar dias de sol 10
+router.post('/IngresarDS10',DS10.agregar);
+
+
 
 module.exports= router
