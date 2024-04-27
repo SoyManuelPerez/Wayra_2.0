@@ -34,7 +34,6 @@ router.get('/HB-1',HB.mostrar,(req,res)=>{
 router.get('/AgregarHB1/:id',HB.Crear);
 //Eliminar de la cuentaHB1
 router.get('/eliminarHB1/:id',HB.eliminar);
-router.get('/PagarHB',HB.pagar);
 //HB2
 router.get('/HB-2',HB2.mostrar,(req,res)=>{
     res.render('HB-2')
@@ -269,5 +268,56 @@ router.post('/IngresarCliente22',CB22.agregar);
 router.post('/IngresarCliente23',CB23.agregar);
 router.post('/IngresarCliente24',CB24.agregar);
 router.post('/IngresarCliente25',CB25.agregar);
+
+//Pagar HB1
+router.get('/PagarHB',HB.pagar);
+//Pagar HB2
+router.get('/PagarHB2',HB2.pagar);
+//Pagar HB3
+router.get('/PagarHB3',HB3.pagar);
+//Pagar HB4
+router.get('/PagarHB4',HB4.pagar);
+//Pagar HB5
+router.get('/PagarHB5',HB5.pagar);
+//Pagar HB6
+router.get('/PagarHB6',HB6.pagar);
+//Pagar HB7
+router.get('/PagarHB7',HB7.pagar);
+//Pagar HB8
+router.get('/PagarHB8',HB8.pagar);
+//Pagar HB9
+router.get('/PagarHB9',HB9.pagar);
+//Pagar HB10
+router.get('/PagarHB10',HB10.pagar);
+//Pagar HB11
+router.get('/PagarHB11',HB11.pagar);
+//Pagar HB12
+router.get('/PagarHB12',HB12.pagar);
+//Pagar HB13
+router.get('/PagarHB13',HB13.pagar);
+//Pagar CB14
+router.get('/PagarCB14',CB14.pagar);
+//Pagar CB15
+router.get('/PagarCB15',CB15.pagar);
+//Pagar CB16
+router.get('/PagarCB16',CB16.pagar);
+//Pagar CB17
+router.get('/PagarCB17',CB17.pagar);
+//Pagar CB18
+router.get('/PagarCB18',CB18.pagar);
+//Pagar CB19
+router.get('/PagarCB19',CB19.pagar);
+//Pagar CB20
+router.get('/PagarCB20',CB20.pagar);
+//Pagar CB21
+router.get('/PagarCB21',CB21.pagar);
+//Pagar CB22
+router.get('/PagarCB22',CB22.pagar);
+//Pagar CB23
+router.get('/PagarCB23',CB23.pagar);
+//Pagar CB24
+router.get('/PagarCB24',CB24.pagar);
+//Pagar CB25
+router.get('/PagarCB25',CB25.pagar);
 
 module.exports= router
