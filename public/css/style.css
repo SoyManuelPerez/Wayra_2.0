@@ -23,35 +23,12 @@
   justify-content: flex-end;
 }
 body{
-    background-color: rgb(57, 130, 226);
+    background-color: rgb(55, 218, 169);
     color: aliceblue;
     text-align: center;
-    font-family: "Roboto", sans-serif;
+    font-family: "Trebuchet MS", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;   
-}
-.fondos{
-    position: relative;
-    z-index: 1;
-    background-color: rgb(25, 141, 170);
-    max-width: 360px;
-    padding-bottom: 10px;
-    padding-top: 5px;
-    justify-content: center;
-    width: 400px;
-    text-align: center;
-    border-radius: 3px;
-}
-.fondosM{
-    position: relative;
-    z-index: 1;
-    background-color: rgb(25, 141, 170);
-    max-width: 360px;
-    padding-bottom: 10px;
-    padding-top: 5px;
-    justify-content: center;
-    width: 400px;
-    text-align: center;
 }
 .Habitacion {
     width: 100px; /* Ancho del rectángulo */
