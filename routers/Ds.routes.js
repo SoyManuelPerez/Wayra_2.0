@@ -186,7 +186,46 @@ router.post('/IngresarDS8',DS8.agregar);
 router.post('/IngresarDS9',DS9.agregar);
 //Ingresar dias de sol 10
 router.post('/IngresarDS10',DS10.agregar);
-
+//Ingresar dias de sol 11
+router.post('/IngresarDS11',DS11.agregar);
+//Ingresar dias de sol 12
+router.post('/IngresarDS12',DS12.agregar);
+//Ingresar dias de sol 13
+router.post('/IngresarDS13',DS13.agregar);
+//Ingresar dias de sol 14
+router.post('/IngresarDS14',DS14.agregar);
+//Ingresar dias de sol 15
+router.post('/IngresarDS15',DS15.agregar);
+//Ingresar dias de sol 16
+router.post('/IngresarDS16',DS16.agregar);
+//Ingresar dias de sol 17
+router.post('/IngresarDS17',DS17.agregar);
+//Ingresar dias de sol 18
+router.post('/IngresarDS18',DS18.agregar);
+//Ingresar dias de sol 19
+router.post('/IngresarDS19',DS19.agregar);
+//Ingresar dias de sol 20
+router.post('/IngresarDS20',DS20.agregar);
+//Ingresar dias de sol 21
+router.post('/IngresarDS21',DS21.agregar);
+//Ingresar dias de sol 22
+router.post('/IngresarDS22',DS22.agregar);
+//Ingresar dias de sol 23
+router.post('/IngresarDS23',DS23.agregar);
+//Ingresar dias de sol 24
+router.post('/IngresarDS24',DS24.agregar);
+//Ingresar dias de sol 25
+router.post('/IngresarDS25',DS25.agregar);
+//Ingresar dias de sol 26
+router.post('/IngresarDS26',DS26.agregar);
+//Ingresar dias de sol 27
+router.post('/IngresarDS27',DS27.agregar);
+//Ingresar dias de sol 28
+router.post('/IngresarDS28',DS28.agregar);
+//Ingresar dias de sol 29
+router.post('/IngresarDS29',DS29.agregar);
+//Ingresar dias de sol 30
+router.post('/IngresarDS30',DS30.agregar);
 
 
 module.exports= router
