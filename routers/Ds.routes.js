@@ -227,5 +227,66 @@ router.post('/IngresarDS29',DS29.agregar);
 //Ingresar dias de sol 30
 router.post('/IngresarDS30',DS30.agregar);
 
+// Pagar Dias de sol
+//Pagar ds 1
+router.get('/PagarDS1',DS.pagar);
+//Pagar ds 2
+router.get('/PagarDS2',DS2.pagar);
+//Pagar ds 3
+router.get('/PagarDS3',DS3.pagar);
+//Pagar ds 4
+router.get('/PagarDS4',DS4.pagar);
+//Pagar ds 5
+router.get('/PagarDS5',DS5.pagar);
+//Pagar ds 6
+router.get('/PagarDS6',DS6.pagar);
+//Pagar ds 7
+router.get('/PagarDS7',DS7.pagar);
+//Pagar ds 8
+router.get('/PagarDS8',DS8.pagar);
+//Pagar ds 9
+router.get('/PagarDS9',DS9.pagar);
+//Pagar ds 10
+router.get('/PagarDS10',DS10.pagar);
+//Pagar ds 11
+router.get('/PagarDS11',DS11.pagar);
+//Pagar ds 12
+router.get('/PagarDS12',DS12.pagar);
+//Pagar ds 13
+router.get('/PagarDS13',DS13.pagar);
+//Pagar ds 14
+router.get('/PagarDS14',DS14.pagar);
+//Pagar ds 15
+router.get('/PagarDS15',DS15.pagar);
+//Pagar ds 16
+router.get('/PagarDS16',DS16.pagar);
+//Pagar ds 17
+router.get('/PagarDS17',DS17.pagar);
+//Pagar ds 18
+router.get('/PagarDS18',DS18.pagar);
+//Pagar ds 19
+router.get('/PagarDS19',DS19.pagar);
+//Pagar ds 20
+router.get('/PagarDS20',DS20.pagar);
+//Pagar ds 21
+router.get('/PagarDS21',DS21.pagar);
+//Pagar ds 22
+router.get('/PagarDS22',DS22.pagar);
+//Pagar ds 23
+router.get('/PagarDS23',DS23.pagar);
+//Pagar ds 24
+router.get('/PagarDS24',DS24.pagar);
+//Pagar ds 25
+router.get('/PagarDS25',DS25.pagar);
+//Pagar ds 26
+router.get('/PagarDS26',DS26.pagar);
+//Pagar ds 27
+router.get('/PagarDS27',DS27.pagar);
+//Pagar ds 28
+router.get('/PagarDS28',DS28.pagar);
+//Pagar ds 29
+router.get('/PagarDS29',DS29.pagar);
+//Pagar ds 30
+router.get('/PagarDS30',DS30.pagar);
 
 module.exports= router

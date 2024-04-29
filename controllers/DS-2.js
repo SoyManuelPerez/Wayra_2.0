@@ -76,23 +76,31 @@ module.exports.Crear = async (req, res) => {
 //Cancelar cuenta
 module.exports.pagar = async (req, res) => {
   try {
-    // Obtener todos los documentos de ModeloOrigen
-    const documentosOrigen = await DS.find();
-    // Iterar sobre los documentos obtenidos
-    for (const documento of documentosOrigen) {
-      // Crear un nuevo documento basado en el documento actual
-      const nuevoDocumento = new ventas(documento.toObject());
-      // Guardar el nuevo documento en la colección de ModeloDestino
-      await nuevoDocumento.save();
-    }
-    console.log('Datos copiados exitosamente de ModeloOrigen a ModeloDestino.');
-    // Enviar respuesta si es necesario
-    res.status(200).send('Datos copiados exitosamente de ModeloOrigen a ModeloDestino.');
+   const productos = await DS.find().lean().exec();
+  
+   if (!productos || productos.length === 0) {
+     return res.status(404).send('No se encontraron productos');
+   }
+   const productosVendidosIds = [];
+   for (const producto of productos) {
+     const Producto = producto.Producto;
+     const Precio = producto.Precio;
+     const Tipo = producto.Precio;
+     const Fecha = new Date().toISOString().split('T')[0];
+     const nuevoDocumento = new ventas({
+       Producto,
+       Precio,
+       Tipo,
+       Fecha
+     });
+     await nuevoDocumento.save();
+     productosVendidosIds.push(producto._id);
+   }
+   await DS.deleteMany({ _id: { $in: productosVendidosIds } });
+   res.redirect('/DS-2');
   } catch (error) {
-    console.error('Error al copiar los datos:', error);
-
-    // Enviar una respuesta de error si es necesario
-    res.status(500).send('Ocurrió un error al copiar los datos: ' + error.message);
+   console.error(error);
+   res.status(500).send('Error interno del servidor');
   }
 }
 //Eliminar de la cuenta
