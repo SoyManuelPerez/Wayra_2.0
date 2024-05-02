@@ -685,7 +685,7 @@ module.exports.CB25 = async (req, res) => {
 module.exports.DS1 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -699,8 +699,8 @@ module.exports.DS1 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -709,7 +709,7 @@ module.exports.DS1 = async (req, res) => {
 module.exports.DS2 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -723,8 +723,8 @@ module.exports.DS2 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -733,7 +733,7 @@ module.exports.DS2 = async (req, res) => {
 module.exports.DS3 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -747,8 +747,8 @@ module.exports.DS3 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -757,7 +757,7 @@ module.exports.DS3 = async (req, res) => {
 module.exports.DS4 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -771,8 +771,8 @@ module.exports.DS4 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -781,7 +781,7 @@ module.exports.DS4 = async (req, res) => {
 module.exports.DS5 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -795,8 +795,8 @@ module.exports.DS5 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -805,7 +805,7 @@ module.exports.DS5 = async (req, res) => {
 module.exports.DS6 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -819,8 +819,8 @@ module.exports.DS6 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -829,7 +829,7 @@ module.exports.DS6 = async (req, res) => {
 module.exports.DS7 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -843,8 +843,8 @@ module.exports.DS7 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -853,7 +853,7 @@ module.exports.DS7 = async (req, res) => {
 module.exports.DS8 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -867,8 +867,8 @@ module.exports.DS8 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -877,7 +877,7 @@ module.exports.DS8 = async (req, res) => {
 module.exports.DS9 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -891,8 +891,8 @@ module.exports.DS9 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -901,7 +901,7 @@ module.exports.DS9 = async (req, res) => {
 module.exports.DS10 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -915,8 +915,8 @@ module.exports.DS10 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -925,7 +925,7 @@ module.exports.DS10 = async (req, res) => {
 module.exports.DS11 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -939,8 +939,8 @@ module.exports.DS11 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -949,7 +949,7 @@ module.exports.DS11 = async (req, res) => {
 module.exports.DS12 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -963,8 +963,8 @@ module.exports.DS12 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -973,7 +973,7 @@ module.exports.DS12 = async (req, res) => {
 module.exports.DS13 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -987,8 +987,8 @@ module.exports.DS13 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -997,7 +997,7 @@ module.exports.DS13 = async (req, res) => {
 module.exports.DS14 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1011,8 +1011,8 @@ module.exports.DS14 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1021,7 +1021,7 @@ module.exports.DS14 = async (req, res) => {
 module.exports.DS15 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1035,8 +1035,8 @@ module.exports.DS15 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1045,7 +1045,7 @@ module.exports.DS15 = async (req, res) => {
 module.exports.DS16 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1059,8 +1059,8 @@ module.exports.DS16 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1069,7 +1069,7 @@ module.exports.DS16 = async (req, res) => {
 module.exports.DS17 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1083,8 +1083,8 @@ module.exports.DS17 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1093,7 +1093,7 @@ module.exports.DS17 = async (req, res) => {
 module.exports.DS18 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1107,8 +1107,8 @@ module.exports.DS18 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1117,7 +1117,7 @@ module.exports.DS18 = async (req, res) => {
 module.exports.DS19 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1131,8 +1131,8 @@ module.exports.DS19 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1141,7 +1141,7 @@ module.exports.DS19 = async (req, res) => {
 module.exports.DS20 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1155,8 +1155,8 @@ module.exports.DS20 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1165,7 +1165,7 @@ module.exports.DS20 = async (req, res) => {
 module.exports.DS21 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1179,8 +1179,8 @@ module.exports.DS21 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1189,7 +1189,7 @@ module.exports.DS21 = async (req, res) => {
 module.exports.DS22 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1203,8 +1203,8 @@ module.exports.DS22 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1213,7 +1213,7 @@ module.exports.DS22 = async (req, res) => {
 module.exports.DS23 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1227,8 +1227,8 @@ module.exports.DS23 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1237,7 +1237,7 @@ module.exports.DS23 = async (req, res) => {
 module.exports.DS24 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1251,8 +1251,8 @@ module.exports.DS24 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1261,7 +1261,7 @@ module.exports.DS24 = async (req, res) => {
 module.exports.DS25 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1275,8 +1275,8 @@ module.exports.DS25 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1285,7 +1285,7 @@ module.exports.DS25 = async (req, res) => {
 module.exports.DS26 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1299,8 +1299,8 @@ module.exports.DS26 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1309,7 +1309,7 @@ module.exports.DS26 = async (req, res) => {
 module.exports.DS27 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1323,8 +1323,8 @@ module.exports.DS27 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1333,7 +1333,7 @@ module.exports.DS27 = async (req, res) => {
 module.exports.DS28 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1347,8 +1347,8 @@ module.exports.DS28 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1357,7 +1357,7 @@ module.exports.DS28 = async (req, res) => {
 module.exports.DS29 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1371,8 +1371,8 @@ module.exports.DS29 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
@@ -1381,7 +1381,7 @@ module.exports.DS29 = async (req, res) => {
 module.exports.DS30 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Bar.findById(id).lean().exec();
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
@@ -1395,8 +1395,8 @@ module.exports.DS30 = async (req, res) => {
             // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
-        res.redirect('/Cocina');
+        await Bar.findByIdAndDelete(id).lean().exec();
+        res.redirect('/Bar');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");

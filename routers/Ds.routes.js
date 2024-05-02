@@ -288,5 +288,7 @@ router.get('/PagarDS28',DS28.pagar);
 router.get('/PagarDS29',DS29.pagar);
 //Pagar ds 30
 router.get('/PagarDS30',DS30.pagar);
-
+//
+////Agregar a la cuenta Ds1
+router.get('/AgregarDS1/:id',DS.Crear);
 module.exports= router

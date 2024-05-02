@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Bar = new mongoose.Schema ({
     Mesa: String,
+    Comanda: String,
     Producto: String,
     Precio:Number,
     Usuario: String,

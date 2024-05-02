@@ -3,6 +3,7 @@ const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
 const Cocina = require('../models/Cocina')
+const DiasSol = require('../models/DS')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
   Promise.all([
@@ -16,62 +17,78 @@ module.exports.mostrar = (req, res) => {
 };
 //Guardar Productos
 module.exports.Crear = async (req, res) => {
-  const id = req.params.id
-  Productos.findById(id).lean().exec()
-    .then(async producto => {
-      if (producto.Tipo == "Bar") {
-        const ahora = new Date();
-        const hora = ahora.getHours();
-        const minutos = ahora.getMinutes();
-        const Mesa = "DS-1"
-        const Producto = producto.Producto;
-        const Precio = producto.Precio;
-        const Tipo = producto.Tipo;
-        const Usuario = "Manuel";
-        const Hora = hora + ":" + minutos;
-        const bar = new Bar({ Mesa, Producto, Precio, Usuario, Tipo, Hora })
-        console.lognewUsuario
-        await bar.save()
-      } else if (producto.Tipo == "Cocina"){
-        const ahora = new Date();
-        const hora = ahora.getHours();
-        const minutos = ahora.getMinutes();
-        const Mesa = "DS-1"
-        const Producto = producto.Producto;
-        const Precio = producto.Precio;
-        const Tipo = producto.Tipo;
-        const Usuario = "Manuel";
-        const Hora = hora + ":" + minutos;
-        const cocina = new Cocina({ Mesa, Producto, Precio, Usuario, Tipo, Hora })
-        console.lognewUsuario
-        await cocina.save()
-      }else {
-        const ahora = new Date();
-        const hora = ahora.getHours();
-        const minutos = ahora.getMinutes();
-        const Producto = producto.Producto;
-        const Precio = producto.Precio;
-        const Tipo = producto.Tipo;
-        const Usuario = "Manuel";
-        const Hora = hora + ":" + minutos;
-        const newUsuario = new DS({ Producto, Precio, Usuario, Tipo, Hora })
-        console.lognewUsuario
-        await newUsuario.save()
-        // Actualizar la cantidad del producto en la colección Productos
-        let Cantidad = producto.Cantidad;
-        if (Cantidad > 0) {
-          const id = producto._id.toString()
-          Cantidad = Cantidad -= 1;
-          await Productos.findByIdAndUpdate(id, { Cantidad });
-        }
+  const id = req.params.id;
+  try {
+    const producto = await Productos.findById(id).lean().exec();
+    if (!producto) {
+      return res.status(404).send("Producto no encontrado");
+    }
+    // Obtener la fecha actual en formato "YYYY-MM-DD"
+    const ahora = new Date();
+    const Fecha = ahora.toISOString().split('T')[0];
 
+    if (producto.Tipo == "Bar") {
+      const ds = await DiasSol.findOne({ DS: "DS-1", Ingreso: Fecha });
+      if (!ds) {
+        return res.status(404).send("No se encontró el día de sol DS-1 para hoy");
       }
-    })
-    .catch(err => {
-      console.error(err);
-    });
-  res.redirect('/DS-1')
-}
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const Mesa = "DS-1";
+      const Comanda = ds.Comanda;
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Tipo;
+      const Usuario = "Manuel";
+      const Hora = hora + ":" + minutos;
+      const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      await bar.save();
+    } else if (producto.Tipo == "Cocina") {
+      const ds = await DiasSol.findOne({ DS: "DS-1", Ingreso: Fecha });
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const Mesa = "DS-1";
+      const Comanda = ds.Comanda;
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Tipo;
+      const Usuario = "Manuel";
+      const Hora = hora + ":" + minutos;
+      const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      await cocina.save();
+    } else {
+      const ds = await DiasSol.findOne({ DS: "DS-1", Ingreso: Fecha });
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const newUsuario = new DS({
+        Mesa : "DS-1",
+        Comanda : ds.Comanda,
+        Producto: producto.Producto,
+        Precio: producto.Precio,
+        Usuario: "Manuel",
+        Tipo: producto.Tipo,
+        Hora: hora + ":" + minutos
+      });
+      await newUsuario.save();
+
+      // Actualizar la cantidad del producto en la colección Productos
+      let Cantidad = producto.Cantidad;
+      if (Cantidad > 0) {
+        Cantidad -= 1;
+        await Productos.findByIdAndUpdate(producto._id, { Cantidad });
+      }
+    }
+
+    res.redirect('/DS-1');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
 //Cancelar cuenta
 module.exports.pagar = async (req, res) => {
   try {
