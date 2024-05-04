@@ -32,7 +32,7 @@ const DS28 = require('../controllers/DS-28')
 const DS29 = require('../controllers/DS-29')
 const DS30 = require('../controllers/DS-30')
 
-
+//Mostrar Dias de sol
 //Dias de sol 1
 router.get('/DS-1',DS.mostrar,(req,res)=>{
     res.render('DS-1')
@@ -57,7 +57,6 @@ router.get('/DS-5',DS5.mostrar,(req,res)=>{
 router.get('/DS-6',DS6.mostrar,(req,res)=>{
     res.render('DS-6')
 })
-
 //Dias de sol 7
 router.get('/DS-7',DS7.mostrar,(req,res)=>{
     res.render('DS-7')
@@ -70,57 +69,46 @@ router.get('/DS-8',DS8.mostrar,(req,res)=>{
 router.get('/DS-9',DS9.mostrar,(req,res)=>{
     res.render('DS-9')
 })
-
 //Dias de sol 10
 router.get('/DS-10',DS10.mostrar,(req,res)=>{
     res.render('DS-10')
 })
-
 //Dias de sol 11
 router.get('/DS-11',DS11.mostrar,(req,res)=>{
     res.render('DS-11')
 })
-
 //Dias de sol 12
 router.get('/DS-12',DS12.mostrar,(req,res)=>{
     res.render('DS-12')
 })
-
 //Dias de sol 13
 router.get('/DS-13',DS13.mostrar,(req,res)=>{
     res.render('DS-13')
 })
-
 //Dias de sol 14
 router.get('/DS-14',DS14.mostrar,(req,res)=>{
     res.render('DS-14')
 })
-
 //Dias de sol 15
 router.get('/DS-15',DS15.mostrar,(req,res)=>{
     res.render('DS-15')
 })
-
 //Dias de sol 16
 router.get('/DS-16',DS16.mostrar,(req,res)=>{
     res.render('DS-16')
 })
-
 //Dias de sol 17
 router.get('/DS-17',DS17.mostrar,(req,res)=>{
     res.render('DS-17')
 })
-
 //Dias de sol 18
 router.get('/DS-18',DS18.mostrar,(req,res)=>{
     res.render('DS-18')
 })
-
 //Dias de sol 19
 router.get('/DS-19',DS19.mostrar,(req,res)=>{
     res.render('DS-19')
 })
-
 //Dias de sol 20
 router.get('/DS-20',DS20.mostrar,(req,res)=>{
     res.render('DS-20')
@@ -165,9 +153,9 @@ router.get('/DS-29',DS29.mostrar,(req,res)=>{
 router.get('/DS-30',DS30.mostrar,(req,res)=>{
     res.render('DS-30')
 })
+
 //Ingresar dias de sol
 router.post('/IngresarDS',Ds.agregar);
-module.exports= router
 //Ingresar dias de sol 2
 router.post('/IngresarDS2',DS2.agregar);
 //Ingresar dias de sol 3
@@ -226,7 +214,6 @@ router.post('/IngresarDS28',DS28.agregar);
 router.post('/IngresarDS29',DS29.agregar);
 //Ingresar dias de sol 30
 router.post('/IngresarDS30',DS30.agregar);
-
 // Pagar Dias de sol
 //Pagar ds 1
 router.get('/PagarDS1',DS.pagar);
@@ -288,7 +275,127 @@ router.get('/PagarDS28',DS28.pagar);
 router.get('/PagarDS29',DS29.pagar);
 //Pagar ds 30
 router.get('/PagarDS30',DS30.pagar);
-//
-////Agregar a la cuenta Ds1
+//Agregar a cuentas 
+//Agregar a la cuenta Ds1
 router.get('/AgregarDS1/:id',DS.Crear);
+//Agregar a la cuenta Ds2
+router.get('/AgregarDS2/:id',DS2.Crear);
+//Agregar a la cuenta Ds3
+router.get('/AgregarDS3/:id',DS3.Crear);
+//Agregar a la cuenta Ds4
+router.get('/AgregarDS4/:id',DS4.Crear);
+//Agregar a la cuenta Ds5
+router.get('/AgregarDS5/:id',DS5.Crear);
+//Agregar a la cuenta Ds6
+router.get('/AgregarDS6/:id',DS6.Crear);
+//Agregar a la cuenta Ds7
+router.get('/AgregarDS7/:id',DS7.Crear);
+//Agregar a la cuenta Ds8
+router.get('/AgregarDS8/:id',DS8.Crear);
+//Agregar a la cuenta Ds9
+router.get('/AgregarDS9/:id',DS9.Crear);
+//Agregar a la cuenta Ds10
+router.get('/AgregarDS10/:id',DS10.Crear);
+//Agregar a la cuenta Ds11
+router.get('/AgregarDS11/:id',DS11.Crear);
+//Agregar a la cuenta Ds12
+router.get('/AgregarDS12/:id',DS12.Crear);
+//Agregar a la cuenta Ds13
+router.get('/AgregarDS13/:id',DS13.Crear);
+//Agregar a la cuenta Ds14
+router.get('/AgregarDS14/:id',DS14.Crear);
+//Agregar a la cuenta Ds15
+router.get('/AgregarDS15/:id',DS15.Crear);
+//Agregar a la cuenta Ds16
+router.get('/AgregarDS16/:id',DS16.Crear);
+//Agregar a la cuenta Ds17
+router.get('/AgregarDS17/:id',DS17.Crear);
+//Agregar a la cuenta Ds18
+router.get('/AgregarDS18/:id',DS18.Crear);
+//Agregar a la cuenta Ds19
+router.get('/AgregarDS19/:id',DS19.Crear);
+//Agregar a la cuenta Ds20
+router.get('/AgregarDS20/:id',DS20.Crear);
+//Agregar a la cuenta Ds21
+router.get('/AgregarDS21/:id',DS21.Crear);
+//Agregar a la cuenta Ds22
+router.get('/AgregarDS22/:id',DS22.Crear);
+//Agregar a la cuenta Ds23
+router.get('/AgregarDS23/:id',DS23.Crear);
+//Agregar a la cuenta Ds24
+router.get('/AgregarDS24/:id',DS24.Crear);
+//Agregar a la cuenta Ds25
+router.get('/AgregarDS25/:id',DS25.Crear);
+//Agregar a la cuenta Ds26
+router.get('/AgregarDS26/:id',DS26.Crear);
+//Agregar a la cuenta Ds27
+router.get('/AgregarDS27/:id',DS27.Crear);
+//Agregar a la cuenta Ds28
+router.get('/AgregarDS28/:id',DS28.Crear);
+//Agregar a la cuenta Ds29
+router.get('/AgregarDS29/:id',DS29.Crear);
+//Agregar a la cuenta Ds30
+router.get('/AgregarDS30/:id',DS30.Crear);
+//eliminar de la cuenta
+//Eliminar de la cuentaDS-1
+router.get('/eliminarDS-1/:id',DS.eliminar);
+//Eliminar de la cuentaDS-2
+router.get('/eliminarDS-2/:id',DS2.eliminar);
+//Eliminar de la cuentaDS-3
+router.get('/eliminarDS-3/:id',DS3.eliminar);
+//Eliminar de la cuentaDS-4
+router.get('/eliminarDS-4/:id',DS4.eliminar);
+//Eliminar de la cuentaDS-5
+router.get('/eliminarDS-5/:id',DS5.eliminar);
+//Eliminar de la cuentaDS-6
+router.get('/eliminarDS-6/:id',DS6.eliminar);
+//Eliminar de la cuentaDS-7
+router.get('/eliminarDS-7/:id',DS7.eliminar);
+//Eliminar de la cuentaDS-8
+router.get('/eliminarDS-8/:id',DS8.eliminar);
+//Eliminar de la cuentaDS-9
+router.get('/eliminarDS-9/:id',DS9.eliminar);
+//Eliminar de la cuentaDS-10
+router.get('/eliminarDS-10/:id',DS10.eliminar);
+//Eliminar de la cuentaDS-11
+router.get('/eliminarDS-11/:id',DS11.eliminar);
+//Eliminar de la cuentaDS-12
+router.get('/eliminarDS-12/:id',DS12.eliminar);
+//Eliminar de la cuentaDS-13
+router.get('/eliminarDS-13/:id',DS13.eliminar);
+//Eliminar de la cuentaDS-14
+router.get('/eliminarDS-14/:id',DS14.eliminar);
+//Eliminar de la cuentaDS-15
+router.get('/eliminarDS-15/:id',DS15.eliminar);
+//Eliminar de la cuentaDS-16
+router.get('/eliminarDS-16/:id',DS16.eliminar);
+//Eliminar de la cuentaDS-17
+router.get('/eliminarDS-17/:id',DS17.eliminar);
+//Eliminar de la cuentaDS-18
+router.get('/eliminarDS-18/:id',DS18.eliminar);
+//Eliminar de la cuentaDS-19
+router.get('/eliminarDS-19/:id',DS19.eliminar);
+//Eliminar de la cuentaDS-20
+router.get('/eliminarDS-20/:id',DS20.eliminar);
+//Eliminar de la cuentaDS-21
+router.get('/eliminarDS-21/:id',DS21.eliminar);
+//Eliminar de la cuentaDS-22
+router.get('/eliminarDS-22/:id',DS22.eliminar);
+//Eliminar de la cuentaDS-23
+router.get('/eliminarDS-23/:id',DS23.eliminar);
+//Eliminar de la cuentaDS-24
+router.get('/eliminarDS-24/:id',DS24.eliminar);
+//Eliminar de la cuentaDS-25
+router.get('/eliminarDS-25/:id',DS25.eliminar);
+//Eliminar de la cuentaDS-26
+router.get('/eliminarDS-26/:id',DS26.eliminar);
+//Eliminar de la cuentaDS-27
+router.get('/eliminarDS-27/:id',DS27.eliminar);
+//Eliminar de la cuentaDS-28
+router.get('/eliminarDS-28/:id',DS28.eliminar);
+//Eliminar de la cuentaDS-29
+router.get('/eliminarDS-29/:id',DS29.eliminar);
+//Eliminar de la cuentaDS-30
+router.get('/eliminarDS-30/:id',DS30.eliminar);
+
 module.exports= router

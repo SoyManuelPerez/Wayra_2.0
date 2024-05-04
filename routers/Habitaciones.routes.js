@@ -232,8 +232,7 @@ router.get('/CB-24',CB23.mostrar,(req,res)=>{
 ////Agregar a la cuenta CB24
 router.get('/AgregarCB24/:id',CB23.Crear);
 //Eliminar de la cuentaCB24
-router.get('/eliminarCB23/:id',CB24.eliminar);
-
+router.get('/eliminarCB24/:id',CB24.eliminar);
 //CB25
 router.get('/CB-25',CB25.mostrar,(req,res)=>{
     res.render('CB-25')
@@ -242,6 +241,8 @@ router.get('/CB-25',CB25.mostrar,(req,res)=>{
 router.get('/AgregarCB25/:id',CB25.Crear);
 //Eliminar de la cuentaCB25
 router.get('/eliminarCB25/:id',CB25.eliminar);
+
+
 //Agregar Huesped
 router.post('/IngresarCliente',HB.agregar);
 router.post('/IngresarCliente2',HB2.agregar);
