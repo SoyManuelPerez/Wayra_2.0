@@ -4,6 +4,7 @@ const Bar = require('../models/Bar')
 const DS = require('../models/DS')
 const Huesped = require('../models/Hospedaje')
 const ventas = require('../models/ventas')
+const Cocina = require('../models/Cocina')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
     Promise.all([
@@ -16,63 +17,69 @@ module.exports.mostrar = (req, res) => {
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
 //Guardar Productos
-module.exports.Crear = async (req,res)=>{
-     const id = req.params.id
-     Productos.findById(id).lean().exec()
-    .then(async producto => {
-        if(producto.Tipo=="Bar"){
-            const ahora = new Date();
-            const hora = ahora.getHours();
-            const minutos = ahora.getMinutes();
-            const Mesa = "HB-1"
-            const Producto = producto.Producto;
-            const Precio = producto.Precio;
-            const Tipo = producto.Tipo;
-            const Usuario = "Manuel";
-            const Hora = hora+":"+minutos;
-            const bar = new Bar({Mesa,Producto,Precio,Usuario,Tipo,Hora})
-            console.lognewUsuario
-            await bar.save()
-        }else if (producto.Tipo == "Cocina"){
-          const ahora = new Date();
-          const hora = ahora.getHours();
-          const minutos = ahora.getMinutes();
-          const Mesa = "HB-1"
-          const Producto = producto.Producto;
-          const Precio = producto.Precio;
-          const Tipo = producto.Tipo;
-          const Usuario = "Manuel";
-          const Hora = hora + ":" + minutos;
-          const cocina = new Cocina({ Mesa, Producto, Precio, Usuario, Tipo, Hora })
-          console.lognewUsuario
-          await cocina.save()
-        }else{
-        const ahora = new Date();
-        const hora = ahora.getHours();
-        const minutos = ahora.getMinutes();
-        const Producto = producto.Producto;
-        const Precio = producto.Precio;
-        const Tipo = producto.Tipo;
-        const Usuario = "Manuel";
-        const Hora = hora+":"+minutos;
-        const newUsuario = new HB({Producto,Precio,Usuario,Tipo,Hora})
-        console.lognewUsuario
-        await newUsuario.save()
-              // Actualizar la cantidad del producto en la colección Productos
-              let Cantidad = producto.Cantidad ;
-              if(Cantidad > 0){
-                const id = producto._id.toString()
-                Cantidad =  Cantidad -= 1; 
-                await Productos.findByIdAndUpdate(id,{Cantidad});
-              }
-             
+module.exports.Crear = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const producto = await Productos.findById(id).lean().exec();
+    if (!producto) {
+      return res.status(404).send("Producto no encontrado");
     }
-    })
-    .catch(err => {
-        console.error(err);
-    });
-     res.redirect('/HB-1')
-}
+
+    if (producto.Tipo == "Bar") {
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const Mesa = "HB-1";
+      const Comanda = "HB-1"
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Tipo;
+      const Usuario = "Admin";
+      const Hora = hora + ":" + minutos;
+      const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      await bar.save();
+    } else if (producto.Tipo == "Cocina") {
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const Mesa = "HB-1"
+      const Comanda = "HB-1"
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Tipo;
+      const Usuario = "Admin";
+      const Hora = hora + ":" + minutos;
+      const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      await cocina.save();
+    } else {
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const newUsuario = new DS({
+        Mesa : "HB-1",
+        Comanda : "HB-1",
+        Producto: producto.Producto,
+        Precio: producto.Precio,
+        Usuario: "Admin",
+        Tipo: producto.Tipo,
+        Hora: hora + ":" + minutos
+      });
+      await newUsuario.save();
+
+      // Actualizar la cantidad del producto en la colección Productos
+      let Cantidad = producto.Cantidad;
+      if (Cantidad > 0) {
+        Cantidad -= 1;
+        await Productos.findByIdAndUpdate(producto._id, { Cantidad });
+      }
+    }
+
+    res.redirect('/HB-1');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error interno del servidor");
+  }
+};
 module.exports.pagar = async (req, res) => {
   try {
     const productos = await HB.find().lean().exec();

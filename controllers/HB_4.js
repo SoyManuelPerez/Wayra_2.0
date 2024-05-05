@@ -1,8 +1,9 @@
 const HB = require('../models/HB-4')
 const Productos = require('../models/Producto')
-const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
 const Huesped = require('../models/Hospedaje')
+const ventas = require('../models/ventas')
+const Cocina = require('../models/Cocina')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
     Promise.all([
@@ -15,91 +16,97 @@ module.exports.mostrar = (req, res) => {
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
 //Guardar Productos
-module.exports.Crear = async (req,res)=>{
-  const id = req.params.id
-  Productos.findById(id).lean().exec()
- .then(async producto => {
-     if(producto.Tipo=="Bar"){
-         const ahora = new Date();
-         const hora = ahora.getHours();
-         const minutos = ahora.getMinutes();
-         const Mesa = "HB-4"
-         const Producto = producto.Producto;
-         const Precio = producto.Precio;
-         const Tipo = producto.Tipo;
-         const Usuario = "Manuel";
-         const Hora = hora+":"+minutos;
-         const bar = new Bar({Mesa,Producto,Precio,Usuario,Tipo,Hora})
-         console.lognewUsuario
-         await bar.save()
-     }else if (producto.Tipo == "Cocina"){
-       const ahora = new Date();
-       const hora = ahora.getHours();
-       const minutos = ahora.getMinutes();
-       const Mesa = "HB-4"
-       const Producto = producto.Producto;
-       const Precio = producto.Precio;
-       const Tipo = producto.Tipo;
-       const Usuario = "Manuel";
-       const Hora = hora + ":" + minutos;
-       const cocina = new Cocina({ Mesa, Producto, Precio, Usuario, Tipo, Hora })
-       console.lognewUsuario
-       await cocina.save()
-     }else{
-     const ahora = new Date();
-     const hora = ahora.getHours();
-     const minutos = ahora.getMinutes();
-     const Producto = producto.Producto;
-     const Precio = producto.Precio;
-     const Tipo = producto.Tipo;
-     const Usuario = "Manuel";
-     const Hora = hora+":"+minutos;
-     const newUsuario = new HB({Producto,Precio,Usuario,Tipo,Hora})
-     console.lognewUsuario
-     await newUsuario.save()
-           // Actualizar la cantidad del producto en la colección Productos
-           let Cantidad = producto.Cantidad ;
-           if(Cantidad > 0){
-             const id = producto._id.toString()
-             Cantidad =  Cantidad -= 1; 
-             await Productos.findByIdAndUpdate(id,{Cantidad});
-           }
-          
- }
- })
- .catch(err => {
-     console.error(err);
- });
-  res.redirect('/HB-4')
-}
-module.exports.pagar = async (req, res) => {
-try {
- const productos = await HB.find().lean().exec();
+module.exports.Crear = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const producto = await Productos.findById(id).lean().exec();
+    if (!producto) {
+      return res.status(404).send("Producto no encontrado");
+    }
 
- if (!productos || productos.length === 0) {
-   return res.status(404).send('No se encontraron productos');
- }
- const productosVendidosIds = [];
- for (const producto of productos) {
-   const Producto = producto.Producto;
-   const Precio = producto.Precio;
-   const Tipo = producto.Precio;
-   const Fecha = new Date().toISOString().split('T')[0];
-   const nuevoDocumento = new ventas({
-     Producto,
-     Precio,
-     Tipo,
-     Fecha
-   });
-   await nuevoDocumento.save();
-   productosVendidosIds.push(producto._id);
- }
- await HB.deleteMany({ _id: { $in: productosVendidosIds } });
- res.redirect('/HB-4');
-} catch (error) {
- console.error(error);
- res.status(500).send('Error interno del servidor');
-}
+    if (producto.Tipo == "Bar") {
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const Mesa = "HB-4";
+      const Comanda = "HB-4"
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Tipo;
+      const Usuario = "Admin";
+      const Hora = hora + ":" + minutos;
+      const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      await bar.save();
+    } else if (producto.Tipo == "Cocina") {
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const Mesa = "HB-4"
+      const Comanda = "HB-4"
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Tipo;
+      const Usuario = "Admin";
+      const Hora = hora + ":" + minutos;
+      const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      await cocina.save();
+    } else {
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const newUsuario = new DS({
+        Mesa : "HB-4",
+        Comanda : "HB-4",
+        Producto: producto.Producto,
+        Precio: producto.Precio,
+        Usuario: "Admin",
+        Tipo: producto.Tipo,
+        Hora: hora + ":" + minutos
+      });
+      await newUsuario.save();
+
+      // Actualizar la cantidad del producto en la colección Productos
+      let Cantidad = producto.Cantidad;
+      if (Cantidad > 0) {
+        Cantidad -= 1;
+        await Productos.findByIdAndUpdate(producto._id, { Cantidad });
+      }
+    }
+
+    res.redirect('/HB-4');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+module.exports.pagar = async (req, res) => {
+  try {
+    const productos = await HB.find().lean().exec();
+
+    if (!productos || productos.length === 0) {
+      return res.status(404).send('No se encontraron productos');
+    }
+    const productosVendidosIds = [];
+    for (const producto of productos) {
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Precio;
+      const Fecha = new Date().toISOString().split('T')[0];
+      const nuevoDocumento = new ventas({
+        Producto,
+        Precio,
+        Tipo,
+        Fecha
+      });
+      await nuevoDocumento.save();
+      productosVendidosIds.push(producto._id);
+    }
+    await HB.deleteMany({ _id: { $in: productosVendidosIds } });
+    res.redirect('/HB-4');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error interno del servidor');
+  }
 }
 module.exports.eliminar = (req,res) =>{
     const id = req.params.id
