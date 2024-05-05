@@ -40,7 +40,7 @@ module.exports.Crear = async (req, res) => {
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
-      const Usuario = "Manuel";
+      const Usuario = "Admin";
       const Hora = hora + ":" + minutos;
       const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await bar.save();
@@ -54,7 +54,7 @@ module.exports.Crear = async (req, res) => {
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
-      const Usuario = "Manuel";
+      const Usuario = "Admin";
       const Hora = hora + ":" + minutos;
       const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await cocina.save();
@@ -68,7 +68,7 @@ module.exports.Crear = async (req, res) => {
         Comanda : ds.Comanda,
         Producto: producto.Producto,
         Precio: producto.Precio,
-        Usuario: "Manuel",
+        Usuario: "Admin",
         Tipo: producto.Tipo,
         Hora: hora + ":" + minutos
       });
@@ -88,7 +88,6 @@ module.exports.Crear = async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 };
-
 //Cancelar cuenta
 module.exports.pagar = async (req, res) => {
   try {
@@ -132,3 +131,21 @@ module.exports.eliminar = (req, res) => {
   res.redirect('/DS-1')
 }
 
+//Agregar al dia de sol
+module.exports.agregar = async (req, res) => {
+  const DS = req.body.DS
+  const Comanda = req.body.Comanda
+  const Nombres = req.body.Nombre
+  const Apellidos = req.body.Apellido
+  const Tipo = req.body.tipo
+  const Documento = req.body.Documento
+  const Abono = req.body.Abono
+  const Final = req.body.Pago
+  const Ingreso = req.body.Fecha
+  console.log(Ingreso)
+  const newUsuario = new DiasSol({ DS, Comanda, Nombres, Apellidos, Tipo, Documento, Abono, Final, Ingreso })
+  console.log(newUsuario)
+  await newUsuario.save()
+  console.log('/'+DS)
+  res.redirect('/'+DS)
+}
