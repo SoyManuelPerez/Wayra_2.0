@@ -337,65 +337,65 @@ router.get('/AgregarDS29/:id',DS29.Crear);
 //Agregar a la cuenta Ds30
 router.get('/AgregarDS30/:id',DS30.Crear);
 //eliminar de la cuenta
-//Eliminar de la cuentaDS-1
-router.get('/eliminarDS-1/:id',DS.eliminar);
-//Eliminar de la cuentaDS-2
-router.get('/eliminarDS-2/:id',DS2.eliminar);
-//Eliminar de la cuentaDS-3
-router.get('/eliminarDS-3/:id',DS3.eliminar);
-//Eliminar de la cuentaDS-4
-router.get('/eliminarDS-4/:id',DS4.eliminar);
-//Eliminar de la cuentaDS-5
-router.get('/eliminarDS-5/:id',DS5.eliminar);
-//Eliminar de la cuentaDS-6
-router.get('/eliminarDS-6/:id',DS6.eliminar);
-//Eliminar de la cuentaDS-7
-router.get('/eliminarDS-7/:id',DS7.eliminar);
-//Eliminar de la cuentaDS-8
-router.get('/eliminarDS-8/:id',DS8.eliminar);
-//Eliminar de la cuentaDS-9
-router.get('/eliminarDS-9/:id',DS9.eliminar);
-//Eliminar de la cuentaDS-10
-router.get('/eliminarDS-10/:id',DS10.eliminar);
-//Eliminar de la cuentaDS-11
-router.get('/eliminarDS-11/:id',DS11.eliminar);
-//Eliminar de la cuentaDS-12
-router.get('/eliminarDS-12/:id',DS12.eliminar);
-//Eliminar de la cuentaDS-13
-router.get('/eliminarDS-13/:id',DS13.eliminar);
-//Eliminar de la cuentaDS-14
-router.get('/eliminarDS-14/:id',DS14.eliminar);
-//Eliminar de la cuentaDS-15
-router.get('/eliminarDS-15/:id',DS15.eliminar);
-//Eliminar de la cuentaDS-16
-router.get('/eliminarDS-16/:id',DS16.eliminar);
-//Eliminar de la cuentaDS-17
-router.get('/eliminarDS-17/:id',DS17.eliminar);
-//Eliminar de la cuentaDS-18
-router.get('/eliminarDS-18/:id',DS18.eliminar);
-//Eliminar de la cuentaDS-19
-router.get('/eliminarDS-19/:id',DS19.eliminar);
-//Eliminar de la cuentaDS-20
-router.get('/eliminarDS-20/:id',DS20.eliminar);
-//Eliminar de la cuentaDS-21
-router.get('/eliminarDS-21/:id',DS21.eliminar);
-//Eliminar de la cuentaDS-22
-router.get('/eliminarDS-22/:id',DS22.eliminar);
-//Eliminar de la cuentaDS-23
-router.get('/eliminarDS-23/:id',DS23.eliminar);
-//Eliminar de la cuentaDS-24
-router.get('/eliminarDS-24/:id',DS24.eliminar);
-//Eliminar de la cuentaDS-25
-router.get('/eliminarDS-25/:id',DS25.eliminar);
-//Eliminar de la cuentaDS-26
-router.get('/eliminarDS-26/:id',DS26.eliminar);
-//Eliminar de la cuentaDS-27
-router.get('/eliminarDS-27/:id',DS27.eliminar);
-//Eliminar de la cuentaDS-28
-router.get('/eliminarDS-28/:id',DS28.eliminar);
-//Eliminar de la cuentaDS-29
-router.get('/eliminarDS-29/:id',DS29.eliminar);
-//Eliminar de la cuentaDS-30
-router.get('/eliminarDS-30/:id',DS30.eliminar);
+//Eliminar de la cuentaDS1
+router.get('/eliminarDS1/:id',DS.eliminar);
+//Eliminar de la cuentaDS2
+router.get('/eliminarDS2/:id',DS2.eliminar);
+//Eliminar de la cuentaDS3
+router.get('/eliminarDS3/:id',DS3.eliminar);
+//Eliminar de la cuentaDS4
+router.get('/eliminarDS4/:id',DS4.eliminar);
+//Eliminar de la cuentaDS5
+router.get('/eliminarDS5/:id',DS5.eliminar);
+//Eliminar de la cuentaDS6
+router.get('/eliminarDS6/:id',DS6.eliminar);
+//Eliminar de la cuentaDS7
+router.get('/eliminarDS7/:id',DS7.eliminar);
+//Eliminar de la cuentaDS8
+router.get('/eliminarDS8/:id',DS8.eliminar);
+//Eliminar de la cuentaDS9
+router.get('/eliminarDS9/:id',DS9.eliminar);
+//Eliminar de la cuentaDS10
+router.get('/eliminarDS10/:id',DS10.eliminar);
+//Eliminar de la cuentaDS11
+router.get('/eliminarDS11/:id',DS11.eliminar);
+//Eliminar de la cuentaDS12
+router.get('/eliminarDS12/:id',DS12.eliminar);
+//Eliminar de la cuentaDS13
+router.get('/eliminarDS13/:id',DS13.eliminar);
+//Eliminar de la cuentaDS14
+router.get('/eliminarDS14/:id',DS14.eliminar);
+//Eliminar de la cuentaDS15
+router.get('/eliminarDS15/:id',DS15.eliminar);
+//Eliminar de la cuentaDS16
+router.get('/eliminarDS16/:id',DS16.eliminar);
+//Eliminar de la cuentaDS17
+router.get('/eliminarDS17/:id',DS17.eliminar);
+//Eliminar de la cuentaDS18
+router.get('/eliminarDS18/:id',DS18.eliminar);
+//Eliminar de la cuentaDS19
+router.get('/eliminarDS19/:id',DS19.eliminar);
+//Eliminar de la cuentaDS20
+router.get('/eliminarDS20/:id',DS20.eliminar);
+//Eliminar de la cuentaDS21
+router.get('/eliminarDS21/:id',DS21.eliminar);
+//Eliminar de la cuentaDS22
+router.get('/eliminarDS22/:id',DS22.eliminar);
+//Eliminar de la cuentaDS23
+router.get('/eliminarDS23/:id',DS23.eliminar);
+//Eliminar de la cuentaDS24
+router.get('/eliminarDS24/:id',DS24.eliminar);
+//Eliminar de la cuentaDS25
+router.get('/eliminarDS25/:id',DS25.eliminar);
+//Eliminar de la cuentaDS26
+router.get('/eliminarDS26/:id',DS26.eliminar);
+//Eliminar de la cuentaDS27
+router.get('/eliminarDS27/:id',DS27.eliminar);
+//Eliminar de la cuentaDS28
+router.get('/eliminarDS28/:id',DS28.eliminar);
+//Eliminar de la cuentaDS29
+router.get('/eliminarDS29/:id',DS29.eliminar);
+//Eliminar de la cuentaDS30
+router.get('/eliminarDS30/:id',DS30.eliminar);
 
 module.exports= router
