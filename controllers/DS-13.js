@@ -3,7 +3,8 @@ const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
 const Cocina = require('../models/Cocina')
-const DiasSol = require ('../models/DS')//Agregar al dia de sol
+const DiasSol = require ('../models/DS')
+const moment = require('moment-timezone');
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
   Promise.all([
@@ -23,10 +24,9 @@ module.exports.Crear = async (req, res) => {
     if (!producto) {
       return res.status(404).send("Producto no encontrado");
     }
-    // Obtener la fecha actual en formato "YYYY-MM-DD"
-    const ahora = new Date();
-    const Fecha = ahora.toISOString().split('T')[0];
-
+    // Obtener la fecha actual en la zona horaria de Colombia
+    const ahora = moment().tz('America/Bogota');
+    const Fecha = ahora.format('YYYY-MM-DD');
     if (producto.Tipo == "Bar") {
       const ds = await DiasSol.findOne({ DS: "DS-13", Ingreso: Fecha });
       if (!ds) {
@@ -63,15 +63,12 @@ module.exports.Crear = async (req, res) => {
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const newUsuario = new DS({
-        Mesa : "DS-13",
-        Comanda : ds.Comanda,
-        Producto: producto.Producto,
-        Precio: producto.Precio,
-        Usuario: "Admin",
-        Tipo: producto.Tipo,
-        Hora: hora + ":" + minutos
-      });
+      const Producto= producto.Producto;
+      const Precio = producto.Precio;
+      const Usuario = "Admin";
+      const Tipo = producto.Tipo;
+      const Hora = hora + ":" + minutos
+      const newUsuario = new DS({Producto, Precio, Usuario, Tipo, Hora });
       await newUsuario.save();
 
       // Actualizar la cantidad del producto en la colección Productos

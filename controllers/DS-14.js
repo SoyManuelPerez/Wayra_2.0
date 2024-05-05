@@ -1,9 +1,10 @@
-const DS = require('../models/DS-14')
+const DS = require('../models/DS-15')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
 const Cocina = require('../models/Cocina')
-const DiasSol = require ('../models/DS')//Agregar al dia de sol
+const DiasSol = require ('../models/DS')
+const moment = require('moment-timezone');
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
   Promise.all([
@@ -11,7 +12,7 @@ module.exports.mostrar = (req, res) => {
     Productos.find({})
   ])
     .then(([DS, Productos,]) => {
-      res.render('DS-1', { DS: DS, productos: Productos });
+      res.render('DS-15', { DS: DS, productos: Productos });
     })
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
@@ -23,19 +24,18 @@ module.exports.Crear = async (req, res) => {
     if (!producto) {
       return res.status(404).send("Producto no encontrado");
     }
-    // Obtener la fecha actual en formato "YYYY-MM-DD"
-    const ahora = new Date();
-    const Fecha = ahora.toISOString().split('T')[0];
-
+    // Obtener la fecha actual en la zona horaria de Colombia
+    const ahora = moment().tz('America/Bogota');
+    const Fecha = ahora.format('YYYY-MM-DD');
     if (producto.Tipo == "Bar") {
-      const ds = await DiasSol.findOne({ DS: "DS-1", Ingreso: Fecha });
+      const ds = await DiasSol.findOne({ DS: "DS-15", Ingreso: Fecha });
       if (!ds) {
-        return res.status(404).send("No se encontró el día de sol DS-1 para hoy");
+        return res.status(404).send("No se encontró el día de sol DS-15 para hoy");
       }
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const Mesa = "DS-1";
+      const Mesa = "DS-15";
       const Comanda = ds.Comanda;
       const Producto = producto.Producto;
       const Precio = producto.Precio;
@@ -45,11 +45,11 @@ module.exports.Crear = async (req, res) => {
       const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await bar.save();
     } else if (producto.Tipo == "Cocina") {
-      const ds = await DiasSol.findOne({ DS: "DS-1", Ingreso: Fecha });
+      const ds = await DiasSol.findOne({ DS: "DS-15", Ingreso: Fecha });
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const Mesa = "DS-1";
+      const Mesa = "DS-15";
       const Comanda = ds.Comanda;
       const Producto = producto.Producto;
       const Precio = producto.Precio;
@@ -59,19 +59,16 @@ module.exports.Crear = async (req, res) => {
       const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
-      const ds = await DiasSol.findOne({ DS: "DS-1", Ingreso: Fecha });
+      const ds = await DiasSol.findOne({ DS: "DS-15", Ingreso: Fecha });
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const newUsuario = new DS({
-        Mesa : "DS-1",
-        Comanda : ds.Comanda,
-        Producto: producto.Producto,
-        Precio: producto.Precio,
-        Usuario: "Admin",
-        Tipo: producto.Tipo,
-        Hora: hora + ":" + minutos
-      });
+      const Producto= producto.Producto;
+      const Precio = producto.Precio;
+      const Usuario = "Admin";
+      const Tipo = producto.Tipo;
+      const Hora = hora + ":" + minutos
+      const newUsuario = new DS({Producto, Precio, Usuario, Tipo, Hora });
       await newUsuario.save();
 
       // Actualizar la cantidad del producto en la colección Productos
@@ -82,7 +79,7 @@ module.exports.Crear = async (req, res) => {
       }
     }
 
-    res.redirect('/DS-14');
+    res.redirect('/DS-15');
   } catch (err) {
     console.error(err);
     res.status(500).send("Error interno del servidor");
@@ -112,7 +109,7 @@ module.exports.pagar = async (req, res) => {
      productosVendidosIds.push(producto._id);
    }
    await DS.deleteMany({ _id: { $in: productosVendidosIds } });
-   res.redirect('/DS-14');
+   res.redirect('/DS-15');
   } catch (error) {
    console.error(error);
    res.status(500).send('Error interno del servidor');
@@ -128,7 +125,7 @@ module.exports.eliminar = (req, res) => {
     .catch(error => {
       console.log(error)
     });
-  res.redirect('/DS-14')
+  res.redirect('/DS-15')
 }
 
 //Agregar al dia de sol
