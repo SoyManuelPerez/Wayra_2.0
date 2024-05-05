@@ -1,4 +1,4 @@
-const DS = require('../models/DS-199')
+const DS = require('../models/DS-19')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
