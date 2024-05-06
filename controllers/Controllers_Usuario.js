@@ -2,8 +2,22 @@
 const jsonwebtoken = require('jsonwebtoken')
 const Usuario = require('../models/Usuarios')
 const dotenv =  require('dotenv')
-
 dotenv.config();
+
+
+module.exports.Usuario = (req, res) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        res.send('Error al verificar el token.');
+      } else {
+        const usuario = decoded.user;
+        res.send(`Usuario: ${usuario}`);
+      }
+    })
+  }
+}
 //Mostrar Usuarios
 module.exports.mostrar = (req, res) => {
     Usuario.find({})

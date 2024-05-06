@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
+const cookieParser = require('cookie-parser');
 // inicializacion
 const app = express()
 //Configuracion
@@ -10,6 +11,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(express.static(path.join(__dirname,'public')))
 //Middlewares
+app.use(cookieParser());
 //Rutas
 Usuarios = require("./routers/user.routes")
 Main = require("./routers/main.routes")

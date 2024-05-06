@@ -18,4 +18,6 @@ router.get('/logout',Controllers_Usuario.logout);
 router.get('/borrarUsuario/:id',Controllers_Usuario.eliminar)
 //Actualizar
 router.post('/editarUsuario',Controllers_Usuario.editar)
+router.get('/Usuario',Controllers_Usuario.Usuario)
 module.exports = router
+

@@ -5,6 +5,7 @@ const DS = require('../models/DS')
 const Huesped = require('../models/Hospedaje')
 const ventas = require('../models/ventas')
 const Cocina = require('../models/Cocina')
+const jsonwebtoken = require('jsonwebtoken')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
     Promise.all([
@@ -19,12 +20,20 @@ module.exports.mostrar = (req, res) => {
 //Guardar Productos
 module.exports.Crear = async (req, res) => {
   const id = req.params.id;
+  let mesero = "";
   try {
     const producto = await Productos.findById(id).lean().exec();
     if (!producto) {
       return res.status(404).send("Producto no encontrado");
+    }const token = req.cookies.jwt;
+    if (token) {
+      jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+          res.send('Error al verificar el token.');
+        }
+        mesero = decoded.user;
+      })
     }
-
     if (producto.Tipo == "Bar") {
       const ahora = new Date();
       const hora = ahora.getHours();
@@ -34,7 +43,7 @@ module.exports.Crear = async (req, res) => {
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
-      const Usuario = "Admin";
+      const Usuario = mesero;
       const Hora = hora + ":" + minutos;
       const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await bar.save();
@@ -47,7 +56,7 @@ module.exports.Crear = async (req, res) => {
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
-      const Usuario = "Admin";
+      const Usuario = mesero;
       const Hora = hora + ":" + minutos;
       const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await cocina.save();
@@ -60,7 +69,7 @@ module.exports.Crear = async (req, res) => {
         Comanda : "HB-1",
         Producto: producto.Producto,
         Precio: producto.Precio,
-        Usuario: "Admin",
+        Usuario: mesero,
         Tipo: producto.Tipo,
         Hora: hora + ":" + minutos
       });
