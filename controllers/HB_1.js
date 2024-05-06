@@ -55,7 +55,7 @@ module.exports.Crear = async (req, res) => {
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const newUsuario = new DS({
+      const newUsuario = new HB({
         Mesa : "HB-1",
         Comanda : "HB-1",
         Producto: producto.Producto,
