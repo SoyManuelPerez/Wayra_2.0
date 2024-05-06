@@ -162,9 +162,12 @@
 
     <div class="container espacio">       
         <%
-        let cantidadItems = 0;
+        let cantidadAdultos = 0;
+        let cantidadNiños = 0;
+        let cantidadBebes = 0;
         const fechaHoy = new Date();
         const fechaHoyStr = fechaHoy.toISOString().split('T')[0];
+        const horaActual = fechaHoy.getHours(); // Obtener la hora actual
         Huesped.forEach((Huesped) => {
             const partesFecha = Huesped.Salida.split('-'); // Suponiendo que el formato es YYYY-MM-DD
             const año = parseInt(partesFecha[0]);
@@ -173,37 +176,45 @@
             const fechaSalida = new Date(año, mes, dia);
             const fechaSalidaStr = fechaSalida.toISOString().split('T')[0];
             // Verificar si la fecha de salida del huésped es mayor o igual a la fecha de hoy
-            if (fechaSalidaStr >= fechaHoyStr) {
-                cantidadItems++;
+            // y la hora de salida es antes de las 3:00 p. m.
+            if (fechaSalidaStr >= fechaHoyStr && horaActual < 15) {
+                cantidadAdultos += Huesped.Adultos;
+                cantidadNiños += Huesped.Niños;
+                cantidadBebes += Huesped.Bebes;
             }
         });
         %>
         
         <%
         let fechaIngresoDS = ""
-        let cantidaDS = 0;
+        let cantidadAdultosD = 0;
+        let cantidadNiñosD = 0;
+        let cantidadBebesD = 0;
         DS.forEach((DS) => {
-            // Verificar si la fecha de ingreso de DS es igual a la fecha de hoy
-             fechaIngresoDS = new Date(DS.Ingreso);
+            fechaIngresoDS = new Date(DS.Ingreso);
             const fechaHoy = new Date();
+            const horaActual = fechaHoy.getHours();
             const partesFecha = DS.Ingreso.split('-'); // Suponiendo que el formato es YYYY-MM-DD
             const año = parseInt(partesFecha[0]);
             const mes = parseInt(partesFecha[1]) - 1; // Los meses en JavaScript van de 0 a 11
             const dia = parseInt(partesFecha[2]);
             fechaIngresoDS = new Date(año, mes, dia);
-
             if (fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
                 fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
-                fechaIngresoDS.getDate() === fechaHoy.getDate()) {
-                cantidaDS++;
+                fechaIngresoDS.getDate() === fechaHoy.getDate() && horaActual < 17) {
+                    cantidadAdultosD += DS.Adultos;
+                    cantidadNiñosD += DS.Niños;
+                    cantidadBebesD += DS.Bebes;
             }
         });
         %>
         
         
         
-    <h5 class="anuncio">Cantidad de huespedes: <%= cantidadItems %></h5>
-    <h5 class="anuncio">Cantidad de dias de sol: <%= cantidaDS %></h5>
+    <h5 class="anuncio">Hospedaje</h5>
+    <h5 class="anuncio">Adultos:<%= cantidadAdultos %>  Niños:<%= cantidadNiños %> Bebes: <%= cantidadBebes %></h5>
+    <h5 class="anuncio">Dias de sol</h5>
+    <h5 class="anuncio">Adultos:<%= cantidadAdultosD %>  Niños:<%= cantidadNiñosD %> Bebes: <%= cantidadBebesD %></h5>
     </div>
 
 </body>

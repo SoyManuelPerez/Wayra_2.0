@@ -1,4 +1,4 @@
-const DS = require('../models/DS')
+const Ds = require('../models/DS')
 const jsonwebtoken = require('jsonwebtoken')
 const Usuario = require('../models/Usuarios')
 //Mostrar productos
@@ -13,7 +13,7 @@ module.exports.mostrar = (req, res) => {
       mesero = decoded.user;
     });
   } Promise.all([
-    DS.find({}),
+    Ds.find({}),
     Usuario.find({ user: mesero })
   ])
     .then(([DS, Usuario]) => {
@@ -23,7 +23,7 @@ module.exports.mostrar = (req, res) => {
     .catch(err => console.log(err, 'Error mostrar producto no encontrado'))
 }
 module.exports.mostrarH = (req, res) => {
-  DS.find({})
+  Ds.find({})
     .then(DS => res.render('HDS', { DS: DS }))
     .catch(err => console.log(err, 'Error mostrar producto no encontrado'))
 }
@@ -35,19 +35,21 @@ module.exports.agregar = async (req, res) => {
   const Apellidos = req.body.Apellido
   const Tipo = req.body.tipo
   const Documento = req.body.Documento
+  const Adultos = req.body.Adultos
+  const Niños = req.body.Niños
+  const Bebes = req.body.Bebes
   const Abono = req.body.Abono
   const Final = req.body.Pago
   const Ingreso = req.body.Fecha
   console.log(Ingreso)
-  const newUsuario = new DS({ DS, Comanda, Nombres, Apellidos, Tipo, Documento, Abono, Final, Ingreso })
+  const newUsuario = new Ds({ DS, Comanda, Nombres, Apellidos, Tipo, Documento, Adultos, Niños, Bebes, Abono, Final, Ingreso })
   console.log(newUsuario)
   await newUsuario.save()
-  console.log('/' + DS)
-  res.redirect('/' + DS)
+  res.redirect('/'+DS)
 }
 module.exports.eliminar = (req, res) => {
   const id = req.params.id
-  DS.findByIdAndDelete({ _id: id }).exec()
+  Ds.findByIdAndDelete({ _id: id }).exec()
     .then(resultado => {
       console.log("Objeto eliminado : ", resultado);
     })
