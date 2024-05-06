@@ -1,7 +1,6 @@
 const HB = require('../models/HB-2')
 const Productos = require('../models/Producto')
 const Bar = require('../models/Bar')
-const DS = require('../models/DS')
 const Huesped = require('../models/Hospedaje')
 const ventas = require('../models/ventas')
 const Cocina = require('../models/Cocina')

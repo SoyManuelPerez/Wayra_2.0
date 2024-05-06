@@ -4,26 +4,48 @@ const Bar = require('../models/Bar')
 const Huesped = require('../models/Hospedaje')
 const ventas = require('../models/ventas')
 const Cocina = require('../models/Cocina')
+const jsonwebtoken = require('jsonwebtoken')
+const Usuario = require('../models/Usuarios')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
+  const token = req.cookies.jwt;
+  let mesero = "";
+  if (token) {
+    jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        res.send('Error al verificar el token.');
+      }
+      mesero = decoded.user;
+    });
+  }
     Promise.all([
         HB.find({}),
-        Productos.find({})
+        Productos.find({}),
+        Usuario.find({ user: mesero })
     ])
-    .then(([HB, Productos,]) => {
-        res.render('HB-13', { HB: HB, productos: Productos});
+    .then(([HB, Productos,Usuario]) => {
+      const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
+        res.render('HB-13', { HB: HB, productos: Productos,tipoUsuario: tipoUsuario});
     })
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
 //Guardar Productos
 module.exports.Crear = async (req, res) => {
   const id = req.params.id;
+  let mesero = "";
   try {
     const producto = await Productos.findById(id).lean().exec();
     if (!producto) {
       return res.status(404).send("Producto no encontrado");
+    }const token = req.cookies.jwt;
+    if (token) {
+      jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+          res.send('Error al verificar el token.');
+        }
+        mesero = decoded.user;
+      })
     }
-
     if (producto.Tipo == "Bar") {
       const ahora = new Date();
       const hora = ahora.getHours();
@@ -33,7 +55,7 @@ module.exports.Crear = async (req, res) => {
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
-      const Usuario = "Admin";
+      const Usuario = mesero;
       const Hora = hora + ":" + minutos;
       const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await bar.save();
@@ -46,7 +68,7 @@ module.exports.Crear = async (req, res) => {
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
-      const Usuario = "Admin";
+      const Usuario = mesero;
       const Hora = hora + ":" + minutos;
       const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await cocina.save();
@@ -59,7 +81,7 @@ module.exports.Crear = async (req, res) => {
         Comanda : "HB-13",
         Producto: producto.Producto,
         Precio: producto.Precio,
-        Usuario: "Admin",
+        Usuario: mesero,
         Tipo: producto.Tipo,
         Hora: hora + ":" + minutos
       });
