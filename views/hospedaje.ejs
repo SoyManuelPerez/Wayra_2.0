@@ -13,7 +13,11 @@
 </head>
 <body>
     <header>
-        <%- include('Navbar'); %>
+        <% if ( tipoUsuario === "admin") { %>
+            <%- include('Navbar'); %>
+        <% } else if ( tipoUsuario === "mesero") { %>
+            <%- include('NavarMesero'); %>
+        <% } %>
     </header>
     <div class="alineacion container">
         <button class="Pagos" data-toggle="tooltip" data-placement="top" title="Imprimir lista Hospedaje"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

@@ -83,7 +83,7 @@ module.exports.HB1 = async (req, res) => {
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
-        const Usuario = "Admin";
+        const Usuario = producto.Usuario;
         const Hora = producto.Hora;
         // Crear un nuevo documento en la colección HB
         const newUuario = new HB({ Producto, Precio, Usuario, Tipo, Hora });

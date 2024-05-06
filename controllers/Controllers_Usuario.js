@@ -81,7 +81,18 @@ module.exports.Login =  (req,res)=>{
                 res.cookie("jwt",token,cookieOption);
             res.redirect('/hospedaje')  
           }else if(type === "mesero"){
-            res.redirect('/HospedajeM') 
+            console.log("Valor de JWT_SECRET:", process.env.JWT_SECRET)
+            const token = jsonwebtoken.sign(
+                {user:usuario.user},
+                process.env.JWT_SECRET,
+                {expiresIn:process.env.JWT_EXPIRATION});
+            
+                const cookieOption = {
+                  expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
+                  path: "/"
+                }
+                res.cookie("jwt",token,cookieOption);
+            res.redirect('/hospedaje') 
           }   else if(type === "bar"){
             res.redirect('/Bar') 
           } else if(type === "cocina"){

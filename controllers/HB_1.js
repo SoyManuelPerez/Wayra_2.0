@@ -6,14 +6,27 @@ const Huesped = require('../models/Hospedaje')
 const ventas = require('../models/ventas')
 const Cocina = require('../models/Cocina')
 const jsonwebtoken = require('jsonwebtoken')
+const Usuario = require('../models/Usuarios')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
+  const token = req.cookies.jwt;
+  let mesero = "";
+  if (token) {
+    jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        res.send('Error al verificar el token.');
+      }
+      mesero = decoded.user;
+    });
+  }
     Promise.all([
         HB.find({}),
-        Productos.find({})
+        Productos.find({}),
+        Usuario.find({ user: mesero })
     ])
-    .then(([HB, Productos,]) => {
-        res.render('HB-1', { HB: HB, productos: Productos});
+    .then(([HB, Productos,Usuario]) => {
+      const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
+        res.render('HB-1', { HB: HB, productos: Productos,tipoUsuario: tipoUsuario});
     })
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
@@ -149,12 +162,25 @@ module.exports.agregar = async(req,res) =>{
 }
 //Mostrar Hospedaje
 module.exports.mostrarH = (req, res) => {
+  const token = req.cookies.jwt;
+  let mesero = "";
+  if (token) {
+    jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        res.send('Error al verificar el token.');
+      }
+      mesero = decoded.user;
+    });
+  }
   Promise.all([
     Huesped.find({}),
-    DS.find({})
-])
-.then(([Huesped, DS,]) => {
-    res.render('hospedaje', {Huesped: Huesped, DS: DS});
-})
-.catch(err => console.log(err, 'Error mostrando datos'));
-}
+    DS.find({}),
+    Usuario.find({ user: mesero })
+  ])
+    .then(([Huesped, DS, Usuario]) => {
+      // Extraer el tipo de usuario (type) del objeto Usuario
+      const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
+      res.render('hospedaje', { Huesped: Huesped, DS: DS, tipoUsuario: tipoUsuario });
+    })
+    .catch(err => console.log(err, 'Error mostrando datos'));
+};
