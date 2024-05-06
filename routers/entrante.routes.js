@@ -33,7 +33,7 @@ router.get('/EHB-1',HB.mostrar,(req,res)=>{
 //Agregar a la cuenta HB1
 router.get('/EAgregarHB1/:id',HB.Crear);
 //Eliminar de la cuentaHB1
-router.get('/Ed1/:id',HB.eliminar);
+router.get('/EeliminarHB1/:id',HB.eliminar);
 //HB2
 router.get('/EHB-2',HB2.mostrar,(req,res)=>{
     res.render('EHB-2')
@@ -41,7 +41,7 @@ router.get('/EHB-2',HB2.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB2
 router.get('/EAgregarHB2/:id',HB2.Crear);
 //Eliminar de la cuentaHB1
-router.get('/Ed2/:id',HB2.eliminar);
+router.get('/EeliminarHB2/:id',HB2.eliminar);
 
 //HB3
 router.get('/EHB-3',HB3.mostrar,(req,res)=>{
@@ -50,7 +50,7 @@ router.get('/EHB-3',HB3.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB3
 router.get('/EAgregarHB3/:id',HB3.Crear);
 //Eliminar de la cuentaHB3
-router.get('/Ed3/:id',HB3.eliminar);
+router.get('/EeliminarHB3/:id',HB3.eliminar);
 //HB4
 router.get('/EHB-4',HB4.mostrar,(req,res)=>{
     res.render('EHB-4')
@@ -58,7 +58,7 @@ router.get('/EHB-4',HB4.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB4
 router.get('/EAgregarHB4/:id',HB4.Crear);
 //Eliminar de la cuentaHB4
-router.get('/Ed4/:id',HB4.eliminar);
+router.get('/EeliminarHB4/:id',HB4.eliminar);
 //HB5
 router.get('/EHB-5',HB5.mostrar,(req,res)=>{
     res.render('EHB-5')
@@ -66,7 +66,7 @@ router.get('/EHB-5',HB5.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB5
 router.get('/EAgregarHB5/:id',HB5.Crear);
 //Eliminar de la cuentaHB5
-router.get('/Ed5/:id',HB5.eliminar);
+router.get('/EeliminarHB5/:id',HB5.eliminar);
 //HB6
 router.get('/EHB-6',HB6.mostrar,(req,res)=>{
     res.render('EHB-6')
@@ -74,7 +74,7 @@ router.get('/EHB-6',HB6.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB6
 router.get('/EAgregarHB6/:id',HB6.Crear);
 //Eliminar de la cuentaHB6
-router.get('/Ed6/:id',HB6.eliminar);
+router.get('/EeliminarHB6/:id',HB6.eliminar);
 //HB7
 router.get('/EHB-7',HB7.mostrar,(req,res)=>{
     res.render('EHB-7')
@@ -82,7 +82,7 @@ router.get('/EHB-7',HB7.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB7
 router.get('/EAgregarHB7/:id',HB7.Crear);
 //Eliminar de la cuentaHB7
-router.get('/Ed7/:id',HB7.eliminar);
+router.get('/EeliminarHB7/:id',HB7.eliminar);
 //HB8
 router.get('/EHB-8',HB8.mostrar,(req,res)=>{
     res.render('EHB-8')
@@ -90,7 +90,7 @@ router.get('/EHB-8',HB8.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB8
 router.get('/EAgregarHB8/:id',HB8.Crear);
 //Eliminar de la cuentaHB8
-router.get('/Ed8/:id',HB8.eliminar);
+router.get('/EeliminarHB8/:id',HB8.eliminar);
 //HB9
 router.get('/EHB-9',HB9.mostrar,(req,res)=>{
     res.render('EHB-9')
@@ -98,7 +98,7 @@ router.get('/EHB-9',HB9.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB9
 router.get('/EAgregarHB9/:id',HB9.Crear);
 //Eliminar de la cuentaHB9
-router.get('/Ed9/:id',HB9.eliminar);
+router.get('/EeliminarHB9/:id',HB9.eliminar);
 //HB10
 router.get('/EHB-10',HB10.mostrar,(req,res)=>{
     res.render('EHB-10')
@@ -106,7 +106,7 @@ router.get('/EHB-10',HB10.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB10
 router.get('/EAgregarHB10/:id',HB10.Crear);
 //Eliminar de la cuentaHB10
-router.get('/Ed10/:id',HB10.eliminar);
+router.get('/EeliminarHB10/:id',HB10.eliminar);
 
 //HB11
 router.get('/EHB-11',HB11.mostrar,(req,res)=>{
@@ -115,7 +115,7 @@ router.get('/EHB-11',HB11.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB11
 router.get('/EAgregarHB11/:id',HB11.Crear);
 //Eliminar de la cuentaHB11
-router.get('/Ed11/:id',HB11.eliminar);
+router.get('/EeliminarHB11/:id',HB11.eliminar);
 
 //HB12
 router.get('/EHB-12',HB12.mostrar,(req,res)=>{
@@ -124,7 +124,7 @@ router.get('/EHB-12',HB12.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB12
 router.get('/EAgregarHB12/:id',HB12.Crear);
 //Eliminar de la cuentaHB12
-router.get('/Ed12/:id',HB12.eliminar);
+router.get('/EeliminarHB12/:id',HB12.eliminar);
 
 //HB13
 router.get('/EHB-13',HB13.mostrar,(req,res)=>{
@@ -133,7 +133,7 @@ router.get('/EHB-13',HB13.mostrar,(req,res)=>{
 ////Agregar a la cuenta HB13
 router.get('/EAgregarHB13/:id',HB13.Crear);
 //Eliminar de la cuentaHB13
-router.get('/Ed13/:id',HB13.eliminar);
+router.get('/EeliminarHB13/:id',HB13.eliminar);
 
 //CB14
 router.get('/ECB-14',CB14.mostrar,(req,res)=>{
