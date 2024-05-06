@@ -13,7 +13,11 @@
 </head>
 <body>
     <header>
-        <%- include('Navbar'); %>
+        <% if ( tipoUsuario === "admin") { %>
+            <%- include('Navbar'); %>
+        <% } else if ( tipoUsuario === "mesero") { %>
+            <%- include('NavarMesero'); %>
+        <% } %>
     </header>
     <div class="container espacio">
         <center>
