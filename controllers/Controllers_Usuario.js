@@ -82,7 +82,7 @@ module.exports.Login =  (req,res)=>{
                 res.cookie("jwt",token,cookieOption);
             res.redirect('/hospedaje')  
           }else if(type === "mesero"){
-            res.redirect('/mesero') 
+            res.redirect('/HospedajeM') 
           }   else if(type === "bar"){
             res.redirect('/Bar') 
           } else if(type === "cocina"){

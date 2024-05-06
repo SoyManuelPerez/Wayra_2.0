@@ -18,6 +18,7 @@ Bar = require("./routers/Bar.routes")
 Cocina = require("./routers/Cocina.routes")
 Hb = require("./routers/Habitaciones.routes")
 Ds = require("./routers/Ds.routes")
+Mesero = require("./routers/Mesero.routes")
 app.use(Bar)
 app.use(Main)
 app.use(Usuarios)
@@ -25,6 +26,7 @@ app.use(Productos)
 app.use(Cocina)
 app.use(Hb)
 app.use(Ds)
+app.use(Mesero)
 
 // Servidor 
 app.set('port',process.env.PORT || 4000);
