@@ -23,6 +23,7 @@
         <table id="huesped" class="table table-dark">
                 <thead>
                 <tr>
+                    <th scope="col">Mesero</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Precio </th>
                     <th scope="col">Tipo</th>
@@ -33,6 +34,7 @@
             <tbody>
                 <%  ventas.forEach((ventas) => { %>
                     <tr>
+                        <td> <%= ventas.Mesero %></td>
                         <td> <%= ventas.Producto %></td>
                         <td> <%= ventas.Precio %></td>
                         <td> <%= ventas.Tipo %></td>

@@ -118,16 +118,18 @@ module.exports.pagar = async (req, res) => {
    }
    const productosVendidosIds = [];
    for (const producto of productos) {
-     const Producto = producto.Producto;
-     const Precio = producto.Precio;
-     const Tipo = producto.Precio;
-     const Fecha = new Date().toISOString().split('T')[0];
-     const nuevoDocumento = new ventas({
-       Producto,
-       Precio,
-       Tipo,
-       Fecha
-     });
+    const Mesero = producto.Usuario;
+    const Producto = producto.Producto;
+    const Precio = producto.Precio;
+    const Tipo = producto.Precio;
+    const Fecha = new Date().toISOString().split('T')[0];
+    const nuevoDocumento = new ventas({
+      Mesero,
+      Producto,
+      Precio,
+      Tipo,
+      Fecha
+    });
      await nuevoDocumento.save();
      productosVendidosIds.push(producto._id);
    }

@@ -1,5 +1,7 @@
 const Cocina = require('../models/Cocina')
+const Huesped = require('../models/Hospedaje')
 const Productos = require('../models/Producto')
+const DS = require('../models/DS')
 const HB = require('../models/HB-1')
 const HB2 = require('../models/HB-2')
 const HB3 = require('../models/HB-3')
@@ -58,8 +60,14 @@ const DS30 = require('../models/DS-30')
 
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
-    Cocina.find({})
-        .then(Cocina => res.render('Cocina', { Cocina: Cocina }))
+    Promise.all([
+        Huesped.find({}),
+        DS.find({}),
+        Cocina.find({})
+      ])
+      .then(([Huesped, DS, Cocina]) => {
+        res.render('Cocina', { Huesped: Huesped, DS: DS, Cocina: Cocina });
+      })
         .catch(err => console.log(err, 'Error mostrar producto no encontrado'))
 }
 //Elinar
