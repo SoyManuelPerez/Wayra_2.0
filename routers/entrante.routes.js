@@ -28,7 +28,7 @@ const CB25 = require('../controllers/ECB_25')
 
 //HB1
 router.get('/EHB-1',HB.mostrar,(req,res)=>{
-    res.render('HB-1')
+    res.render('EHB-1')
 })
 //Agregar a la cuenta HB1
 router.get('/EAgregarHB1/:id',HB.Crear);
@@ -36,7 +36,7 @@ router.get('/EAgregarHB1/:id',HB.Crear);
 router.get('/Ed1/:id',HB.eliminar);
 //HB2
 router.get('/EHB-2',HB2.mostrar,(req,res)=>{
-    res.render('HB-2')
+    res.render('EHB-2')
 })
 ////Agregar a la cuenta HB2
 router.get('/EAgregarHB2/:id',HB2.Crear);
@@ -45,7 +45,7 @@ router.get('/Ed2/:id',HB2.eliminar);
 
 //HB3
 router.get('/EHB-3',HB3.mostrar,(req,res)=>{
-    res.render('HB-3')
+    res.render('EHB-3')
 })
 ////Agregar a la cuenta HB3
 router.get('/EAgregarHB3/:id',HB3.Crear);
@@ -53,7 +53,7 @@ router.get('/EAgregarHB3/:id',HB3.Crear);
 router.get('/Ed3/:id',HB3.eliminar);
 //HB4
 router.get('/EHB-4',HB4.mostrar,(req,res)=>{
-    res.render('HB-4')
+    res.render('EHB-4')
 })
 ////Agregar a la cuenta HB4
 router.get('/EAgregarHB4/:id',HB4.Crear);
@@ -61,7 +61,7 @@ router.get('/EAgregarHB4/:id',HB4.Crear);
 router.get('/Ed4/:id',HB4.eliminar);
 //HB5
 router.get('/EHB-5',HB5.mostrar,(req,res)=>{
-    res.render('HB-5')
+    res.render('EHB-5')
 })
 ////Agregar a la cuenta HB5
 router.get('/EAgregarHB5/:id',HB5.Crear);
@@ -69,7 +69,7 @@ router.get('/EAgregarHB5/:id',HB5.Crear);
 router.get('/Ed5/:id',HB5.eliminar);
 //HB6
 router.get('/EHB-6',HB6.mostrar,(req,res)=>{
-    res.render('HB-6')
+    res.render('EHB-6')
 })
 ////Agregar a la cuenta HB6
 router.get('/EAgregarHB6/:id',HB6.Crear);
@@ -77,7 +77,7 @@ router.get('/EAgregarHB6/:id',HB6.Crear);
 router.get('/Ed6/:id',HB6.eliminar);
 //HB7
 router.get('/EHB-7',HB7.mostrar,(req,res)=>{
-    res.render('HB-7')
+    res.render('EHB-7')
 })
 ////Agregar a la cuenta HB7
 router.get('/EAgregarHB7/:id',HB7.Crear);
@@ -85,7 +85,7 @@ router.get('/EAgregarHB7/:id',HB7.Crear);
 router.get('/Ed7/:id',HB7.eliminar);
 //HB8
 router.get('/EHB-8',HB8.mostrar,(req,res)=>{
-    res.render('HB-8')
+    res.render('EHB-8')
 })
 ////Agregar a la cuenta HB8
 router.get('/EAgregarHB8/:id',HB8.Crear);
@@ -93,7 +93,7 @@ router.get('/EAgregarHB8/:id',HB8.Crear);
 router.get('/Ed8/:id',HB8.eliminar);
 //HB9
 router.get('/EHB-9',HB9.mostrar,(req,res)=>{
-    res.render('HB-9')
+    res.render('EHB-9')
 })
 ////Agregar a la cuenta HB9
 router.get('/EAgregarHB9/:id',HB9.Crear);
@@ -101,7 +101,7 @@ router.get('/EAgregarHB9/:id',HB9.Crear);
 router.get('/Ed9/:id',HB9.eliminar);
 //HB10
 router.get('/EHB-10',HB10.mostrar,(req,res)=>{
-    res.render('HB-10')
+    res.render('EHB-10')
 })
 ////Agregar a la cuenta HB10
 router.get('/EAgregarHB10/:id',HB10.Crear);
@@ -110,7 +110,7 @@ router.get('/Ed10/:id',HB10.eliminar);
 
 //HB11
 router.get('/EHB-11',HB11.mostrar,(req,res)=>{
-    res.render('HB-11')
+    res.render('EHB-11')
 })
 ////Agregar a la cuenta HB11
 router.get('/EAgregarHB11/:id',HB11.Crear);
@@ -119,7 +119,7 @@ router.get('/Ed11/:id',HB11.eliminar);
 
 //HB12
 router.get('/EHB-12',HB12.mostrar,(req,res)=>{
-    res.render('HB-12')
+    res.render('EHB-12')
 })
 ////Agregar a la cuenta HB12
 router.get('/EAgregarHB12/:id',HB12.Crear);
@@ -128,7 +128,7 @@ router.get('/Ed12/:id',HB12.eliminar);
 
 //HB13
 router.get('/EHB-13',HB13.mostrar,(req,res)=>{
-    res.render('HB-13')
+    res.render('EHB-13')
 })
 ////Agregar a la cuenta HB13
 router.get('/EAgregarHB13/:id',HB13.Crear);
@@ -137,7 +137,7 @@ router.get('/Ed13/:id',HB13.eliminar);
 
 //CB14
 router.get('/ECB-14',CB14.mostrar,(req,res)=>{
-    res.render('CB-14')
+    res.render('ECB-14')
 })
 ////Agregar a la cuenta CB14
 router.get('/EAgregarCB14/:id',CB14.Crear);
@@ -146,7 +146,7 @@ router.get('/EeliminarCB14/:id',CB14.eliminar);
 
 //CB15
 router.get('/ECB-15',CB15.mostrar,(req,res)=>{
-    res.render('CB-15')
+    res.render('ECB-15')
 })
 ////Agregar a la cuenta CB15
 router.get('/EAgregarCB15/:id',CB15.Crear);
@@ -155,7 +155,7 @@ router.get('/EeliminarCB15/:id',CB15.eliminar);
 
 //CB16
 router.get('/ECB-16',CB16.mostrar,(req,res)=>{
-    res.render('CB-16')
+    res.render('ECB-16')
 })
 ////Agregar a la cuenta CB16
 router.get('/EAgregarCB16/:id',CB16.Crear);
@@ -164,7 +164,7 @@ router.get('/EeliminarCB16/:id',CB16.eliminar);
 
 //CB17
 router.get('/ECB-17',CB17.mostrar,(req,res)=>{
-    res.render('CB-17')
+    res.render('ECB-17')
 })
 ////Agregar a la cuenta CB17
 router.get('/EAgregarCB17/:id',CB17.Crear);
@@ -173,7 +173,7 @@ router.get('/EeliminarCB17/:id',CB17.eliminar);
 
 //CB18
 router.get('/ECB-18',CB18.mostrar,(req,res)=>{
-    res.render('CB-18')
+    res.render('ECB-18')
 })
 ////Agregar a la cuenta CB18
 router.get('/EAgregarCB18/:id',CB18.Crear);
@@ -182,7 +182,7 @@ router.get('/EeliminarCB18/:id',CB18.eliminar);
 
 //CB19
 router.get('/ECB-19',CB19.mostrar,(req,res)=>{
-    res.render('CB-19')
+    res.render('ECB-19')
 })
 ////Agregar a la cuenta CB19
 router.get('/EAgregarCB19/:id',CB19.Crear);
@@ -191,7 +191,7 @@ router.get('/EeliminarCB19/:id',CB19.eliminar);
 
 //CB20
 router.get('/ECB-20',CB20.mostrar,(req,res)=>{
-    res.render('CB-20')
+    res.render('ECB-20')
 })
 ////Agregar a la cuenta CB20
 router.get('/EAgregarCB20/:id',CB20.Crear);
@@ -200,7 +200,7 @@ router.get('/EeliminarCB20/:id',CB20.eliminar);
 
 //CB21
 router.get('/ECB-21',CB21.mostrar,(req,res)=>{
-    res.render('CB-21')
+    res.render('ECB-21')
 })
 ////Agregar a la cuenta CB21
 router.get('/EAgregarCB21/:id',CB21.Crear);
@@ -209,7 +209,7 @@ router.get('/EeliminarCB21/:id',CB21.eliminar);
 
 //CB22
 router.get('/ECB-22',CB22.mostrar,(req,res)=>{
-    res.render('CB-22')
+    res.render('ECB-22')
 })
 ////Agregar a la cuenta CB22
 router.get('/EAgregarCB22/:id',CB22.Crear);
@@ -218,7 +218,7 @@ router.get('/EeliminarCB22/:id',CB22.eliminar);
 
 //CB23
 router.get('/ECB-23',CB23.mostrar,(req,res)=>{
-    res.render('CB-23')
+    res.render('ECB-23')
 })
 ////Agregar a la cuenta CB23
 router.get('/EAgregarCB23/:id',CB23.Crear);
@@ -227,7 +227,7 @@ router.get('/EeliminarCB23/:id',CB23.eliminar);
 
 //CB24
 router.get('/ECB-24',CB23.mostrar,(req,res)=>{
-    res.render('CB-24')
+    res.render('ECB-24')
 })
 ////Agregar a la cuenta CB24
 router.get('/EAgregarCB24/:id',CB23.Crear);
@@ -235,7 +235,7 @@ router.get('/EAgregarCB24/:id',CB23.Crear);
 router.get('/EeliminarCB24/:id',CB24.eliminar);
 //CB25
 router.get('/ECB-25',CB25.mostrar,(req,res)=>{
-    res.render('CB-25')
+    res.render('ECB-25')
 })
 ////Agregar a la cuenta CB25
 router.get('/EAgregarCB25/:id',CB25.Crear);
