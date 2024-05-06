@@ -1,4 +1,4 @@
-const HB = require('../models/HB-1')
+const HB = require('../models/EHB-1')
 const Productos = require('../models/Producto')
 const Bar = require('../models/Bar')
 const DS = require('../models/DS')
@@ -26,7 +26,7 @@ module.exports.mostrar = (req, res) => {
     ])
     .then(([HB, Productos,Usuario]) => {
       const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-        res.render('HB-1', { HB: HB, productos: Productos,tipoUsuario: tipoUsuario});
+        res.render('EHB-1', { HB: HB, productos: Productos,tipoUsuario: tipoUsuario});
     })
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
@@ -51,8 +51,8 @@ module.exports.Crear = async (req, res) => {
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const Mesa = "HB-1";
-      const Comanda = "HB-1"
+      const Mesa = "EHB-1";
+      const Comanda = "EHB-1"
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
@@ -64,8 +64,8 @@ module.exports.Crear = async (req, res) => {
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const Mesa = "HB-1"
-      const Comanda = "HB-1"
+      const Mesa = "EHB-1"
+      const Comanda = "EHB-1"
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
@@ -78,8 +78,8 @@ module.exports.Crear = async (req, res) => {
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
       const newUsuario = new HB({
-        Mesa : "HB-1",
-        Comanda : "HB-1",
+        Mesa : "EHB-1",
+        Comanda : "EHB-1",
         Producto: producto.Producto,
         Precio: producto.Precio,
         Usuario: mesero,
@@ -96,7 +96,7 @@ module.exports.Crear = async (req, res) => {
       }
     }
 
-    res.redirect('/HB-1');
+    res.redirect('/EHB-1');
   } catch (err) {
     console.error(err);
     res.status(500).send("Error interno del servidor");
@@ -127,7 +127,7 @@ module.exports.pagar = async (req, res) => {
       productosVendidosIds.push(producto._id);
     }
     await HB.deleteMany({ _id: { $in: productosVendidosIds } });
-    res.redirect('/HB-1');
+    res.redirect('/EHB-1');
   } catch (error) {
     console.error(error);
     res.status(500).send('Error interno del servidor');
@@ -142,7 +142,7 @@ module.exports.eliminar = (req,res) =>{
   .catch(error => {
     console.log(error) 
   });
-    res.redirect('/HB-1')       
+    res.redirect('/EHB-1')       
 }
 module.exports.agregar = async(req,res) =>{
   const HB = req.body.Habitacion
@@ -163,7 +163,7 @@ module.exports.agregar = async(req,res) =>{
   const newUsuario = new Huesped({HB,Nombres,Apellidos,Tipo,Documento,Celular,Correo,Adultos,Niños,Bebes,Abono,Final,Ingreso,Salida})
   console.log(newUsuario)
   await newUsuario.save()
-  res.redirect('/HB-1')  
+  res.redirect('/EHB-1')  
 }
 //Mostrar Hospedaje
 module.exports.mostrarH = (req, res) => {
