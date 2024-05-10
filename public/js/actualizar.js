@@ -4,4 +4,4 @@
   }
 
   // Llamar a la función para recargar cada minuto (60000 milisegundos)
-  setInterval(recargarPagina, 60000)
+  setInterval(recargarPagina, 10000)
