@@ -51,7 +51,7 @@ module.exports.Crear = async (req, res) => {
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
       const Mesa = "EHB-3";
-      const Comanda = "EHB-3"
+      const Comanda = "103"
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
@@ -64,7 +64,7 @@ module.exports.Crear = async (req, res) => {
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
       const Mesa = "EHB-3"
-      const Comanda = "EHB-3"
+      const Comanda = "103"
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
@@ -78,7 +78,7 @@ module.exports.Crear = async (req, res) => {
       const minutos = ahora.getMinutes();
       const newUsuario = new HB({
         Mesa : "EHB-3",
-        Comanda : "EHB-3",
+        Comanda : "103",
         Producto: producto.Producto,
         Precio: producto.Precio,
         Usuario: mesero,
