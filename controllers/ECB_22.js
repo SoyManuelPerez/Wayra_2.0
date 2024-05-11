@@ -102,6 +102,7 @@ module.exports.Crear = async (req, res) => {
   }
 };
 module.exports.pagar = async (req, res) => {
+  const moment = require('moment-timezone');
   try {
     const productos = await HB.find().lean().exec();
 
@@ -110,11 +111,12 @@ module.exports.pagar = async (req, res) => {
     }
     const productosVendidosIds = [];
     for (const producto of productos) {
+      const ahora = moment().tz('America/Bogota');
       const Mesero = producto.Usuario;
       const Producto = producto.Producto;
       const Precio = producto.Precio;
-      const Tipo = producto.Precio;
-      const Fecha = new Date().toISOString().split('T')[0];
+      const Tipo = producto.Tipo;
+      const Fecha = ahora.format('YYYY-MM-DD');
       const nuevoDocumento = new ventas({
         Mesero,
         Producto,
@@ -122,9 +124,9 @@ module.exports.pagar = async (req, res) => {
         Tipo,
         Fecha
       });
-      await nuevoDocumento.save();
-      productosVendidosIds.push(producto._id);
-    }
+       await nuevoDocumento.save();
+       productosVendidosIds.push(producto._id);
+     }
     await HB.deleteMany({ _id: { $in: productosVendidosIds } });
     res.redirect('/ECB-22');
   } catch (error) {

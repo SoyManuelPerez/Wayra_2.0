@@ -3,5 +3,5 @@
     location.reload();
   }
 
-  // Llamar a la función para recargar cada minuto (60000 milisegundos)
+  // Llamar a la función para recargar cada 10 segundos (10000 milisegundos)
   setInterval(recargarPagina, 10000)

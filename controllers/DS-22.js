@@ -116,13 +116,15 @@ module.exports.pagar = async (req, res) => {
    if (!productos || productos.length === 0) {
      return res.status(404).send('No se encontraron productos');
    }
+  
    const productosVendidosIds = [];
    for (const producto of productos) {
+    const ahora = moment().tz('America/Bogota');
     const Mesero = producto.Usuario;
     const Producto = producto.Producto;
     const Precio = producto.Precio;
-    const Tipo = producto.Precio;
-    const Fecha = new Date().toISOString().split('T')[0];
+    const Tipo = producto.Tipo;
+    const Fecha = ahora.format('YYYY-MM-DD');
     const nuevoDocumento = new ventas({
       Mesero,
       Producto,

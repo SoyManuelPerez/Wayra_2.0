@@ -6,6 +6,7 @@ const ventas = require('../models/ventas')
 const Cocina = require('../models/Cocina')
 const jsonwebtoken = require('jsonwebtoken')
 const Usuario = require('../models/Usuarios')
+const moment = require('moment-timezone');
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
   const token = req.cookies.jwt;
@@ -110,11 +111,12 @@ module.exports.pagar = async (req, res) => {
     }
     const productosVendidosIds = [];
     for (const producto of productos) {
+      const ahora = moment().tz('America/Bogota');
       const Mesero = producto.Usuario;
       const Producto = producto.Producto;
       const Precio = producto.Precio;
-      const Tipo = producto.Precio;
-      const Fecha = new Date().toISOString().split('T')[0];
+      const Tipo = producto.Tipo;
+      const Fecha = ahora.format('YYYY-MM-DD');
       const nuevoDocumento = new ventas({
         Mesero,
         Producto,
@@ -122,9 +124,9 @@ module.exports.pagar = async (req, res) => {
         Tipo,
         Fecha
       });
-      await nuevoDocumento.save();
-      productosVendidosIds.push(producto._id);
-    }
+       await nuevoDocumento.save();
+       productosVendidosIds.push(producto._id);
+     }
     await HB.deleteMany({ _id: { $in: productosVendidosIds } });
     res.redirect('/CB-23');
   } catch (error) {

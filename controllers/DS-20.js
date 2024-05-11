@@ -121,7 +121,7 @@ module.exports.pagar = async (req, res) => {
     const Mesero = producto.Usuario;
     const Producto = producto.Producto;
     const Precio = producto.Precio;
-    const Tipo = producto.Precio;
+    const Tipo = producto.Tipo;
     const Fecha = new Date().toISOString().split('T')[0];
     const nuevoDocumento = new ventas({
       Mesero,
