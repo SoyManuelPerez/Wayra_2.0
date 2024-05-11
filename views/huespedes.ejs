@@ -58,6 +58,7 @@
                         <td> <%= Huesped.Ingreso %></td>
                         <td> <%= Huesped.Salida %></td>
                         <td> 
+                            <a type="button" class="btnEditarIngreso btn btn-outline-primary bi bi-pencil"> </a>
                             <a href="/eliminarHuesped/<%= Huesped.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-trash"> </a>
                         </td>
                     </tr>
@@ -66,5 +67,62 @@
         </table>
     </div>
 </div>
+   <!-- ventana modal -->
+   <div id="modalIngreso" class="modal fade" tabindex="-1" aria-labelledby="modalIngreso" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Ingresar Cliente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/EditarIngreso" method="POST">
+                    <div class="mb-3">
+                        <input id="Habitacion" type="text" name="Habitacion" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombres" required>
+                    </div>
+                    <div class="mb-3">
+                      <input id="Apellido" name="Apellido" type="text" class="form-control" placeholder="Apellidos" required>
+                    </div>
+                  <div class="mb-3">
+                    <input id="Tipo" name="Tipo" type="text" class="form-control" placeholder="Tipo" required>
+                    <input id="Documento" name="Documento" type="text" class="form-control" placeholder="Documento" required>
+                </div>
+                <div class="mb-3">
+                    <input id="Celular" name="Celular" type="text" class="form-control" placeholder="Celular" required>
+                  </div>
+                  <div class="mb-3">
+                    <input id="Correo" name="Correo" type="text" class="form-control" placeholder="Correo" required>
+                  </div>
+                    <div class="mb-3">
+                        <input id="Abono" name="Abono" type="text" class="form-control" placeholder="Abono" required>
+                      </div>
+                      <div class="mb-3">
+                        <input id="Pago" name="Pago" type="text" class="form-control" placeholder="Pago final">
+                      </div>
+                      <div class="mb-3">
+                        <input id="Adultos" name="Adultos" type="text" class="form-control" placeholder="Adultos" >
+                        <input id="Niños" name="Niños" type="text" class="form-control" placeholder="Niños" >
+                        <input id="Bebes" name="Bebes" type="text" class="form-control" placeholder="Bebes" >
+                      </div>
+                      <div class="mb-3">
+                        <label for="Fecha" class="col-form-label letra">Fecha Ingreso:</label>
+                        <input id="Fecha" name="Fecha" type="text" class="form-control" value="">
+                      </div>
+                      <div class="mb-3">
+                        <label for="Salida" class="col-form-label letra">Fecha Salida:</label>
+                        <input id="Salida" name="Salida" type="text" class="form-control" value="">
+                      </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Ingresar</button>
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+<script src="js/editarIngreso.js"></script>
 </body>
 </html>

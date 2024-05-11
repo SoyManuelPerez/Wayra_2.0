@@ -10,8 +10,8 @@ const Huesped = new mongoose.Schema ({
     Adultos: Number,
     Niños: Number,
     Bebes: Number,
-    Abono: Number,
-    Final: Number,
+    Abono: String,
+    Final: String,
     Ingreso: String, 
     Salida: String
 })

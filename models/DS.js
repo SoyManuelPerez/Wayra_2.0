@@ -10,8 +10,8 @@ const DS = new mongoose.Schema ({
     Adultos: Number,
     Niños: Number,
     Bebes: Number,
-    Abono: Number,
-    Final: Number,
+    Abono: String,
+    Final: String,
     Ingreso: String, 
 })
 module.exports = mongoose.model('Dia_Sol', DS)

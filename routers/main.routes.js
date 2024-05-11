@@ -4,6 +4,8 @@ const HB = require('../controllers/HB_1')
 const ventas = require('../controllers/Ventas_controllers')
 const Huesped = require('../controllers/Husped_controlles')
 const Ds = require('../controllers/Ds_controllers')
+//Editar Huespedes
+router.post('/EditarIngreso',Huesped.editar)
 //Ventas
 router.get('/ventas',ventas.mostrar,(req,res)=>{
     res.render('Ventas')
