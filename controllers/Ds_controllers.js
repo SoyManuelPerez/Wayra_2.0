@@ -58,3 +58,33 @@ module.exports.eliminar = (req, res) => {
     });
   res.redirect('/HDS')
 }
+module.exports.editar = (req, res) => {
+
+  const Comanda = req.body.Comanda
+  const Nombres = req.body.Nombre
+  const Apellidos = req.body.Apellido
+  const Tipo = req.body.tipo
+  const Documento = req.body.Documento
+  const Adultos = req.body.Adultos
+  const Niños = req.body.Niños
+  const Bebes = req.body.Bebes
+  const Abono = req.body.Abono
+  const Final = req.body.Pago
+  const Ingreso = req.body.Fecha
+
+Ds.findOneAndUpdate({ 
+  $and: [
+    { Comanda: Comanda.trim() },
+    { Documento: Documento.trim() }
+    
+  ]
+}, { Comanda, Nombres, Apellidos, Tipo,Adultos,Niños,Bebes,Abono,Final,Ingreso}).exec()
+  .then(resultado => {
+    console.log("Objeto Actualizado : ", resultado);
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+  res.redirect('/HDS')
+}

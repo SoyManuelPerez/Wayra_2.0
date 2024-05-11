@@ -35,7 +35,12 @@ module.exports.editar = (req, res) => {
   const Ingreso = req.body.Fecha
   const Salida = req.body.Salida
 
-  Huesped.findOneAndUpdate({ Documento: Documento.trim() }, { HB, Nombres, Apellidos, Tipo,Celular,Correo,Adultos,Niños,Bebes,Abono,Final,Ingreso,Salida}).exec()
+  Huesped.findOneAndUpdate({ 
+    $and: [
+      { Documento: Documento.trim() },
+      { HB: HB.trim() }
+    ]
+  }, { Nombres, Apellidos, Tipo,Celular,Correo,Adultos,Niños,Bebes,Abono,Final,Ingreso,Salida}).exec()
     .then(resultado => {
       console.log("Objeto Actualizado : ", resultado);
     })

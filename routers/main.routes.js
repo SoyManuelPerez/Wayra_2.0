@@ -6,6 +6,8 @@ const Huesped = require('../controllers/Husped_controlles')
 const Ds = require('../controllers/Ds_controllers')
 //Editar Huespedes
 router.post('/EditarIngreso',Huesped.editar)
+//Editar DS
+router.post('/EditarDS',Ds.editar)
 //Ventas
 router.get('/ventas',ventas.mostrar,(req,res)=>{
     res.render('Ventas')
