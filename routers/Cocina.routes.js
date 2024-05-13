@@ -59,58 +59,8 @@ router.get('/CCuentaCB-24/:id',Cocina.CB24)
 //Devolver a la cuenta De CB25
 router.get('/CCuentaCB-25/:id',Cocina.CB25)
 //
-//entrante
-router.get('/CuentaEHB-1/:id',Cocina.EHB1)
-//Devolver a la cuenta De HB2
-router.get('/CuentaEHB-2/:id',Cocina.EHB2)
-//Devolver a la cuenta De HB3
-router.get('/CuentaEHB-3/:id',Cocina.EHB3)
-//Devolver a la cuenta De HB4
-router.get('/CuentaEHB-4/:id',Cocina.EHB4)
-//Devolver a la cuenta De HB5
-router.get('/CuentaEHB-5/:id',Cocina.EHB5)
-//Devolver a la cuenta De HB6
-router.get('/CuentaEHB-6/:id',Cocina.EHB6)
-//Devolver a la cuenta De HB7
-router.get('/CuentaEHB-7/:id',Cocina.EHB7)
-//Devolver a la cuenta De HB8
-router.get('/CuentaEHB-8/:id',Cocina.EHB8)
-//Devolver a la cuenta De HB9
-router.get('/CuentaEHB-9/:id',Cocina.EHB9)
-//Devolver a la cuenta De HB10
-router.get('/CuentaEHB-10/:id',Cocina.EHB10)
-//Devolver a la cuenta De HB11
-router.get('/CuentaEHB-11/:id',Cocina.EHB11)
-//Devolver a la cuenta De HB12
-router.get('/CuentaEHB-12/:id',Cocina.EHB12)
-//Devolver a la cuenta De HB13
-router.get('/CuentaEHB-13/:id',Cocina.EHB13)
-//Devolver a la cuenta De CB14
-router.get('/CuentaECB-14/:id',Cocina.ECB14)
-//Devolver a la cuenta De CB15
-router.get('/CuentaECB-15/:id',Cocina.ECB15)
-//Devolver a la cuenta De CB16
-router.get('/CuentaECB-16/:id',Cocina.ECB16)
-//Devolver a la cuenta De CB17
-router.get('/CuentaECB-17/:id',Cocina.ECB17)
-//Devolver a la cuenta De CB18
-router.get('/CuentaECB-18/:id',Cocina.ECB18)
-//Devolver a la cuenta De CB19
-router.get('/CuentaECB-19/:id',Cocina.ECB19)
-//Devolver a la cuenta De CB20
-router.get('/CuentaECB-20/:id',Cocina.ECB20)
-//Devolver a la cuenta De CB21
-router.get('/CuentaECB-21/:id',Cocina.ECB21)
-//Devolver a la cuenta De CB22
-router.get('/CuentaECB-22/:id',Cocina.ECB22)
-//Devolver a la cuenta De CB23
-router.get('/CuentaECB-23/:id',Cocina.ECB23)
-//Devolver a la cuenta De CB24
-router.get('/CuentaECB-24/:id',Cocina.ECB24)
-//Devolver a la cuenta De CB25
-router.get('/CuentaECB-25/:id',Cocina.ECB25)
-//Dias de sol
-//entrante
+//Entrante
+//Devolver a la cuenta De HB1
 router.get('/CCuentaEHB-1/:id',Cocina.EHB1)
 //Devolver a la cuenta De HB2
 router.get('/CCuentaEHB-2/:id',Cocina.EHB2)
@@ -220,6 +170,45 @@ router.get('/CCuentaDS-28/:id',Cocina.DS28)
 router.get('/CCuentaDS-29/:id',Cocina.DS29)
 //DS-30
 router.get('/CCuentaDS-30/:id',Cocina.DS30)
-
+//DS-31
+router.get('/CCuentaDS-31/:id',Cocina.DS31)
+//DS-32
+router.get('/CCuentaDS-32/:id',Cocina.DS32)
+//DS-33
+router.get('/CCuentaDS-33/:id',Cocina.DS33)
+//DS-34
+router.get('/CCuentaDS-34/:id',Cocina.DS34)
+//DS-35
+router.get('/CCuentaDS-35/:id',Cocina.DS35)
+//DS-36
+router.get('/CCuentaDS-36/:id',Cocina.DS36)
+//DS-37
+router.get('/CCuentaDS-37/:id',Cocina.DS37)
+//DS-38
+router.get('/CCuentaDS-38/:id',Cocina.DS38)
+//DS-39
+router.get('/CCuentaDS-39/:id',Cocina.DS39)
+//DS-40
+router.get('/CCuentaDS-40/:id',Cocina.DS40)
+//DS-41
+router.get('/CCuentaDS-41/:id',Cocina.DS41)
+//DS-42
+router.get('/CCuentaDS-42/:id',Cocina.DS42)
+//DS-43
+router.get('/CCuentaDS-43/:id',Cocina.DS43)
+//DS-44
+router.get('/CCuentaDS-44/:id',Cocina.DS44)
+//DS-45
+router.get('/CCuentaDS-45/:id',Cocina.DS45)
+//DS-46
+router.get('/CCuentaDS-46/:id',Cocina.DS46)
+//DS-47
+router.get('/CCuentaDS-47/:id',Cocina.DS47)
+//DS-48
+router.get('/CCuentaDS-48/:id',Cocina.DS48)
+//DS-49
+router.get('/CCuentaDS-49/:id',Cocina.DS49)
+//DS-50
+router.get('/CCuentaDS-50/:id',Cocina.DS50)
 
 module.exports = router
