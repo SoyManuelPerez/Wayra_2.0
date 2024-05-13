@@ -1322,7 +1322,6 @@ module.exports.ECB25 = async (req, res) => {
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
             await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
         }
         await Bar.findByIdAndDelete(id).lean().exec();
