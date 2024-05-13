@@ -58,6 +58,56 @@ router.get('/CuentaCB-23/:id',Bar.CB23)
 router.get('/CuentaCB-24/:id',Bar.CB24)
 //Devolver a la cuenta De CB25
 router.get('/CuentaCB-25/:id',Bar.CB25)
+//entrante
+router.get('/CuentaEHB-1/:id',Bar.EHB1)
+//Devolver a la cuenta De HB2
+router.get('/CuentaEHB-2/:id',Bar.EHB2)
+//Devolver a la cuenta De HB3
+router.get('/CuentaEHB-3/:id',Bar.EHB3)
+//Devolver a la cuenta De HB4
+router.get('/CuentaEHB-4/:id',Bar.EHB4)
+//Devolver a la cuenta De HB5
+router.get('/CuentaEHB-5/:id',Bar.EHB5)
+//Devolver a la cuenta De HB6
+router.get('/CuentaEHB-6/:id',Bar.EHB6)
+//Devolver a la cuenta De HB7
+router.get('/CuentaEHB-7/:id',Bar.EHB7)
+//Devolver a la cuenta De HB8
+router.get('/CuentaEHB-8/:id',Bar.EHB8)
+//Devolver a la cuenta De HB9
+router.get('/CuentaEHB-9/:id',Bar.EHB9)
+//Devolver a la cuenta De HB10
+router.get('/CuentaEHB-10/:id',Bar.EHB10)
+//Devolver a la cuenta De HB11
+router.get('/CuentaEHB-11/:id',Bar.EHB11)
+//Devolver a la cuenta De HB12
+router.get('/CuentaEHB-12/:id',Bar.EHB12)
+//Devolver a la cuenta De HB13
+router.get('/CuentaEHB-13/:id',Bar.EHB13)
+//Devolver a la cuenta De CB14
+router.get('/CuentaECB-14/:id',Bar.ECB14)
+//Devolver a la cuenta De CB15
+router.get('/CuentaECB-15/:id',Bar.ECB15)
+//Devolver a la cuenta De CB16
+router.get('/CuentaECB-16/:id',Bar.ECB16)
+//Devolver a la cuenta De CB17
+router.get('/CuentaECB-17/:id',Bar.ECB17)
+//Devolver a la cuenta De CB18
+router.get('/CuentaECB-18/:id',Bar.ECB18)
+//Devolver a la cuenta De CB19
+router.get('/CuentaECB-19/:id',Bar.ECB19)
+//Devolver a la cuenta De CB20
+router.get('/CuentaECB-20/:id',Bar.ECB20)
+//Devolver a la cuenta De CB21
+router.get('/CuentaECB-21/:id',Bar.ECB21)
+//Devolver a la cuenta De CB22
+router.get('/CuentaECB-22/:id',Bar.ECB22)
+//Devolver a la cuenta De CB23
+router.get('/CuentaECB-23/:id',Bar.ECB23)
+//Devolver a la cuenta De CB24
+router.get('/CuentaECB-24/:id',Bar.ECB24)
+//Devolver a la cuenta De CB25
+router.get('/CuentaECB-25/:id',Bar.ECB25)
 //Dias de sol
 //DS-1
 router.get('/CuentaDS-1/:id',Bar.DS1)

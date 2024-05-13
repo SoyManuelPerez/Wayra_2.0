@@ -51,10 +51,7 @@ module.exports.Crear = async (req, res) => {
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
     if (producto.Tipo == "Bar") {
-      const ds = await DiasSol.findOne({ DS: "DS-3", Ingreso: Fecha });
-      if (!ds) {
-        return res.status(404).send("No se encontró el día de sol DS-3 para hoy");
-      }
+      const ds = await DiasSol.findOne({ DS: "DS-3" });
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
@@ -68,7 +65,7 @@ module.exports.Crear = async (req, res) => {
       const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await bar.save();
     } else if (producto.Tipo == "Cocina") {
-      const ds = await DiasSol.findOne({ DS: "DS-3", Ingreso: Fecha });
+      const ds = await DiasSol.findOne({ DS: "DS-3"});
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
