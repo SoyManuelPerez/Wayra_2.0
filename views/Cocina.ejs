@@ -57,8 +57,8 @@
     const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
     const fechaHoy = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000); // Fecha actual en Bogotá
     const fechaHoyStr = fechaHoy.toISOString().split('T')[0];
-    const horaActual = fechaHoy.getHours(); // Obtener la hora actual en Bogotá
-    
+    const horaActual = new Date().toLocaleString("es-CO", { timeZone: "America/Bogota", hour: "numeric", hour12: false }); // Obtener la hora actual en Bogotá
+    let fechaSalidaStr = ""
     Huesped.forEach((Huesped) => {
         const Ingreso = Huesped.Ingreso.split('-'); // Suponiendo que el formato es YYYY-MM-DD
         const añoI = parseInt(Ingreso[0]);
@@ -74,7 +74,7 @@
         const dia = parseInt(partesFecha[2]);
         const fechaSalida = new Date(año, mes, dia, 23, 59, 59, 999); // Fecha de salida en Bogotá
         fechaSalida.setTime(fechaSalida.getTime() + timeZoneOffset * 60 * 1000); // Ajustar a la zona horaria de Bogotá
-        const fechaSalidaStr = fechaSalida.toISOString().split('T')[0];
+        fechaSalidaStr = fechaSalida.toISOString().split('T')[0];
         
         // Verificar si la fecha de salida del huésped es mayor o igual a la fecha de hoy
         // y la hora de salida es antes de las 3:00 p. m.
@@ -89,7 +89,6 @@
         }
     });
 %>
-    
     <%
     let fechaIngresoDS = ""
     let cantidadAdultosD = 0;

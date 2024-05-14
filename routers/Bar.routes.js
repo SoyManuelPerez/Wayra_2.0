@@ -5,8 +5,7 @@ const Bar = require('../controllers/bar_controllers')
 router.get('/Bar',Bar.mostrar,(req,res)=>{
     res.render('bar')
 })
-//Eliminar
-//Eliminar de la cuentaHB1
+//Eliminar Bar
 router.get('/eliminarBar/:id',Bar.eliminar);
 //Devolver a la cuenta De HB1
 router.get('/CuentaHB-1/:id',Bar.HB1)
@@ -58,7 +57,8 @@ router.get('/CuentaCB-23/:id',Bar.CB23)
 router.get('/CuentaCB-24/:id',Bar.CB24)
 //Devolver a la cuenta De CB25
 router.get('/CuentaCB-25/:id',Bar.CB25)
-//entrante
+//Entrantes
+//Devolver a la cuenta De HB2
 router.get('/CuentaEHB-1/:id',Bar.EHB1)
 //Devolver a la cuenta De HB2
 router.get('/CuentaEHB-2/:id',Bar.EHB2)
@@ -169,5 +169,44 @@ router.get('/CuentaDS-28/:id',Bar.DS28)
 router.get('/CuentaDS-29/:id',Bar.DS29)
 //DS-30
 router.get('/CuentaDS-30/:id',Bar.DS30)
-
+//DS-31
+router.get('/CuentaDS-31/:id',Bar.DS31)
+//DS-32
+router.get('/CuentaDS-32/:id',Bar.DS32)
+//DS-33
+router.get('/CuentaDS-33/:id',Bar.DS33)
+//DS-34
+router.get('/CuentaDS-34/:id',Bar.DS34)
+//DS-35
+router.get('/CuentaDS-35/:id',Bar.DS35)
+//DS-36
+router.get('/CuentaDS-36/:id',Bar.DS36)
+//DS-37
+router.get('/CuentaDS-37/:id',Bar.DS37)
+//DS-38
+router.get('/CuentaDS-38/:id',Bar.DS38)
+//DS-39
+router.get('/CuentaDS-39/:id',Bar.DS39)
+//DS-40
+router.get('/CuentaDS-40/:id',Bar.DS40)
+//DS-41
+router.get('/CuentaDS-41/:id',Bar.DS41)
+//DS-42
+router.get('/CuentaDS-42/:id',Bar.DS42)
+//DS-43
+router.get('/CuentaDS-43/:id',Bar.DS43)
+//DS-44
+router.get('/CuentaDS-44/:id',Bar.DS44)
+//DS-45
+router.get('/CuentaDS-45/:id',Bar.DS45)
+//DS-46
+router.get('/CuentaDS-46/:id',Bar.DS46)
+//DS-47
+router.get('/CuentaDS-47/:id',Bar.DS47)
+//DS-48
+router.get('/CuentaDS-48/:id',Bar.DS48)
+//DS-49
+router.get('/CuentaDS-49/:id',Bar.DS49)
+//DS-50
+router.get('/CuentaDS-50/:id',Bar.DS50)
 module.exports = router

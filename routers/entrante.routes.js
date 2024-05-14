@@ -226,11 +226,11 @@ router.get('/EAgregarCB23/:id',CB23.Crear);
 router.get('/EeliminarCB23/:id',CB23.eliminar);
 
 //CB24
-router.get('/ECB-24',CB23.mostrar,(req,res)=>{
+router.get('/ECB-24',CB24.mostrar,(req,res)=>{
     res.render('ECB-24')
 })
 ////Agregar a la cuenta CB24
-router.get('/EAgregarCB24/:id',CB23.Crear);
+router.get('/EAgregarCB24/:id',CB24.Crear);
 //Eliminar de la cuentaCB24
 router.get('/EeliminarCB24/:id',CB24.eliminar);
 //CB25
