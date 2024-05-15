@@ -11,24 +11,41 @@ const Usuario = require('../models/Usuarios')
 module.exports.mostrar = (req, res) => {
   const token = req.cookies.jwt;
   let mesero = "";
+
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        res.send('Error al verificar el token.');
+        return res.send('Error al verificar el token.');
       }
       mesero = decoded.user;
     });
   }
-    Promise.all([
-        HB.find({}),
-        Productos.find({}),
-        Usuario.find({ user: mesero })
-    ])
-    .then(([HB, Productos,Usuario]) => {
-      const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-        res.render('HB-1', { HB: HB, productos: Productos,tipoUsuario: tipoUsuario});
+  const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
+  const fecha = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000);
+  const fechaHoyStr = fecha.toISOString().split('T')[0];
+  console.log(fechaHoyStr)
+  Promise.all([
+    HB.find({}), // Ajusta el nombre del campo de acuerdo a tu esquema
+    Productos.find({}),
+    Usuario.find({ user: mesero }),
+    Huesped.find({
+      HB: 'HB-1'
     })
-    .catch(err => console.log(err, 'Error mostrando datos'));
+  ])
+  .then(([HB, Productos, Usuario, Huesped]) => {
+    const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
+    console.log(Huesped)
+    res.render('HB-1', {
+      HB: HB,
+      productos: Productos,
+      tipoUsuario: tipoUsuario,
+      huespedes: Huesped // Incluye los huéspedes filtrados en la respuesta
+    });
+  })
+  .catch(err => {
+    console.log(err, 'Error mostrando datos');
+    res.status(500).send('Error mostrando datos');
+  });
 };
 //Guardar Productos
 module.exports.Crear = async (req, res) => {
