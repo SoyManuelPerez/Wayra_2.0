@@ -10,25 +10,36 @@ const moment = require('moment-timezone');
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
   const token = req.cookies.jwt;
-  let mesero = "";
+  let usuario = ""
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        res.send('Error al verificar el token.');
+        return res.send('Error al verificar el token.');
       }
-      mesero = decoded.user;
+      usuario = decoded.user;
     });
   }
-    Promise.all([
-        DS.find({}),
-        Productos.find({}),
-        Usuario.find({ user: mesero })
-    ])
-    .then(([DS, Productos,Usuario]) => {
-      const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-        res.render('DS-1', { DS: DS, productos: Productos,tipoUsuario: tipoUsuario});
+  Promise.all([
+    DS.find({}), 
+    Productos.find({}),
+    Usuario.find({ user: usuario }),
+    DiasSol.find({
+      DS: 'DS-1'
     })
-    .catch(err => console.log(err, 'Error mostrando datos'));
+  ])
+  .then(([DS, Productos, Usuario, DiasSol]) => {
+    const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
+    res.render('DS-1', {
+      DS: DS,
+      productos: Productos,
+      tipoUsuario: tipoUsuario,
+      ds: DiasSol 
+    });
+  })
+  .catch(err => {
+    console.log(err, 'Error mostrando datos');
+    res.status(500).send('Error mostrando datos');
+  });
 };
 //Guardar Productos
 module.exports.Crear = async (req, res) => {

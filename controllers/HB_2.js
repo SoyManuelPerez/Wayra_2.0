@@ -9,25 +9,37 @@ const Usuario = require('../models/Usuarios')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
   const token = req.cookies.jwt;
-  let mesero = "";
+  let usuario = ""
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        res.send('Error al verificar el token.');
+        return res.send('Error al verificar el token.');
       }
-      mesero = decoded.user;
+      usuario = decoded.user;
     });
   }
-    Promise.all([
-        HB.find({}),
-        Productos.find({}),
-        Usuario.find({ user: mesero })
-    ])
-    .then(([HB, Productos,Usuario]) => {
-      const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-        res.render('HB-2', { HB: HB, productos: Productos,tipoUsuario: tipoUsuario});
+  Promise.all([
+    HB.find({}), // Ajusta el nombre del campo de acuerdo a tu esquema
+    Productos.find({}),
+    Usuario.find({ user: usuario }),
+    Huesped.find({
+      HB: 'HB-2'
     })
-    .catch(err => console.log(err, 'Error mostrando datos'));
+  ])
+  .then(([HB, Productos, Usuario, Huesped]) => {
+    const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
+    console.log(Huesped)
+    res.render('HB-2', {
+      HB: HB,
+      productos: Productos,
+      tipoUsuario: tipoUsuario,
+      huespedes: Huesped 
+    });
+  })
+  .catch(err => {
+    console.log(err, 'Error mostrando datos');
+    res.status(500).send('Error mostrando datos');
+  });
 };
 //Guardar Productos
 module.exports.Crear = async (req, res) => {

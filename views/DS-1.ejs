@@ -48,6 +48,29 @@
         </div>
         <%} %>
 </div>
+<div class="container text-start">
+    <% // Configurar la zona horaria para Bogotá
+        const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
+        const fechaHoy = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000); // Fecha actual en Bogotá
+        const fechaHoyStr = fechaHoy.toISOString().split('T')[0];
+        let Nombre = ""
+        let comanda = ""
+        ds.forEach((ds)=>{
+            fechaIngresoDS = new Date(ds.Ingreso);
+            const partesFecha = ds.Ingreso.split('-'); // Suponiendo que el formato es YYYY-MM-DD
+            const año = parseInt(partesFecha[0]);
+            const mes = parseInt(partesFecha[1]) - 1; // Los meses en JavaScript van de 0 a 11
+            const dia = parseInt(partesFecha[2]);
+            fechaIngresoDS = new Date(año, mes, dia);
+        if (fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
+                fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
+                fechaIngresoDS.getDate() === fechaHoy.getDate()) {
+                Nombre = ds.Nombres +" "+ ds.Apellidos
+                comanda =ds.Comanda
+            }}) %>
+    <h3>Comanda:<%= comanda %> </h3>
+    <h3>Cliente:<%= Nombre %></h3>
+</div>
 <div class="row ">
     <div class="col-6">
         <h2>Productos</h2>

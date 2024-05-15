@@ -10,24 +10,19 @@ const Usuario = require('../models/Usuarios')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
   const token = req.cookies.jwt;
-  let mesero = "";
-
+  let usuario = ""
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         return res.send('Error al verificar el token.');
       }
-      mesero = decoded.user;
+      usuario = decoded.user;
     });
   }
-  const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
-  const fecha = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000);
-  const fechaHoyStr = fecha.toISOString().split('T')[0];
-  console.log(fechaHoyStr)
   Promise.all([
     HB.find({}), // Ajusta el nombre del campo de acuerdo a tu esquema
     Productos.find({}),
-    Usuario.find({ user: mesero }),
+    Usuario.find({ user: usuario }),
     Huesped.find({
       HB: 'HB-1'
     })
@@ -39,7 +34,7 @@ module.exports.mostrar = (req, res) => {
       HB: HB,
       productos: Productos,
       tipoUsuario: tipoUsuario,
-      huespedes: Huesped // Incluye los huéspedes filtrados en la respuesta
+      huespedes: Huesped 
     });
   })
   .catch(err => {
