@@ -16,11 +16,11 @@ onl(document,'click','.btnEditarIngreso',e=>{
     Documento.value = fila.children[4].innerHTML
     Celular.value = fila.children[5].innerHTML
     Correo.value = fila.children[6].innerHTML
-    Abono.value = fila.children[7].innerHTML
-    Pago.value = fila.children[8].innerHTML
-    Adultos.value = fila.children[9].innerHTML
-    Niños.value = fila.children[10].innerHTML
-    Bebes.value = fila.children[11].innerHTML
+    Adultos.value = fila.children[7].innerHTML
+    Niños.value = fila.children[8].innerHTML
+    Bebes.value = fila.children[9].innerHTML
+    Abono.value = fila.children[10].innerHTML
+    Pago.value = fila.children[11].innerHTML
     Fecha.value = fila.children[12].innerHTML
     Salida.value = fila.children[13].innerHTML
     Habitacion.setAttribute('readonly', true)
