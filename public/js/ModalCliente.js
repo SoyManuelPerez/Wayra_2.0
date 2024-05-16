@@ -1,5 +1,5 @@
 const modalProducto = new bootstrap.Modal(document.getElementById('modalIngreso'));
-
+const modalPagos = new bootstrap.Modal(document.getElementById('modalPagos'));
 const onl = (element, event, selector, handler) => {
     element.addEventListener(event, e => {
         if (e.target.closest(selector)) {
@@ -10,5 +10,11 @@ const onl = (element, event, selector, handler) => {
 
 onl(document, 'click', '.btnCliente', e => {
     modalProducto.show();
+    console.log(e)
+});
+
+onl(document, 'click', '.btnPagos', e => {
+    modalPagos.show();
+    Cuenta.setAttribute('readonly', true)
     console.log(e)
 });
