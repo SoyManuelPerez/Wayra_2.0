@@ -7,28 +7,40 @@ const DiasSol = require ('../models/DS')
 const jsonwebtoken = require('jsonwebtoken')
 const Usuario = require('../models/Usuarios')
 const moment = require('moment-timezone');
+const Pago = require('../models/Pagos')
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
   const token = req.cookies.jwt;
-  let mesero = "";
+  let usuario = ""
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        res.send('Error al verificar el token.');
+        return res.send('Error al verificar el token.');
       }
-      mesero = decoded.user;
+      usuario = decoded.user;
     });
   }
-    Promise.all([
-        DS.find({}),
-        Productos.find({}),
-        Usuario.find({ user: mesero })
-    ])
-    .then(([DS, Productos,Usuario]) => {
-      const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-        res.render('DS-50', { DS: DS, productos: Productos,tipoUsuario: tipoUsuario});
+  Promise.all([
+    DS.find({}), 
+    Productos.find({}),
+    Usuario.find({ user: usuario }),
+    DiasSol.find({
+      DS: 'DS-50'
     })
-    .catch(err => console.log(err, 'Error mostrando datos'));
+  ])
+  .then(([DS, Productos, Usuario, DiasSol]) => {
+    const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
+    res.render('DS9', {
+      DS: DS,
+      productos: Productos,
+      tipoUsuario: tipoUsuario,
+      ds: DiasSol 
+    });
+  })
+  .catch(err => {
+    console.log(err, 'Error mostrando datos');
+    res.status(500).send('Error mostrando datos');
+  });
 };
 //Guardar Productos
 module.exports.Crear = async (req, res) => {
@@ -51,14 +63,14 @@ module.exports.Crear = async (req, res) => {
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
     if (producto.Tipo == "Bar") {
-      const ds = await DiasSol.findOne({ DS: "DS-30", Ingreso: Fecha });
+      const ds = await DiasSol.findOne({ DS: "DS-50", Ingreso: Fecha });
       if (!ds) {
-        return res.status(404).send("No se encontró el día de sol DS-30 para hoy");
+        return res.status(404).send("No se encontró el día de sol DS-50 para hoy");
       }
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const Mesa = "DS-30";
+      const Mesa = "DS-50";
       const Comanda = ds.Comanda;
       const Producto = producto.Producto;
       const Precio = producto.Precio;
@@ -68,11 +80,11 @@ module.exports.Crear = async (req, res) => {
       const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await bar.save();
     } else if (producto.Tipo == "Cocina") {
-      const ds = await DiasSol.findOne({ DS: "DS-30", Ingreso: Fecha });
+      const ds = await DiasSol.findOne({ DS: "DS-50", Ingreso: Fecha });
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
-      const Mesa = "DS-30";
+      const Mesa = "DS-50";
       const Comanda = ds.Comanda;
       const Producto = producto.Producto;
       const Precio = producto.Precio;
@@ -82,7 +94,7 @@ module.exports.Crear = async (req, res) => {
       const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
-      const ds = await DiasSol.findOne({ DS: "DS-30", Ingreso: Fecha });
+      const ds = await DiasSol.findOne({ DS: "DS-50", Ingreso: Fecha });
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
@@ -117,6 +129,15 @@ module.exports.pagar = async (req, res) => {
      return res.status(404).send('No se encontraron productos');
    }
    const productosVendidosIds = [];
+   const Cuenta = req.body.Cuenta
+    const Monto = req.body.Monto
+    const Tipo = req.body.Metodo
+    const Montoextra = req.body.Montoextra
+    const Tipoextra = req.body.Metodoextra
+    const ahora = moment().tz('America/Bogota');
+    const Fecha = ahora.format('YYYY-MM-DD');
+    const newpago =  new Pago({Cuenta,Monto,Tipo,Montoextra,Tipoextra,Fecha});
+    await newpago.save()
    for (const producto of productos) {
     const ahora = moment().tz('America/Bogota');
     const Mesero = producto.Usuario;
@@ -153,6 +174,7 @@ module.exports.eliminar = (req, res) => {
     });
   res.redirect('/DS-50')
 }
+
 //Agregar al dia de sol
 module.exports.agregar = async (req, res) => {
   const DS = req.body.DS

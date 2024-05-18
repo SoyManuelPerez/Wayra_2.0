@@ -6,6 +6,7 @@ const Cocina = require('../models/Cocina')
 const DiasSol = require ('../models/DS')
 const jsonwebtoken = require('jsonwebtoken')
 const Usuario = require('../models/Usuarios')
+const Pago = require('../models/Pagos')
 const moment = require('moment-timezone');
 //Mostrar productos
 module.exports.mostrar = (req, res) => {
@@ -128,6 +129,15 @@ module.exports.pagar = async (req, res) => {
      return res.status(404).send('No se encontraron productos');
    }
    const productosVendidosIds = [];
+   const Cuenta = req.body.Cuenta
+    const Monto = req.body.Monto
+    const Tipo = req.body.Metodo
+    const Montoextra = req.body.Montoextra
+    const Tipoextra = req.body.Metodoextra
+    const ahora = moment().tz('America/Bogota');
+    const Fecha = ahora.format('YYYY-MM-DD');
+    const newpago =  new Pago({Cuenta,Monto,Tipo,Montoextra,Tipoextra,Fecha});
+    await newpago.save()
    for (const producto of productos) {
     const ahora = moment().tz('America/Bogota');
     const Mesero = producto.Usuario;
