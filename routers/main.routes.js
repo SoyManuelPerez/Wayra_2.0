@@ -4,6 +4,7 @@ const HB = require('../controllers/HB_1')
 const ventas = require('../controllers/Ventas_controllers')
 const Huesped = require('../controllers/Husped_controlles')
 const Ds = require('../controllers/Ds_controllers')
+const Pagos = require('../controllers/Controllers_pagos')
 //Editar Huespedes
 router.post('/EditarIngreso',Huesped.editar)
 //Editar DS
@@ -11,6 +12,10 @@ router.post('/EditarDS',Ds.editar)
 //Ventas
 router.get('/ventas',ventas.mostrar,(req,res)=>{
     res.render('Ventas')
+})
+//Ingreso
+router.get('/Ingresos',Pagos.mostrar,(req,res)=>{
+    res.render('ingreso')
 })
 router.get('/eliminarventas/:id',ventas.eliminar,(req,res)=>{
     res.render('Ventas')
