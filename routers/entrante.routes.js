@@ -270,55 +270,56 @@ router.post('/EIngresarCliente23',CB23.agregar);
 router.post('/EIngresarCliente24',CB24.agregar);
 router.post('/EIngresarCliente25',CB25.agregar);
 
+//Pagar
 //Pagar HB1
-router.get('/EPagarHB',HB.pagar);
+router.post('/EPagarHB',HB.pagar);
 //Pagar HB2
-router.get('/EPagarHB2',HB2.pagar);
+router.post('/EPagarHB2',HB2.pagar);
 //Pagar HB3
-router.get('/EPagarHB3',HB3.pagar);
+router.post('/EPagarHB3',HB3.pagar);
 //Pagar HB4
-router.get('/EPagarHB4',HB4.pagar);
+router.post('/EPagarHB4',HB4.pagar);
 //Pagar HB5
-router.get('/EPagarHB5',HB5.pagar);
+router.post('/EPagarHB5',HB5.pagar);
 //Pagar HB6
-router.get('/EPagarHB6',HB6.pagar);
+router.post('/EPagarHB6',HB6.pagar);
 //Pagar HB7
-router.get('/EPagarHB7',HB7.pagar);
+router.post('/EPagarHB7',HB7.pagar);
 //Pagar HB8
-router.get('/EPagarHB8',HB8.pagar);
+router.post('/EPagarHB8',HB8.pagar);
 //Pagar HB9
-router.get('/EPagarHB9',HB9.pagar);
+router.post('/EPagarHB9',HB9.pagar);
 //Pagar HB10
-router.get('/EPagarHB10',HB10.pagar);
+router.post('/EPagarHB10',HB10.pagar);
 //Pagar HB11
-router.get('/EPagarHB11',HB11.pagar);
+router.post('/EPagarHB11',HB11.pagar);
 //Pagar HB12
-router.get('/EPagarHB12',HB12.pagar);
+router.post('/EPagarHB12',HB12.pagar);
 //Pagar HB13
-router.get('/EPagarHB13',HB13.pagar);
+router.post('/EPagarHB13',HB13.pagar);
 //Pagar CB14
-router.get('/EPagarCB14',CB14.pagar);
+router.post('/EPagarCB14',CB14.pagar);
 //Pagar CB15
-router.get('/EPagarCB15',CB15.pagar);
+router.post('/EPagarCB15',CB15.pagar);
 //Pagar CB16
-router.get('/EPagarCB16',CB16.pagar);
+router.post('/EPagarCB16',CB16.pagar);
 //Pagar CB17
-router.get('/EPagarCB17',CB17.pagar);
+router.post('/EPagarCB17',CB17.pagar);
 //Pagar CB18
-router.get('/EPagarCB18',CB18.pagar);
+router.post('/EPagarCB18',CB18.pagar);
 //Pagar CB19
-router.get('/EPagarCB19',CB19.pagar);
+router.post('/EPagarCB19',CB19.pagar);
 //Pagar CB20
-router.get('/EPagarCB20',CB20.pagar);
+router.post('/EPagarCB20',CB20.pagar);
 //Pagar CB21
-router.get('/EPagarCB21',CB21.pagar);
+router.post('/EPagarCB21',CB21.pagar);
 //Pagar CB22
-router.get('/EPagarCB22',CB22.pagar);
+router.post('/EPagarCB22',CB22.pagar);
 //Pagar CB23
-router.get('/EPagarCB23',CB23.pagar);
+router.post('/EPagarCB23',CB23.pagar);
 //Pagar CB24
-router.get('/EPagarCB24',CB24.pagar);
+router.post('/EPagarCB24',CB24.pagar);
 //Pagar CB25
-router.get('/EPagarCB25',CB25.pagar);
+router.post('/EPagarCB25',CB25.pagar);
 
 module.exports= router
