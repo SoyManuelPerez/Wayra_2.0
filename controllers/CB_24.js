@@ -12,23 +12,32 @@ const moment = require('moment-timezone');
 // Mostrar productos
 module.exports.mostrar = (req, res) => {
   const token = req.cookies.jwt;
-  let mesero = "";
+  let usuario = ""
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         return res.send('Error al verificar el token.');
       }
-      mesero = decoded.user;
+      usuario = decoded.user;
     });
   }
   Promise.all([
-    HB.find({}),
+    HB.find({}), // Ajusta el nombre del campo de acuerdo a tu esquema
     Productos.find({}),
-    Usuario.find({ user: mesero })
+    Usuario.find({ user: usuario }),
+    Huesped.find({
+      HB: 'CB-24'
+    })
   ])
-  .then(([HB, Productos, Usuario]) => {
+  .then(([HB, Productos, Usuario, Huesped]) => {
     const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-    res.render('CB-24', { HB: HB, productos: Productos, tipoUsuario: tipoUsuario });
+    console.log(Huesped)
+    res.render('CB-24', {
+      HB: HB,
+      productos: Productos,
+      tipoUsuario: tipoUsuario,
+      huespedes: Huesped 
+    });
   })
   .catch(err => {
     console.log(err, 'Error mostrando datos');

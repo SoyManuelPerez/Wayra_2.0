@@ -379,103 +379,103 @@ router.post('/IngresarDS50',DS50.agregar);
 //Pagar ds 1
 router.post('/PagarDS1',DS.pagar);
 //Pagar ds 2
-router.post('/PagarDS2',DS2.pagar);
+router.get('/PagarDS2',DS2.pagar);
 //Pagar ds 3
-router.post('/PagarDS3',DS3.pagar);
+router.get('/PagarDS3',DS3.pagar);
 //Pagar ds 4
-router.post('/PagarDS4',DS4.pagar);
+router.get('/PagarDS4',DS4.pagar);
 //Pagar ds 5
-router.post('/PagarDS5',DS5.pagar);
+router.get('/PagarDS5',DS5.pagar);
 //Pagar ds 6
-router.post('/PagarDS6',DS6.pagar);
+router.get('/PagarDS6',DS6.pagar);
 //Pagar ds 7
-router.post('/PagarDS7',DS7.pagar);
+router.get('/PagarDS7',DS7.pagar);
 //Pagar ds 8
-router.post('/PagarDS8',DS8.pagar);
+router.get('/PagarDS8',DS8.pagar);
 //Pagar ds 9
-router.post('/PagarDS9',DS9.pagar);
+router.get('/PagarDS9',DS9.pagar);
 //Pagar ds 10
-router.post('/PagarDS10',DS10.pagar);
+router.get('/PagarDS10',DS10.pagar);
 //Pagar ds 11
-router.post('/PagarDS11',DS11.pagar);
+router.get('/PagarDS11',DS11.pagar);
 //Pagar ds 12
-router.post('/PagarDS12',DS12.pagar);
+router.get('/PagarDS12',DS12.pagar);
 //Pagar ds 13
-router.post('/PagarDS13',DS13.pagar);
+router.get('/PagarDS13',DS13.pagar);
 //Pagar ds 14
-router.post('/PagarDS14',DS14.pagar);
+router.get('/PagarDS14',DS14.pagar);
 //Pagar ds 15
-router.post('/PagarDS15',DS15.pagar);
+router.get('/PagarDS15',DS15.pagar);
 //Pagar ds 16
-router.post('/PagarDS16',DS16.pagar);
+router.get('/PagarDS16',DS16.pagar);
 //Pagar ds 17
-router.post('/PagarDS17',DS17.pagar);
+router.get('/PagarDS17',DS17.pagar);
 //Pagar ds 18
-router.post('/PagarDS18',DS18.pagar);
+router.get('/PagarDS18',DS18.pagar);
 //Pagar ds 19
-router.post('/PagarDS19',DS19.pagar);
+router.get('/PagarDS19',DS19.pagar);
 //Pagar ds 20
-router.post('/PagarDS20',DS20.pagar);
+router.get('/PagarDS20',DS20.pagar);
 //Pagar ds 21
-router.post('/PagarDS21',DS21.pagar);
+router.get('/PagarDS21',DS21.pagar);
 //Pagar ds 22
-router.post('/PagarDS22',DS22.pagar);
+router.get('/PagarDS22',DS22.pagar);
 //Pagar ds 23
-router.post('/PagarDS23',DS23.pagar);
+router.get('/PagarDS23',DS23.pagar);
 //Pagar ds 24
-router.post('/PagarDS24',DS24.pagar);
+router.get('/PagarDS24',DS24.pagar);
 //Pagar ds 25
-router.post('/PagarDS25',DS25.pagar);
+router.get('/PagarDS25',DS25.pagar);
 //Pagar ds 26
-router.post('/PagarDS26',DS26.pagar);
+router.get('/PagarDS26',DS26.pagar);
 //Pagar ds 27
-router.post('/PagarDS27',DS27.pagar);
+router.get('/PagarDS27',DS27.pagar);
 //Pagar ds 28
-router.post('/PagarDS28',DS28.pagar);
+router.get('/PagarDS28',DS28.pagar);
 //Pagar ds 29
-router.post('/PagarDS29',DS29.pagar);
+router.get('/PagarDS29',DS29.pagar);
 //Pagar ds 30
-router.post('/PagarDS30',DS30.pagar);
+router.get('/PagarDS30',DS30.pagar);
 //Pagar ds 31
-router.post('/PagarDS31',DS31.pagar);
+router.get('/PagarDS31',DS31.pagar);
 //Pagar ds 32
-router.post('/PagarDS32',DS32.pagar);
+router.get('/PagarDS32',DS32.pagar);
 //Pagar ds 33
-router.post('/PagarDS33',DS33.pagar);
+router.get('/PagarDS33',DS33.pagar);
 //Pagar ds 34
-router.post('/PagarDS34',DS34.pagar);
+router.get('/PagarDS34',DS34.pagar);
 //Pagar ds 35
-router.post('/PagarDS35',DS35.pagar);
+router.get('/PagarDS35',DS35.pagar);
 //Pagar ds 36
-router.post('/PagarDS36',DS36.pagar);
+router.get('/PagarDS36',DS36.pagar);
 //Pagar ds 37
-router.post('/PagarDS37',DS37.pagar);
+router.get('/PagarDS37',DS37.pagar);
 //Pagar ds 38
-router.post('/PagarDS38',DS38.pagar);
+router.get('/PagarDS38',DS38.pagar);
 //Pagar ds 39
-router.post('/PagarDS39',DS39.pagar);
+router.get('/PagarDS39',DS39.pagar);
 //Pagar ds 40
-router.post('/PagarDS40',DS40.pagar);
+router.get('/PagarDS40',DS40.pagar);
 //Pagar ds 41
-router.post('/PagarDS41',DS41.pagar);
+router.get('/PagarDS41',DS41.pagar);
 //Pagar ds 42
-router.post('/PagarDS42',DS42.pagar);
+router.get('/PagarDS42',DS42.pagar);
 //Pagar ds 43
-router.post('/PagarDS43',DS43.pagar);
+router.get('/PagarDS43',DS43.pagar);
 //Pagar ds 44
-router.post('/PagarDS44',DS44.pagar);
+router.get('/PagarDS44',DS44.pagar);
 //Pagar ds 45
-router.post('/PagarDS45',DS45.pagar);
+router.get('/PagarDS45',DS45.pagar);
 //Pagar ds 46
-router.post('/PagarDS46',DS46.pagar);
+router.get('/PagarDS46',DS46.pagar);
 //Pagar ds 47
-router.post('/PagarDS47',DS47.pagar);
+router.get('/PagarDS47',DS47.pagar);
 //Pagar ds 48
-router.post('/PagarDS48',DS48.pagar);
+router.get('/PagarDS48',DS48.pagar);
 //Pagar ds 49
-router.post('/PagarDS49',DS49.pagar);
+router.get('/PagarDS49',DS49.pagar);
 //Pagar ds 50
-router.post('/PagarDS50',DS50.pagar);
+router.get('/PagarDS50',DS50.pagar);
 
 //Agregar a cuentas 
 //Agregar a la cuenta Ds1
