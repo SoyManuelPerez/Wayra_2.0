@@ -57,14 +57,12 @@ module.exports.Login =  (req,res)=>{
     const user = req.body.user;
     const password = req.body.password;
     if(!user || !password){
-        res.redirect('/')
-        console.log("debe llenar los campos") 
+      return res.status(400).send({status:"Error",message:"Los campos están incompletos"})
     }
     Usuario.findOne({ user: user }).lean().exec()
     .then(usuario => {
         if(password!== usuario.password){
-            console.log("Error en login")
-            res.redirect('/') 
+          return res.status(400).send({status:"Error",message:"Error durante login"})
         }
         const type = usuario.type
         if(type === "admin"){
@@ -79,7 +77,7 @@ module.exports.Login =  (req,res)=>{
                   path: "/"
                 }
                 res.cookie("jwt",token,cookieOption);
-            res.redirect('/hospedaje')  
+            res.send({status:"ok",message:"Usuario loggeado",redirect:"/hospedaje"});
           }else if(type === "mesero"){
             console.log("Valor de JWT_SECRET:", process.env.JWT_SECRET)
             const token = jsonwebtoken.sign(
@@ -92,11 +90,11 @@ module.exports.Login =  (req,res)=>{
                   path: "/"
                 }
                 res.cookie("jwt",token,cookieOption);
-            res.redirect('/hospedaje') 
+                res.send({status:"ok",message:"Usuario loggeado",redirect:"/hospedaje"});
           }   else if(type === "bar"){
-            res.redirect('/Bar') 
+            res.send({status:"ok",message:"Usuario loggeado",redirect:"/Bar"});
           } else if(type === "cocina"){
-            res.redirect('/cocina') 
+            res.send({status:"ok",message:"Usuario loggeado",redirect:"/cocina"});
           }
     })
     .catch(err => {

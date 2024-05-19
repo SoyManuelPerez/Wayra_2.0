@@ -11,7 +11,7 @@ router.post('/CrearUsuario',Controllers_Usuario.Crear,);
 router.get('/',(req,res)=>{
     res.render('login')
 });
-router.post('/login',Controllers_Usuario.Login)
+router.post('/loginValida',Controllers_Usuario.Login)
 //Salir 
 router.get('/logout',Controllers_Usuario.logout);
 //Eliminar Usuario
