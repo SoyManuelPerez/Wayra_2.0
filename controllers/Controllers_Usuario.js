@@ -1,4 +1,3 @@
-
 const jsonwebtoken = require('jsonwebtoken')
 const Usuario = require('../models/Usuarios')
 const dotenv =  require('dotenv')
@@ -66,7 +65,6 @@ module.exports.Login =  (req,res)=>{
         }
         const type = usuario.type
         if(type === "admin"){
-            console.log("Valor de JWT_SECRET:", process.env.JWT_SECRET)
             const token = jsonwebtoken.sign(
                 {user:usuario.user},
                 process.env.JWT_SECRET,
@@ -79,7 +77,6 @@ module.exports.Login =  (req,res)=>{
                 res.cookie("jwt",token,cookieOption);
             res.send({status:"ok",message:"Usuario loggeado",redirect:"/hospedaje"});
           }else if(type === "mesero"){
-            console.log("Valor de JWT_SECRET:", process.env.JWT_SECRET)
             const token = jsonwebtoken.sign(
                 {user:usuario.user},
                 process.env.JWT_SECRET,
