@@ -63,7 +63,7 @@
         if (fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
                 fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
                 fechaIngresoDS.getDate() === fechaHoy.getDate()) {
-                Nombre = ds.Nombres +" "+ ds.Apellidos
+                Nombre = ds.Nombres
                 comanda =ds.Comanda
             }}) %>
     <h3>Comanda:<%= comanda %> </h3>
@@ -147,7 +147,7 @@
     </div>
 </div>
    <!-- ventana modal -->
-<div id="modalIngresoDS" class="modal fade" tabindex="-1" aria-labelledby="modalIngresoDS" aria-hidden="true">
+   <div id="modalIngresoDS" class="modal fade" tabindex="-1" aria-labelledby="modalIngresoDS" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
@@ -163,33 +163,13 @@
                         <input id="Comanda" name="Comanda" type="text" class="form-control" placeholder="Comanda" required>
                     </div>
                     <div class="mb-3">
-                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombres" required>
+                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombre Completo" required>
                     </div>
-                    <div class="mb-3">
-                      <input id="Apellido" name="Apellido" type="text" class="form-control" placeholder="Apellidos" required>
-                    </div>
-                  <div class="mb-3">
-                    <select name="tipo" id="type" class="form-select" required >
-                        <option value="Null">---Tipo documento---</option>
-                        <option value="CC">CC</option>
-                        <option value="TI">TI</option>
-                        <option value="PS">Pasaporte</option>
-                        <option value="RC">Registro</option>
-                        <option value="Otro">Otro</option>
-                      </select>
-                    <input id="Documento" name="Documento" type="text" class="form-control" placeholder="Documento" required>
-                    </div>
-                    <div class="mb-3">
-                        <input id="Adultos" name="Adultos" type="number" class="form-control" placeholder="Adultos" >
-                        <input id="Niños" name="Niños" type="number" class="form-control" placeholder="Niños" >
-                        <input id="Bebes" name="Bebes" type="number" class="form-control" placeholder="Bebes" >
-                      </div>
-                    <div class="mb-3">
-                        <input id="Abono" name="Abono" type="text" class="form-control" placeholder="Abono">
-                      </div>
-                      <div class="mb-3">
-                        <input id="Pago" name="Pago" type="text" class="form-control" placeholder="Pago final">
-                      </div>
+                <div class="mb-3">
+                    <input id="Adultos" name="Adultos" type="number" class="form-control" placeholder="Adultos" >
+                    <input id="Niños" name="Niños" type="number" class="form-control" placeholder="Niños" >
+                    <input id="Bebes" name="Bebes" type="number" class="form-control" placeholder="Bebes" >
+                  </div>
                       <div class="mb-3">
                         <label for="Fecha" class="col-form-label letra">Fecha:</label>
                         <input id="Fecha" name="Fecha" type="date" class="form-control" value="">
@@ -241,6 +221,7 @@
                       <option value="Tarjeta Débito">Tarjeta Débito</option>
                       <option value="Tarjeta Crédito">Tarjeta Crédito</option>
                       <option value="Wompi">Wompi</option>
+                      <option value="Cortesia">Cortesia</option>
                     </select>
               </div>
                     <div class="modal-footer">

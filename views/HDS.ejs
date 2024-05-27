@@ -24,12 +24,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Comanda</th>
-                    <th scope="col">Nombres</th>
-                    <th scope="col">Apellidos </th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Documento</th>
-                    <th scope="col">Abono</th>
-                    <th scope="col">Pago</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Adultos</th>
                     <th scope="col">Niños</th>
                     <th scope="col">Bebes</th>
@@ -41,12 +36,7 @@
                 <%  DS.forEach((DS) => { %>
                     <tr>
                         <td> <%= DS.Comanda %></td>
-                        <td> <%= DS.Nombres %></td>
-                        <td> <%= DS.Apellidos %></td>
-                        <td> <%= DS.Tipo %></td>
-                        <td> <%= DS.Documento %></td>
-                        <td> <%= DS.Abono %></td>
-                        <td> <%= DS.Final %></td>
+                        <td> <%= DS.Nombre %></td>
                         <td> <%= DS.Adultos %></td>
                         <td> <%= DS.Niños %></td>
                         <td> <%= DS.Bebes %></td>
@@ -75,22 +65,9 @@
                         <input id="Comanda" name="Comanda" type="text" class="form-control" placeholder="Comanda" required>
                     </div>
                     <div class="mb-3">
-                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombres" required>
+                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombre Completo" required>
                     </div>
-                    <div class="mb-3">
-                      <input id="Apellido" name="Apellido" type="text" class="form-control" placeholder="Apellidos" required>
-                    </div>
-                  <div class="mb-3">
-                    <input id="Tipo" name="Tipo" type="text" class="form-control" placeholder="Tipo" required>
-                    <input id="Documento" name="Documento" type="text" class="form-control" placeholder="Documento" required>
-                </div>
-                    <div class="mb-3">
-                        <input id="Abono" name="Abono" type="text" class="form-control" placeholder="Abono" required>
-                      </div>
-                      <div class="mb-3">
-                        <input id="Pago" name="Pago" type="text" class="form-control" placeholder="Pago final">
-                      </div>
-                      <div class="mb-3">
+                      <div clas s="mb-3">
                         <input id="Adultos" name="Adultos" type="text" class="form-control" placeholder="Adultos" >
                         <input id="Niños" name="Niños" type="text" class="form-control" placeholder="Niños" >
                         <input id="Bebes" name="Bebes" type="text" class="form-control" placeholder="Bebes" >
