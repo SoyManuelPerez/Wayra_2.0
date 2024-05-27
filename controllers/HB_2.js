@@ -143,6 +143,7 @@ module.exports.pagar = async (req, res) => {
         Tipo,
         Fecha
       });
+      await Huesped.deleteOne({HB: 'HB-2'})
        await nuevoDocumento.save();
        productosVendidosIds.push(producto._id);
      }
