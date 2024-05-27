@@ -63,7 +63,7 @@
         if (fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
                 fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
                 fechaIngresoDS.getDate() === fechaHoy.getDate()) {
-                Nombre = ds.Nombres +" "+ ds.Apellidos
+                Nombre = ds.Nombre
                 comanda =ds.Comanda
             }}) %>
     <h3>Comanda:<%= comanda %> </h3>
@@ -147,7 +147,7 @@
     </div>
 </div>
    <!-- ventana modal -->
-<div id="modalIngresoDS" class="modal fade" tabindex="-1" aria-labelledby="modalIngresoDS" aria-hidden="true">
+   <div id="modalIngresoDS" class="modal fade" tabindex="-1" aria-labelledby="modalIngresoDS" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
@@ -163,33 +163,13 @@
                         <input id="Comanda" name="Comanda" type="text" class="form-control" placeholder="Comanda" required>
                     </div>
                     <div class="mb-3">
-                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombres" required>
+                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombre Completo" required>
                     </div>
-                    <div class="mb-3">
-                      <input id="Apellido" name="Apellido" type="text" class="form-control" placeholder="Apellidos" required>
-                    </div>
-                  <div class="mb-3">
-                    <select name="tipo" id="type" class="form-select" required >
-                        <option value="Null">---Tipo documento---</option>
-                        <option value="CC">CC</option>
-                        <option value="TI">TI</option>
-                        <option value="PS">Pasaporte</option>
-                        <option value="RC">Registro</option>
-                        <option value="Otro">Otro</option>
-                      </select>
-                    <input id="Documento" name="Documento" type="text" class="form-control" placeholder="Documento" required>
-                </div>
                 <div class="mb-3">
                     <input id="Adultos" name="Adultos" type="number" class="form-control" placeholder="Adultos" >
                     <input id="Niños" name="Niños" type="number" class="form-control" placeholder="Niños" >
                     <input id="Bebes" name="Bebes" type="number" class="form-control" placeholder="Bebes" >
                   </div>
-                    <div class="mb-3">
-                        <input id="Abono" name="Abono" type="text" class="form-control" placeholder="Abono">
-                      </div>
-                      <div class="mb-3">
-                        <input id="Pago" name="Pago" type="text" class="form-control" placeholder="Pago final">
-                      </div>
                       <div class="mb-3">
                         <label for="Fecha" class="col-form-label letra">Fecha:</label>
                         <input id="Fecha" name="Fecha" type="date" class="form-control" value="">
@@ -201,54 +181,56 @@
                 </form>
             </div>
         </div>
-</div>   <!-- ventana pagos -->
-<div id="modalPagos" class="modal fade" tabindex="-1" aria-labelledby="modalIngreso" aria-hidden="true">
- <div class="modal-dialog">
-     <div class="modal-content">
-         <div class="modal-header bg-primary text-white">
-             <h5 class="modal-title" id="exampleModalLabel">Pago de Cuenta</h5>
-             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body">
-             <form action="/PagarDS21" method="POST">
-                 <div class="mb-3">
-                     <input type="text" name="Cuenta" value="<%= comanda %>" class="form-control" readonly>
-                 </div>
-                 <div class="mb-3">
-                   <input id="Monto" name="Monto" type="text" class="form-control" placeholder="Monto" value="<%= totalPrecio %>" required>
-                 </div>
-               <div class="mb-3">
-                 <select name="Metodo" id="Metodo" class="form-select" required >
-                     <option value="">---Metodo de Pago---</option>
-                     <option value="Transferencia">Transferencia</option>
-                     <option value="QR">QR</option>
-                     <option value="Efectivo">Efectivo</option>
-                     <option value="Tarjeta Débito">Tarjeta Débito</option>
-                     <option value="Tarjeta Crédito">Tarjeta Crédito</option>
-                     <option value="Wompi">Wompi</option>
-                   </select>
-             </div>
-             <div class="mb-3">
-                 <input id="Montoextra" name="Montoextra" type="text" class="form-control" placeholder="Monto segundo pago" >
-               </div>
-             <div class="mb-3">
-               <select name="Metodoextra" id="Metodoextra" class="form-select"  >
-                   <option value="">---Metodo de Pago---</option>
-                   <option value="Transferencia">Transferencia</option>
-                   <option value="QR">QR</option>
-                   <option value="Efectivo">Efectivo</option>
-                   <option value="Tarjeta Débito">Tarjeta Débito</option>
-                   <option value="Tarjeta Crédito">Tarjeta Crédito</option>
-                   <option value="Wompi">Wompi</option>
-                 </select>
-           </div>
-                 <div class="modal-footer">
-                   <button type="submit" class="btn btn-primary">Pagar</button>
-                   </div>
-                 </div>
-             </form>
-         </div>
-     </div>
+</div>
+   <!-- ventana pagos -->
+   <div id="modalPagos" class="modal fade" tabindex="-1" aria-labelledby="modalIngreso" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Pago de Cuenta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/PagarDS21" method="POST">
+                    <div class="mb-3">
+                        <input type="text" name="Cuenta" value="<%= comanda %>" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <input id="Monto" name="Monto" type="text" class="form-control" placeholder="Monto" value="<%= totalPrecio %>" required>
+                    </div>
+                  <div class="mb-3">
+                    <select name="Metodo" id="Metodo" class="form-select" required >
+                        <option value="">---Metodo de Pago---</option>
+                        <option value="Transferencia">Transferencia</option>
+                        <option value="QR">QR</option>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta Débito">Tarjeta Débito</option>
+                        <option value="Tarjeta Crédito">Tarjeta Crédito</option>
+                        <option value="Wompi">Wompi</option>
+                      </select>
+                </div>
+                <div class="mb-3">
+                    <input id="Montoextra" name="Montoextra" type="text" class="form-control" placeholder="Monto segundo pago" >
+                  </div>
+                <div class="mb-3">
+                  <select name="Metodoextra" id="Metodoextra" class="form-select"  >
+                      <option value="">---Metodo de Pago---</option>
+                      <option value="Transferencia">Transferencia</option>
+                      <option value="QR">QR</option>
+                      <option value="Efectivo">Efectivo</option>
+                      <option value="Tarjeta Débito">Tarjeta Débito</option>
+                      <option value="Tarjeta Crédito">Tarjeta Crédito</option>
+                      <option value="Wompi">Wompi</option>
+                      <option value="Cortesia">Cortesia</option>
+                    </select>
+              </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Pagar</button>
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 </div>
 <script src="js/ModalDS.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
