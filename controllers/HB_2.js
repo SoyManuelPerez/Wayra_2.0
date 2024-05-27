@@ -165,21 +165,14 @@ module.exports.eliminar = (req,res) =>{
     res.redirect('/HB-2')       
 }
 module.exports.agregar = async(req,res) =>{
-  const HB = req.body.Habitacion
-  const Nombres = req.body.Nombre
-  const Apellidos = req.body.Apellido
-  const Tipo = req.body.tipo
-  const Documento = req.body.Documento
-  const Celular = req.body.Celular
-  const Correo = req.body.Correo
-  const Adultos = req.body.Adultos
-  const Niños = req.body.Niños
-  const Bebes = req.body.Bebes
-  const Abono = req.body.Abono
-  const Final = req.body.Pago
-  const Ingreso = req.body.Fecha
-  const Salida = req.body.Salida
-  const newUsuario = new Huesped({HB,Nombres,Apellidos,Tipo,Documento,Celular,Correo,Adultos,Niños,Bebes,Abono,Final,Ingreso,Salida})
-  await newUsuario.save()
+  const HB = req.body.Habitacion;
+  const Nombre = req.body.Nombre;
+  const Adultos = req.body.Adultos;
+  const Niños = req.body.Niños;
+  const Bebes = req.body.Bebes;
+  const Ingreso = req.body.Fecha;
+  const Salida = req.body.Salida;
+  const newUsuario = new Huesped({ HB, Nombre,  Adultos, Niños, Bebes,Ingreso, Salida });
+  await newUsuario.save();
   res.redirect('/HB-2')  
 }

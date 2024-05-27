@@ -21,17 +21,9 @@ module.exports.eliminar = (req, res) => {
 module.exports.editar = (req, res) => {
 
   const HB = req.body.Habitacion
-  const Nombres = req.body.Nombre
-  const Apellidos = req.body.Apellido
-  const Tipo = req.body.tipo
-  const Documento = req.body.Documento
-  const Celular = req.body.Celular
-  const Correo = req.body.Correo
-  const Adultos = req.body.Adultos
+  const Nombre = req.body.Nombre
   const Niños = req.body.Niños
   const Bebes = req.body.Bebes
-  const Abono = req.body.Abono
-  const Final = req.body.Pago
   const Ingreso = req.body.Fecha
   const Salida = req.body.Salida
 
@@ -40,7 +32,7 @@ module.exports.editar = (req, res) => {
       { Documento: Documento.trim() },
       { HB: HB.trim() }
     ]
-  }, { Nombres, Apellidos, Tipo,Celular,Correo,Adultos,Niños,Bebes,Abono,Final,Ingreso,Salida}).exec()
+  }, { Nombre,Adultos,Niños,Bebes,Ingreso,Salida}).exec()
     .then(resultado => {
       console.log("Objeto Actualizado : ", resultado);
     })
