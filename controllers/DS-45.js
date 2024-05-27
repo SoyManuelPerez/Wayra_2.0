@@ -155,6 +155,7 @@ module.exports.pagar = async (req, res) => {
      await nuevoDocumento.save();
      productosVendidosIds.push(producto._id);
    }
+   await DiasSol.deleteOne({DS:"DS-45"})
    await DS.deleteMany({ _id: { $in: productosVendidosIds } });
    res.redirect('/DS-45');
   } catch (error) {
