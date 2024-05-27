@@ -46,29 +46,29 @@
         <%} %>
         <div class="container text-start">
             <% // Configurar la zona horaria para Bogotá
-                const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
-                const fechaHoy = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000); // Fecha actual en Bogotá
-                const fechaHoyStr = fechaHoy.toISOString().split('T')[0];
-                let fechaSalidaStr = ""
-                let Nombre = ""
-                huespedes.forEach((Huesped)=>{const Ingreso = Huesped.Ingreso.split('-'); // Suponiendo que el formato es YYYY-MM-DD
-                const añoI = parseInt(Ingreso[0]);
-                const mesI = parseInt(Ingreso[1]) - 1; // Los meses en JavaScript van de 0 a 11
-                const diaI = parseInt(Ingreso[2]);
-                const fechaIngreso = new Date(añoI, mesI, diaI, 0, 0, 0, 0); // Fecha de ingreso en Bogotá
-                fechaIngreso.setTime(fechaIngreso.getTime() + timeZoneOffset * 60 * 1000); // Ajustar a la zona horaria de Bogotá
-                const fechaIngresoStr = fechaIngreso.toISOString().split('T')[0];
-                const partesFecha = Huesped.Salida.split('-'); // Suponiendo que el formato es YYYY-MM-DD
-                const año = parseInt(partesFecha[0]);
-                const mes = parseInt(partesFecha[1]) - 1; // Los meses en JavaScript van de 0 a 11
-                const dia = parseInt(partesFecha[2]);
-                const fechaSalida = new Date(año, mes, dia, 23, 59, 59, 999); // Fecha de salida en Bogotá
-                fechaSalida.setTime(fechaSalida.getTime() + timeZoneOffset * 60 * 1000); // Ajustar a la zona horaria de Bogotá
-                fechaSalidaStr = fechaSalida.toISOString().split('T')[0]
-                // Verificar si la fecha de salida del huésped es mayor o igual a la fecha de hoy
-                if ((fechaSalidaStr >= fechaHoyStr) && (fechaIngresoStr <= fechaHoyStr)) {
-                     Nombre =Huesped.Nombres +" " + Huesped.Apellidos 
-                }}) %>
+            const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
+            const fechaHoy = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000); // Fecha actual en Bogotá
+            const fechaHoyStr = fechaHoy.toISOString().split('T')[0];
+            let fechaSalidaStr = ""
+            let Nombre = ""
+            huespedes.forEach((Huesped)=>{const Ingreso = Huesped.Ingreso.split('-'); // Suponiendo que el formato es YYYY-MM-DD
+            const añoI = parseInt(Ingreso[0]);
+            const mesI = parseInt(Ingreso[1]) - 1; // Los meses en JavaScript van de 0 a 11
+            const diaI = parseInt(Ingreso[2]);
+            const fechaIngreso = new Date(añoI, mesI, diaI, 0, 0, 0, 0); // Fecha de ingreso en Bogotá
+            fechaIngreso.setTime(fechaIngreso.getTime() + timeZoneOffset * 60 * 1000); // Ajustar a la zona horaria de Bogotá
+            const fechaIngresoStr = fechaIngreso.toISOString().split('T')[0];
+            const partesFecha = Huesped.Salida.split('-'); // Suponiendo que el formato es YYYY-MM-DD
+            const año = parseInt(partesFecha[0]);
+            const mes = parseInt(partesFecha[1]) - 1; // Los meses en JavaScript van de 0 a 11
+            const dia = parseInt(partesFecha[2]);
+            const fechaSalida = new Date(año, mes, dia, 23, 59, 59, 999); // Fecha de salida en Bogotá
+            fechaSalida.setTime(fechaSalida.getTime() + timeZoneOffset * 60 * 1000); // Ajustar a la zona horaria de Bogotá
+            fechaSalidaStr = fechaSalida.toISOString().split('T')[0]
+            // Verificar si la fecha de salida del huésped es mayor o igual a la fecha de hoy
+            if ((fechaSalidaStr >= fechaHoyStr) && (fechaIngresoStr <= fechaHoyStr)) {
+                 Nombre =Huesped.Nombre
+            }}) %>
             <h3>Habitacion: CB-116</h3>
             <h3>Huesped:<%= Nombre %></h3>
         </div>

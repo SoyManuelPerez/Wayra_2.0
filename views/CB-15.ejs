@@ -68,7 +68,7 @@
                 fechaSalidaStr = fechaSalida.toISOString().split('T')[0]
                 // Verificar si la fecha de salida del huésped es mayor o igual a la fecha de hoy
                 if ((fechaSalidaStr >= fechaHoyStr) && (fechaIngresoStr <= fechaHoyStr)) {
-                     Nombre = Huesped.Nombres +" " + Huesped.Apellidos 
+                    Nombre =Huesped.Nombre
                 }}) %>
             <h3>Habitacion: CB-15 </h3>
             <h3>Huesped:<%= Nombre %></h3>
