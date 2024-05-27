@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser');
+const dotenv =  require('dotenv')
+dotenv.config();
 // inicializacion
 const app = express()
 //Configuracion
@@ -35,7 +37,7 @@ app.listen(app.get('port'))
 console.log("Servidor corriendo en http://localhost:"+app.get("port"));
 
 //Conexion a la base de datos
-mongoose.connect('mongodb://localhost/Wayra' ,{   
+mongoose.connect(process.env.URL,{   
     useNewUrlParser: true,
     useUnifiedTopology: true 
 })
