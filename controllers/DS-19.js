@@ -174,22 +174,17 @@ module.exports.eliminar = (req, res) => {
     });
   res.redirect('/DS-19')
 }
-
 //Agregar al dia de sol
 module.exports.agregar = async (req, res) => {
   const DS = req.body.DS
   const Comanda = req.body.Comanda
-  const Nombres = req.body.Nombre
-  const Apellidos = req.body.Apellido
-  const Tipo = req.body.tipo
-  const Documento = req.body.Documento
-  const Adultos = req.body.Adultos
+  const Nombre = req.body.Nombre
   const Niños = req.body.Niños
   const Bebes = req.body.Bebes
-  const Abono = req.body.Abono
-  const Final = req.body.Pago
   const Ingreso = req.body.Fecha
-  const newUsuario = new DiasSol({ DS, Comanda, Nombres, Apellidos, Tipo, Documento, Adultos, Niños, Bebes, Abono, Final, Ingreso })
+  console.log(Ingreso)
+  const newUsuario = new DiasSol({ DS, Comanda, Nombre,  Adultos, Niños, Bebes, Ingreso })
+  console.log(newUsuario)
   await newUsuario.save()
   res.redirect('/'+DS)
 }
