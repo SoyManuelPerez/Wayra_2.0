@@ -25,17 +25,10 @@
                 <thead>
                 <tr>
                     <th scope="col">Cuenta</th>
-                    <th scope="col">Nombres</th>
-                    <th scope="col">Apellidos </th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Documento</th>
-                    <th scope="col">Celular</th>
-                    <th scope="col">Correo</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Adultos</th>
                     <th scope="col">Niños</th>
                     <th scope="col">Bebes</th>
-                    <th scope="col">Abono</th>
-                    <th scope="col">Pago</th>
                     <th scope="col">Fecha Ingreso</th>
                     <th scope="col">Fecha Salida</th>
                     <th scope="col">Opcion</th>
@@ -45,17 +38,10 @@
                 <%  Huesped.forEach((Huesped) => { %>
                     <tr>
                         <td> <%= Huesped.HB %></td>
-                        <td> <%= Huesped.Nombres %></td>
-                        <td> <%= Huesped.Apellidos %></td>
-                        <td> <%= Huesped.Tipo %></td>
-                        <td> <%= Huesped.Documento %></td>
-                        <td> <%= Huesped.Celular %></td>
-                        <td> <%= Huesped.Correo %></td>
+                        <td> <%= Huesped.Nombre %></td>
                         <td> <%= Huesped.Adultos %></td>
                         <td> <%= Huesped.Niños %></td>
                         <td> <%= Huesped.Bebes %></td>
-                        <td> <%= Huesped.Abono %></td>
-                        <td> <%= Huesped.Final %></td>
                         <td> <%= Huesped.Ingreso %></td>
                         <td> <%= Huesped.Salida %></td>
                         <td> 
@@ -82,27 +68,8 @@
                         <input id="Habitacion" type="text" name="Habitacion" class="form-control" readonly>
                     </div>
                     <div class="mb-3">
-                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombres" required>
+                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombre Completo" required>
                     </div>
-                    <div class="mb-3">
-                      <input id="Apellido" name="Apellido" type="text" class="form-control" placeholder="Apellidos" required>
-                    </div>
-                  <div class="mb-3">
-                    <input id="Tipo" name="Tipo" type="text" class="form-control" placeholder="Tipo" required>
-                    <input id="Documento" name="Documento" type="text" class="form-control" placeholder="Documento" required>
-                </div>
-                <div class="mb-3">
-                    <input id="Celular" name="Celular" type="text" class="form-control" placeholder="Celular" required>
-                  </div>
-                  <div class="mb-3">
-                    <input id="Correo" name="Correo" type="text" class="form-control" placeholder="Correo" required>
-                  </div>
-                    <div class="mb-3">
-                        <input id="Abono" name="Abono" type="text" class="form-control" placeholder="Abono" required>
-                      </div>
-                      <div class="mb-3">
-                        <input id="Pago" name="Pago" type="text" class="form-control" placeholder="Pago final">
-                      </div>
                       <div class="mb-3">
                         <input id="Adultos" name="Adultos" type="text" class="form-control" placeholder="Adultos" >
                         <input id="Niños" name="Niños" type="text" class="form-control" placeholder="Niños" >
