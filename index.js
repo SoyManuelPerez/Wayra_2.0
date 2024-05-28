@@ -3,6 +3,7 @@ const path = require('path')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser');
 const dotenv =  require('dotenv')
+require('./cronJobs/deleteAutomatico');
 dotenv.config();
 // inicializacion
 const app = express()
@@ -33,7 +34,7 @@ app.use(Ds)
 app.use(entrantes)
 // Servidor 
 app.set('port',process.env.PORT || 4000);
-app.listen(app.get('port'))
+app.listen(app.get('port'))  
 console.log("Servidor corriendo en http://localhost:"+app.get("port"));
 
 //Conexion a la base de datos
