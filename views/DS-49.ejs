@@ -113,6 +113,42 @@
         </div>
     </div>
 </div>
+   <!-- ventana modal -->
+   <div id="modalIngresoDS" class="modal fade" tabindex="-1" aria-labelledby="modalIngresoDS" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Ingresar Dia de sol</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/IngresarDS48" method="POST">
+                     <div class="mb-3">
+                        <input id="DS" name="DS" type="text" class="form-control incognito"  value="DS-48">
+                    </div>
+                    <div class="mb-3">
+                        <input id="Comanda" name="Comanda" type="text" class="form-control" placeholder="Comanda" required>
+                    </div>
+                    <div class="mb-3">
+                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombre Completo" required>
+                    </div>
+                <div class="mb-3">
+                    <input id="Adultos" name="Adultos" type="number" class="form-control" placeholder="Adultos" >
+                    <input id="Niños" name="Niños" type="number" class="form-control" placeholder="Niños" >
+                    <input id="Bebes" name="Bebes" type="number" class="form-control" placeholder="Bebes" >
+                  </div>
+                      <div class="mb-3">
+                        <label for="Fecha" class="col-form-label letra">Fecha:</label>
+                        <input id="Fecha" name="Fecha" type="date" class="form-control" value="">
+                      </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Ingresar</button>
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
    <!-- ventana pagos -->
    <div id="modalPagos" class="modal fade" tabindex="-1" aria-labelledby="modalIngreso" aria-hidden="true">
     <div class="modal-dialog">
