@@ -30,7 +30,7 @@ module.exports.mostrar = (req, res) => {
   ])
   .then(([DS, Productos, Usuario, DiasSol]) => {
     const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-    res.render('DS9', {
+    res.render('DS-38', {
       DS: DS,
       productos: Productos,
       tipoUsuario: tipoUsuario,

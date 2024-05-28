@@ -30,7 +30,7 @@ module.exports.mostrar = (req, res) => {
   ])
   .then(([DS, Productos, Usuario, DiasSol]) => {
     const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-    res.render('DS9', {
+    res.render('DS-50', {
       DS: DS,
       productos: Productos,
       tipoUsuario: tipoUsuario,
@@ -63,15 +63,11 @@ module.exports.Crear = async (req, res) => {
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
     if (producto.Tipo == "Bar") {
-      const ds = await DiasSol.findOne({ DS: "DS-50", Ingreso: Fecha });
-      if (!ds) {
-        return res.status(404).send("No se encontró el día de sol DS-50 para hoy");
-      }
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
       const Mesa = "DS-50";
-      const Comanda = ds.Comanda;
+      const Comanda = "Bodega";
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
@@ -80,12 +76,11 @@ module.exports.Crear = async (req, res) => {
       const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await bar.save();
     } else if (producto.Tipo == "Cocina") {
-      const ds = await DiasSol.findOne({ DS: "DS-50", Ingreso: Fecha });
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
       const Mesa = "DS-50";
-      const Comanda = ds.Comanda;
+      const Comanda = "Bodega"
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
@@ -94,7 +89,6 @@ module.exports.Crear = async (req, res) => {
       const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
-      const ds = await DiasSol.findOne({ DS: "DS-50", Ingreso: Fecha });
       const ahora = new Date();
       const hora = ahora.getHours();
       const minutos = ahora.getMinutes();
