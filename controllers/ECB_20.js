@@ -128,6 +128,7 @@ module.exports.pagar = async (req, res) => {
       await nuevoDocumento.save();
       productosVendidosIds.push(producto._id);
     }
+    await Huesped.deleteOne({HB: 'CB-120'})
     await HB.deleteMany({ _id: { $in: productosVendidosIds } });
     res.redirect('/ECB-20');
   } catch (error) {
