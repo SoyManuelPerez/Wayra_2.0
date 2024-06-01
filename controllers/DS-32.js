@@ -180,12 +180,11 @@ module.exports.agregar = async (req, res) => {
   const DS = req.body.DS
   const Comanda = req.body.Comanda
   const Nombre = req.body.Nombre
+  const Adultos = req.body.Adultos
   const Niños = req.body.Niños
   const Bebes = req.body.Bebes
   const Ingreso = req.body.Fecha
-  console.log(Ingreso)
   const newUsuario = new DiasSol({ DS, Comanda, Nombre,  Adultos, Niños, Bebes, Ingreso })
-  console.log(newUsuario)
   await newUsuario.save()
   res.redirect('/'+DS)
 }
