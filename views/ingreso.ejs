@@ -31,7 +31,6 @@
                     <th scope="col">Monto 2</th>
                     <th scope="col">Metodo</th>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Opcion</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +42,6 @@
                         <td> <%= pago.Montoextra %></td>
                         <td> <%= pago.Tipoextra %></td>
                         <td> <%= pago.Fecha %></td>
-                        <td> 
                     </tr>
                <% }) %>
             </tbody>
@@ -85,7 +83,8 @@
                     "sortAscending":  ": Activar para ordenar la columna en orden ascendente",
                     "sortDescending": ": Activar para ordenar la columna en orden descendente"
                 }
-            }
+            },
+            "lengthChange": false
         });
     });
         </script>

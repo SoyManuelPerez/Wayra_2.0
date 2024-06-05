@@ -99,15 +99,31 @@ button {
 }
 @media only screen and (max-width: 600px) {
     .espacio{
-        padding-top: 10%;
+        padding-top: 15%;
     }
 }
 .letra{
     color: #000000 !important;
 }
 .contenedor-tabla {
-    max-height: 80%; /* Altura máxima del contenedor */
     overflow-y: auto; /* Habilitar la barra de desplazamiento vertical */
     padding: 10px; /* Espaciado interior */
     margin-right: 3px;
+    /* Altura ajustable, inicialmente 200px */
+    max-height: 300px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
 }

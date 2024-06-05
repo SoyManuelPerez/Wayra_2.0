@@ -45,7 +45,7 @@
         </div>
         <%} %>
 
-        <div class="container text-start">
+        <div class="container text-start espacio">
             <% // Configurar la zona horaria para Bogotá
                 const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
                 const fechaHoy = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000); // Fecha actual en Bogotá
@@ -73,9 +73,8 @@
             <h3>Habitacion: CB-14 </h3>
             <h3>Huesped:<%= Nombre %></h3>
         </div>
-
 <div class="row ">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <h2>Productos</h2>
         <div class="container" >
             <table id="productos" class="table table-dark table-responsive " style="width: 100%;">
@@ -103,10 +102,10 @@
             </table>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <h2>Cuenta</h2>
         <div class="container contenedor-tabla" >
-            <table id="Cuenta" class="table table-dark "  >
+            <table id="Cuenta" class="table table-dark">
                     <thead>
                     <tr>
                         <th scope="col">Producto</th>
@@ -132,7 +131,7 @@
                                     <a href="/eliminarCB14/<%= HB.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
                             </td>
                             <%} %>
-                            <% totalPrecio += HB.Precio; %> <!-- Suma el precio del producto al total -->
+                            <% totalPrecio += HB.Precio; %>
                         </tr>
                    <% }) %>
                    <tr>
@@ -275,7 +274,9 @@ $(document).ready(function() {
                 "sortAscending":  ": Activar para ordenar la columna en orden ascendente",
                 "sortDescending": ": Activar para ordenar la columna en orden descendente"
             }
-        }
+        },
+        "pageLength": 4,
+        "lengthChange": false
     });
 });
     </script>
