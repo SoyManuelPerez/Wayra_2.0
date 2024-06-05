@@ -43,4 +43,5 @@ mongoose.connect(process.env.URL,{
     useUnifiedTopology: true 
 })
 .then(db => console.log('Conectado a la BD '))
+
 .catch( err => console.log(err));
