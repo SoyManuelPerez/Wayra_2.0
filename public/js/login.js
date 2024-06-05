@@ -4,7 +4,6 @@ document.getElementById("login").addEventListener("submit",async (e)=>{
   e.preventDefault();
   const user = e.target.children.user.value;
   const password = e.target.children.password.value;
-   // Obtener la URL actual del navegador
    const baseUrl = window.location.origin;
    const apiUrl = `${baseUrl}/loginValida`;
   const res = await fetch(apiUrl,{

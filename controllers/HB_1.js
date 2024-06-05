@@ -185,7 +185,7 @@ module.exports.mostrarH = (req, res) => {
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        res.send('Error al verificar el token.');
+        res.redirect("/");
       }
       mesero = decoded.user;
     });
