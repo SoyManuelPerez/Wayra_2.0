@@ -46,7 +46,7 @@
         </div>
         <%} %>
 </div>
-<div class="container text-start">
+<div class="container text-start espacio">
     <% // Configurar la zona horaria para Bogotá
         const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
         const fechaHoy = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000); // Fecha actual en Bogotá
@@ -70,7 +70,7 @@
     <h3>Cliente:<%= Nombre %></h3>
 </div>
 <div class="row ">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <h2>Productos</h2>
         <div class="container" >
             <table id="productos" class="table table-dark table-responsive " style="width: 100%;">
@@ -98,7 +98,7 @@
             </table>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <h2>Cuenta</h2>
         <div class="container contenedor-tabla" >
             <table id="Cuenta" class="table table-dark "  >
@@ -207,6 +207,7 @@
                         <option value="Tarjeta Débito">Tarjeta Débito</option>
                         <option value="Tarjeta Crédito">Tarjeta Crédito</option>
                         <option value="Wompi">Wompi</option>
+                        <option value="Cortesia">Cortesia</option>
                       </select>
                 </div>
                 <div class="mb-3">
@@ -268,7 +269,9 @@ $(document).ready(function() {
                 "sortAscending":  ": Activar para ordenar la columna en orden ascendente",
                 "sortDescending": ": Activar para ordenar la columna en orden descendente"
             }
-        }
+        },
+        "pageLength": 4,
+        "lengthChange": false
     });
 });
     </script>
