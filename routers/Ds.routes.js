@@ -479,105 +479,105 @@ router.get('/PagarDS50',DS50.pagar);
 
 //Agregar a cuentas 
 //Agregar a la cuenta Ds1
-router.get('/AgregarDS1/:id',DS.Crear);
+router.post('/AgregarDS1/:id',DS.Crear);
 //Agregar a la cuenta Ds2
-router.get('/AgregarDS2/:id',DS2.Crear);
+router.post('/AgregarDS2/:id',DS2.Crear);
 //Agregar a la cuenta Ds3
-router.get('/AgregarDS3/:id',DS3.Crear);
+router.post('/AgregarDS3/:id',DS3.Crear);
 //Agregar a la cuenta Ds4
-router.get('/AgregarDS4/:id',DS4.Crear);
+router.post('/AgregarDS4/:id',DS4.Crear);
 //Agregar a la cuenta Ds5
-router.get('/AgregarDS5/:id',DS5.Crear);
+router.post('/AgregarDS5/:id',DS5.Crear);
 //Agregar a la cuenta Ds6
-router.get('/AgregarDS6/:id',DS6.Crear);
+router.post('/AgregarDS6/:id',DS6.Crear);
 //Agregar a la cuenta Ds7
-router.get('/AgregarDS7/:id',DS7.Crear);
+router.post('/AgregarDS7/:id',DS7.Crear);
 //Agregar a la cuenta Ds8
-router.get('/AgregarDS8/:id',DS8.Crear);
+router.post('/AgregarDS8/:id',DS8.Crear);
 //Agregar a la cuenta Ds9
-router.get('/AgregarDS9/:id',DS9.Crear);
+router.post('/AgregarDS9/:id',DS9.Crear);
 //Agregar a la cuenta Ds10
-router.get('/AgregarDS10/:id',DS10.Crear);
+router.post('/AgregarDS10/:id',DS10.Crear);
 //Agregar a la cuenta Ds11
-router.get('/AgregarDS11/:id',DS11.Crear);
+router.post('/AgregarDS11/:id',DS11.Crear);
 //Agregar a la cuenta Ds12
-router.get('/AgregarDS12/:id',DS12.Crear);
+router.post('/AgregarDS12/:id',DS12.Crear);
 //Agregar a la cuenta Ds13
-router.get('/AgregarDS13/:id',DS13.Crear);
+router.post('/AgregarDS13/:id',DS13.Crear);
 //Agregar a la cuenta Ds14
-router.get('/AgregarDS14/:id',DS14.Crear);
+router.post('/AgregarDS14/:id',DS14.Crear);
 //Agregar a la cuenta Ds15
-router.get('/AgregarDS15/:id',DS15.Crear);
+router.post('/AgregarDS15/:id',DS15.Crear);
 //Agregar a la cuenta Ds16
-router.get('/AgregarDS16/:id',DS16.Crear);
+router.post('/AgregarDS16/:id',DS16.Crear);
 //Agregar a la cuenta Ds17
-router.get('/AgregarDS17/:id',DS17.Crear);
+router.post('/AgregarDS17/:id',DS17.Crear);
 //Agregar a la cuenta Ds18
-router.get('/AgregarDS18/:id',DS18.Crear);
+router.post('/AgregarDS18/:id',DS18.Crear);
 //Agregar a la cuenta Ds19
-router.get('/AgregarDS19/:id',DS19.Crear);
+router.post('/AgregarDS19/:id',DS19.Crear);
 //Agregar a la cuenta Ds20
-router.get('/AgregarDS20/:id',DS20.Crear);
+router.post('/AgregarDS20/:id',DS20.Crear);
 //Agregar a la cuenta Ds21
-router.get('/AgregarDS21/:id',DS21.Crear);
+router.post('/AgregarDS21/:id',DS21.Crear);
 //Agregar a la cuenta Ds22
-router.get('/AgregarDS22/:id',DS22.Crear);
+router.post('/AgregarDS22/:id',DS22.Crear);
 //Agregar a la cuenta Ds23
-router.get('/AgregarDS23/:id',DS23.Crear);
+router.post('/AgregarDS23/:id',DS23.Crear);
 //Agregar a la cuenta Ds24
-router.get('/AgregarDS24/:id',DS24.Crear);
+router.post('/AgregarDS24/:id',DS24.Crear);
 //Agregar a la cuenta Ds25
-router.get('/AgregarDS25/:id',DS25.Crear);
+router.post('/AgregarDS25/:id',DS25.Crear);
 //Agregar a la cuenta Ds26
-router.get('/AgregarDS26/:id',DS26.Crear);
+router.post('/AgregarDS26/:id',DS26.Crear);
 //Agregar a la cuenta Ds27
-router.get('/AgregarDS27/:id',DS27.Crear);
+router.post('/AgregarDS27/:id',DS27.Crear);
 //Agregar a la cuenta Ds28
-router.get('/AgregarDS28/:id',DS28.Crear);
+router.post('/AgregarDS28/:id',DS28.Crear);
 //Agregar a la cuenta Ds29
-router.get('/AgregarDS29/:id',DS29.Crear);
+router.post('/AgregarDS29/:id',DS29.Crear);
 //Agregar a la cuenta Ds30
-router.get('/AgregarDS30/:id',DS30.Crear);
+router.post('/AgregarDS30/:id',DS30.Crear);
 //Agregar a la cuenta Ds31
-router.get('/AgregarDS31/:id',DS31.Crear);
+router.post('/AgregarDS31/:id',DS31.Crear);
 //Agregar a la cuenta Ds32
-router.get('/AgregarDS32/:id',DS32.Crear);
+router.post('/AgregarDS32/:id',DS32.Crear);
 //Agregar a la cuenta Ds33
-router.get('/AgregarDS33/:id',DS33.Crear);
+router.post('/AgregarDS33/:id',DS33.Crear);
 //Agregar a la cuenta Ds34
-router.get('/AgregarDS34/:id',DS34.Crear);
+router.post('/AgregarDS34/:id',DS34.Crear);
 //Agregar a la cuenta Ds35
-router.get('/AgregarDS35/:id',DS35.Crear);
+router.post('/AgregarDS35/:id',DS35.Crear);
 //Agregar a la cuenta Ds36
-router.get('/AgregarDS36/:id',DS36.Crear);
+router.post('/AgregarDS36/:id',DS36.Crear);
 //Agregar a la cuenta Ds37
-router.get('/AgregarDS37/:id',DS37.Crear);
+router.post('/AgregarDS37/:id',DS37.Crear);
 //Agregar a la cuenta Ds38
-router.get('/AgregarDS38/:id',DS38.Crear);
+router.post('/AgregarDS38/:id',DS38.Crear);
 //Agregar a la cuenta Ds39
-router.get('/AgregarDS39/:id',DS39.Crear);
+router.post('/AgregarDS39/:id',DS39.Crear);
 //Agregar a la cuenta Ds40
-router.get('/AgregarDS40/:id',DS40.Crear);
+router.post('/AgregarDS40/:id',DS40.Crear);
 //Agregar a la cuenta Ds41
-router.get('/AgregarDS41/:id',DS41.Crear);
+router.post('/AgregarDS41/:id',DS41.Crear);
 //Agregar a la cuenta Ds42
-router.get('/AgregarDS42/:id',DS42.Crear);
+router.post('/AgregarDS42/:id',DS42.Crear);
 //Agregar a la cuenta Ds43
-router.get('/AgregarDS43/:id',DS43.Crear);
+router.post('/AgregarDS43/:id',DS43.Crear);
 //Agregar a la cuenta Ds44
-router.get('/AgregarDS44/:id',DS44.Crear);
+router.post('/AgregarDS44/:id',DS44.Crear);
 //Agregar a la cuenta Ds45
-router.get('/AgregarDS45/:id',DS45.Crear);
+router.post('/AgregarDS45/:id',DS45.Crear);
 //Agregar a la cuenta Ds46
-router.get('/AgregarDS46/:id',DS46.Crear);
+router.post('/AgregarDS46/:id',DS46.Crear);
 //Agregar a la cuenta Ds47
-router.get('/AgregarDS47/:id',DS47.Crear);
+router.post('/AgregarDS47/:id',DS47.Crear);
 //Agregar a la cuenta Ds48
-router.get('/AgregarDS48/:id',DS48.Crear);
+router.post('/AgregarDS48/:id',DS48.Crear);
 //Agregar a la cuenta Ds49
-router.get('/AgregarDS49/:id',DS49.Crear);
+router.post('/AgregarDS49/:id',DS49.Crear);
 //Agregar a la cuenta Ds50
-router.get('/AgregarDS50/:id',DS50.Crear);
+router.post('/AgregarDS50/:id',DS50.Crear);
 
 //eliminar de la cuenta
 //Eliminar de la cuentaDS1
