@@ -131,7 +131,7 @@ module.exports.eliminar = (req,res) =>{
   });
     res.redirect('/Cocina')       
 }
-//Cuenta Correspondiente
+///Cuenta Correspondiente
 module.exports.HB1 = async (req, res) => {
     const id = req.params.id;
     try {
@@ -139,16 +139,17 @@ module.exports.HB1 = async (req, res) => {
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
         // Crear un nuevo documento en la colección HB
-        const newUuario = new HB({ Producto, Precio, Usuario, Tipo, Hora });
+        const newUuario = new HB({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
             // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
         // Eliminar el documento de la colección Cocina
         await Cocina.findByIdAndDelete(id);
@@ -161,21 +162,24 @@ module.exports.HB1 = async (req, res) => {
 module.exports.HB2 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB2({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB2({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -185,21 +189,24 @@ module.exports.HB2 = async (req, res) => {
 module.exports.HB3 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB3({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB3({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -209,21 +216,24 @@ module.exports.HB3 = async (req, res) => {
 module.exports.HB4 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB4({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB4({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -233,21 +243,24 @@ module.exports.HB4 = async (req, res) => {
 module.exports.HB5 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB5({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB5({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -257,21 +270,24 @@ module.exports.HB5 = async (req, res) => {
 module.exports.HB6 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB6({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB6({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -281,21 +297,24 @@ module.exports.HB6 = async (req, res) => {
 module.exports.HB7 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB7({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB7({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -305,45 +324,51 @@ module.exports.HB7 = async (req, res) => {
 module.exports.HB8 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB8({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB8({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    }       
 };
 module.exports.HB9 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB9({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB9({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -353,21 +378,24 @@ module.exports.HB9 = async (req, res) => {
 module.exports.HB10 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB10({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB10({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -377,21 +405,24 @@ module.exports.HB10 = async (req, res) => {
 module.exports.HB11 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB11({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB11({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -401,21 +432,24 @@ module.exports.HB11 = async (req, res) => {
 module.exports.HB12 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB12({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new HB12({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -425,46 +459,52 @@ module.exports.HB12 = async (req, res) => {
 module.exports.HB13 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new HB13({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección HB
+        const newUuario = new HB13({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
     }
-};
+}
 //Cabañas
 module.exports.CB14 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB14({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB14({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -474,21 +514,24 @@ module.exports.CB14 = async (req, res) => {
 module.exports.CB15 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB15({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB15({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -498,21 +541,24 @@ module.exports.CB15 = async (req, res) => {
 module.exports.CB16 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB16({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB16({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -522,21 +568,24 @@ module.exports.CB16 = async (req, res) => {
 module.exports.CB17 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB17({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB17({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -546,21 +595,24 @@ module.exports.CB17 = async (req, res) => {
 module.exports.CB18 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB18({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB18({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -570,21 +622,24 @@ module.exports.CB18 = async (req, res) => {
 module.exports.CB19 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB19({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB19({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -594,21 +649,24 @@ module.exports.CB19 = async (req, res) => {
 module.exports.CB20 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB20({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB20({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -618,21 +676,24 @@ module.exports.CB20 = async (req, res) => {
 module.exports.CB21 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB21({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB21({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -642,21 +703,24 @@ module.exports.CB21 = async (req, res) => {
 module.exports.CB22 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB22({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB22({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -666,21 +730,24 @@ module.exports.CB22 = async (req, res) => {
 module.exports.CB23 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora = producto.Hora
-        const newUuario = new CB23({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB23({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -690,21 +757,24 @@ module.exports.CB23 = async (req, res) => {
 module.exports.CB24 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB24({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB24({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -714,21 +784,24 @@ module.exports.CB24 = async (req, res) => {
 module.exports.CB25 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new CB25({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new CB25({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -744,16 +817,17 @@ module.exports.EHB1 = async (req, res) => {
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-        // Crear un nuevo documento en la colección HB
-        const newUuario = new EHB({ Producto, Precio, Usuario, Tipo, Hora });
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
         // Eliminar el documento de la colección Cocina
         await Cocina.findByIdAndDelete(id);
@@ -761,483 +835,543 @@ module.exports.EHB1 = async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }    
+    }   
 };
 module.exports.EHB2 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB2({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB2({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB3 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB3({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB3({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB4 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB4({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB4({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB5 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB5({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB5({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB6 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB6({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB6({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB7 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB7({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB7({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB8 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB8({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB8({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB9 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB9({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB9({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB10 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB10({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB10({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB11 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB11({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB11({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB12 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB12({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB12({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.EHB13 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new EHB13({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new EHB13({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 //Cabañas
 module.exports.ECB14 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB14({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB14({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.ECB15 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB15({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB15({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.ECB16 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB16({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB16({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.ECB17 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB17({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB17({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.ECB18 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB18({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB18({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.ECB19 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB19({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB19({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.ECB20 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB20({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB20({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error interno del servidor");
-    }
+    } 
 };
 module.exports.ECB21 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB21({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB21({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1247,21 +1381,24 @@ module.exports.ECB21 = async (req, res) => {
 module.exports.ECB22 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB22({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB22({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1271,21 +1408,24 @@ module.exports.ECB22 = async (req, res) => {
 module.exports.ECB23 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora = producto.Hora
-        const newUuario = new ECB23({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB23({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1295,21 +1435,24 @@ module.exports.ECB23 = async (req, res) => {
 module.exports.ECB24 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB24({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB24({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1319,21 +1462,24 @@ module.exports.ECB24 = async (req, res) => {
 module.exports.ECB25 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new ECB25({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new ECB25({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1346,21 +1492,24 @@ module.exports.ECB25 = async (req, res) => {
 module.exports.DS1 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS1({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS1({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1370,21 +1519,24 @@ module.exports.DS1 = async (req, res) => {
 module.exports.DS2 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS2({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS2({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1394,21 +1546,24 @@ module.exports.DS2 = async (req, res) => {
 module.exports.DS3 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS3({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS3({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1418,21 +1573,24 @@ module.exports.DS3 = async (req, res) => {
 module.exports.DS4 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS4({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS4({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1442,21 +1600,24 @@ module.exports.DS4 = async (req, res) => {
 module.exports.DS5 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS5({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS5({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1466,21 +1627,24 @@ module.exports.DS5 = async (req, res) => {
 module.exports.DS6 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS6({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS6({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1490,21 +1654,24 @@ module.exports.DS6 = async (req, res) => {
 module.exports.DS7 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS7({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS7({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1514,21 +1681,24 @@ module.exports.DS7 = async (req, res) => {
 module.exports.DS8 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS8({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS8({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1538,21 +1708,24 @@ module.exports.DS8 = async (req, res) => {
 module.exports.DS9 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS9({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS9({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1562,21 +1735,24 @@ module.exports.DS9 = async (req, res) => {
 module.exports.DS10 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS10({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS10({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1586,21 +1762,24 @@ module.exports.DS10 = async (req, res) => {
 module.exports.DS11 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS11({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS11({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1610,21 +1789,24 @@ module.exports.DS11 = async (req, res) => {
 module.exports.DS12 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS12({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS12({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1634,21 +1816,24 @@ module.exports.DS12 = async (req, res) => {
 module.exports.DS13 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS13({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS13({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1658,21 +1843,24 @@ module.exports.DS13 = async (req, res) => {
 module.exports.DS14 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS14({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS14({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1682,21 +1870,24 @@ module.exports.DS14 = async (req, res) => {
 module.exports.DS15 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS15({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS15({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1706,21 +1897,24 @@ module.exports.DS15 = async (req, res) => {
 module.exports.DS16 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS16({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS16({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1730,21 +1924,24 @@ module.exports.DS16 = async (req, res) => {
 module.exports.DS17 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS17({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS17({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1754,21 +1951,24 @@ module.exports.DS17 = async (req, res) => {
 module.exports.DS18 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS18({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS18({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1778,21 +1978,24 @@ module.exports.DS18 = async (req, res) => {
 module.exports.DS19 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS19({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS19({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1802,21 +2005,24 @@ module.exports.DS19 = async (req, res) => {
 module.exports.DS20 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS20({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS20({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1826,21 +2032,24 @@ module.exports.DS20 = async (req, res) => {
 module.exports.DS21 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS21({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS21({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1850,21 +2059,24 @@ module.exports.DS21 = async (req, res) => {
 module.exports.DS22 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS22({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS22({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1874,21 +2086,24 @@ module.exports.DS22 = async (req, res) => {
 module.exports.DS23 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS23({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS23({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1898,21 +2113,24 @@ module.exports.DS23 = async (req, res) => {
 module.exports.DS24 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS24({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS24({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1922,21 +2140,24 @@ module.exports.DS24 = async (req, res) => {
 module.exports.DS25 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS25({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS25({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1946,21 +2167,24 @@ module.exports.DS25 = async (req, res) => {
 module.exports.DS26 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS26({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS26({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1970,21 +2194,24 @@ module.exports.DS26 = async (req, res) => {
 module.exports.DS27 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS27({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS27({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -1994,21 +2221,24 @@ module.exports.DS27 = async (req, res) => {
 module.exports.DS28 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS28({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS28({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2018,21 +2248,24 @@ module.exports.DS28 = async (req, res) => {
 module.exports.DS29 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS29({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS29({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2042,21 +2275,24 @@ module.exports.DS29 = async (req, res) => {
 module.exports.DS30 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS30({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS30({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2066,21 +2302,24 @@ module.exports.DS30 = async (req, res) => {
 module.exports.DS31 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS31({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS31({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2090,21 +2329,24 @@ module.exports.DS31 = async (req, res) => {
 module.exports.DS32 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS32({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS32({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2114,21 +2356,24 @@ module.exports.DS32 = async (req, res) => {
 module.exports.DS33 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS33({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS33({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2138,21 +2383,24 @@ module.exports.DS33 = async (req, res) => {
 module.exports.DS34 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS34({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS34({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2162,21 +2410,24 @@ module.exports.DS34 = async (req, res) => {
 module.exports.DS35 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS35({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS35({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2186,21 +2437,24 @@ module.exports.DS35 = async (req, res) => {
 module.exports.DS36 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS36({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS36({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2210,21 +2464,24 @@ module.exports.DS36 = async (req, res) => {
 module.exports.DS37 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS37({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS37({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2234,21 +2491,24 @@ module.exports.DS37 = async (req, res) => {
 module.exports.DS38 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS38({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS38({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2258,21 +2518,24 @@ module.exports.DS38 = async (req, res) => {
 module.exports.DS39 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS39({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS39({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2282,21 +2545,24 @@ module.exports.DS39 = async (req, res) => {
 module.exports.DS40 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS40({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS40({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2306,21 +2572,24 @@ module.exports.DS40 = async (req, res) => {
 module.exports.DS41 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS41({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS41({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2330,21 +2599,24 @@ module.exports.DS41 = async (req, res) => {
 module.exports.DS42 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS42({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS42({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2354,21 +2626,24 @@ module.exports.DS42 = async (req, res) => {
 module.exports.DS43 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS43({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS43({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2378,21 +2653,24 @@ module.exports.DS43 = async (req, res) => {
 module.exports.DS44 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS44({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS44({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2402,21 +2680,24 @@ module.exports.DS44 = async (req, res) => {
 module.exports.DS45 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS45({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS45({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2426,21 +2707,24 @@ module.exports.DS45 = async (req, res) => {
 module.exports.DS46 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS46({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS46({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2450,21 +2734,24 @@ module.exports.DS46 = async (req, res) => {
 module.exports.DS47 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS47({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS47({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2474,21 +2761,24 @@ module.exports.DS47 = async (req, res) => {
 module.exports.DS48 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS48({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS48({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2498,21 +2788,24 @@ module.exports.DS48 = async (req, res) => {
 module.exports.DS49 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS49({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS49({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);
@@ -2522,21 +2815,24 @@ module.exports.DS49 = async (req, res) => {
 module.exports.DS50 = async (req, res) => {
     const id = req.params.id;
     try {
-        const producto = await Cocina.findById(id).lean().exec();
+        const producto = await Cocina.findById(id);
         const Producto = producto.Producto;
         const Precio = producto.Precio;
         const Tipo = producto.Tipo;
+        const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
-        const Hora =producto.Hora
-        const newUuario = new DS50({ Producto, Precio, Usuario, Tipo, Hora });
-        await newUuario.save();
+        const Hora = producto.Hora;
+        // Crear un nuevo documento en la colección
+        const newUuario = new DS0({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
+        await newUuario.save()
         // Buscar el documento correspondiente en la colección Productos
         const productoEnProductos = await Productos.findOne({ Producto });
         if (productoEnProductos && productoEnProductos.Cantidad > 0) {
-            // Reducir la cantidad en 1
-            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -1 } });
+            // Reducir la cantidad
+            await Productos.updateOne({ Producto }, { $inc: { Cantidad: -Cantidad } });
         }
-        await Cocina.findByIdAndDelete(id).lean().exec();
+        // Eliminar el documento de la colección Cocina
+        await Cocina.findByIdAndDelete(id);
         res.redirect('/Cocina');
     } catch (err) {
         console.error(err);

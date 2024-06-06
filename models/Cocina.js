@@ -3,6 +3,7 @@ const Cocina = new mongoose.Schema ({
     Mesa: String,
     Comanda: String,
     Producto: String,
+    Cantidad:Number,
     Precio:Number,
     Usuario: String,
     Tipo: String,

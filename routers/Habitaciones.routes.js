@@ -31,7 +31,7 @@ router.get('/HB-1',HB.mostrar,(req,res)=>{
     res.render('HB-1')
 })
 //Agregar a la cuenta HB1
-router.get('/AgregarHB1/:id',HB.Crear);
+router.post('/AgregarHB1/:id',HB.Crear);
 //Eliminar de la cuentaHB1
 router.get('/eliminarHB1/:id',HB.eliminar);
 //HB2
@@ -131,7 +131,7 @@ router.get('/HB-13',HB13.mostrar,(req,res)=>{
     res.render('HB-13')
 })
 ////Agregar a la cuenta HB13
-router.get('/AgregarHB13/:id',HB13.Crear);
+router.post('/AgregarHB13/:id',HB13.Crear);
 //Eliminar de la cuentaHB13
 router.get('/eliminarHB13/:id',HB13.eliminar);
 

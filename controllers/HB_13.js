@@ -28,25 +28,26 @@ module.exports.mostrar = (req, res) => {
       HB: 'HB-13'
     })
   ])
-  .then(([HB, Productos, Usuario, Huesped]) => {
-    const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-    res.render('HB-13', {
-      HB: HB,
-      productos: Productos,
-      tipoUsuario: tipoUsuario,
-      huespedes: Huesped 
+    .then(([HB, Productos, Usuario, Huesped]) => {
+      const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
+      res.render('HB-13', {
+        HB: HB,
+        productos: Productos,
+        tipoUsuario: tipoUsuario,
+        huespedes: Huesped
+      });
+    })
+    .catch(err => {
+      console.log(err, 'Error mostrando datos');
+      res.status(500).send('Error mostrando datos');
     });
-  })
-  .catch(err => {
-    console.log(err, 'Error mostrando datos');
-    res.status(500).send('Error mostrando datos');
-  });
 };
 
 // Guardar Productos
 module.exports.Crear = async (req, res) => {
   const id = req.params.id;
   let usuario = "";
+  const unidad = req.body.unidad;
   try {
     const producto = await Productos.findById(id).lean().exec();
     if (!producto) {
@@ -69,30 +70,31 @@ module.exports.Crear = async (req, res) => {
     const Producto = producto.Producto;
     const Precio = producto.Precio;
     const Tipo = producto.Tipo;
+    const Cantidad = unidad
     const Usuario = usuario;
     const Hora = hora + ":" + minutos;
     if (producto.Tipo == "Bar") {
-      const bar = new Bar({ Mesa, Comanda, Producto, Precio, Usuario, Tipo, Hora });
+      const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();
     } else if (producto.Tipo == "Cocina") {
-      const cocina = new Cocina({ Mesa, Comanda, Producto, Precio, Usuario, Tipo, Hora });
+      const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
       const newUsuario = new HB({
-        Mesa: Mesa,
-        Comanda: Comanda,
-        Producto: Producto,
-        Precio: Precio,
+        Mesa: "HB-13",
+        Comanda: "HB-13",
+        Producto: producto.Producto,
+        Cantidad: unidad,
+        Precio: producto.Precio,
         Usuario: usuario,
-        Tipo: Tipo,
-        Hora: Hora
+        Tipo: producto.Tipo,
+        Hora: hora + ":" + minutos
       });
       await newUsuario.save();
-      
       // Actualizar la cantidad del producto en la colección Productos
       let Cantidad = producto.Cantidad;
       if (Cantidad > 0) {
-        Cantidad -= 1;
+        Cantidad -= unidad;
         await Productos.findByIdAndUpdate(producto._id, { Cantidad });
       }
     }
@@ -136,7 +138,7 @@ module.exports.pagar = async (req, res) => {
       await nuevoDocumento.save();
       productosVendidosIds.push(producto._id);
     }
-    await Huesped.deleteOne({HB: 'HB-13'})
+    await Huesped.deleteOne({ HB: 'HB-13' })
     await HB.deleteMany({ _id: { $in: productosVendidosIds } });
     res.redirect('/HB-13');
   } catch (error) {
@@ -145,18 +147,29 @@ module.exports.pagar = async (req, res) => {
   }
 };
 
-// Eliminar
-module.exports.eliminar = (req, res) => {
+module.exports.eliminar = async (req, res) => {
   const id = req.params.id;
-  HB.findByIdAndDelete({ _id: id }).exec()
-    .then(resultado => {
-      console.log("Objeto eliminado : ", resultado);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  try {
+    const resultado = await HB.findById(id).exec();
+    console.log("Objeto eliminado: ", resultado);
+    if (resultado) {
+      const Nombre = resultado.Producto;
+      const producto = await Productos.findOne({ Producto: Nombre }).exec();
+      if (producto) {
+        let Cantidad = producto.Cantidad || 0;
+        Cantidad += resultado.Cantidad;
+        await Productos.findByIdAndUpdate(producto._id, { Cantidad });
+        console.log(`Cantidad actualizada para el producto ${Nombre}: ${Cantidad}`);
+        await HB.findByIdAndDelete({ _id: id })
+      }
+      await HB.de
+    }
+  } catch (error) {
+    console.log(error);
+  }
   res.redirect('/HB-13');
 };
+
 
 // Agregar Huesped
 module.exports.agregar = async (req, res) => {
@@ -167,7 +180,7 @@ module.exports.agregar = async (req, res) => {
   const Bebes = req.body.Bebes;
   const Ingreso = req.body.Fecha;
   const Salida = req.body.Salida;
-  const newUsuario = new Huesped({ HB, Nombre,  Adultos, Niños, Bebes,Ingreso, Salida });
+  const newUsuario = new Huesped({ HB, Nombre, Adultos, Niños, Bebes, Ingreso, Salida });
   await newUsuario.save();
   res.redirect('/HB-13');
 };

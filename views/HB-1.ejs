@@ -83,20 +83,25 @@
                         <th scope="col">Producto</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Tipo</th>
-                        <th scope="col">Opciones</th>
+                        <th scope="col">Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% let totalPrecio = 0; %>
                     <% productos.forEach( (productos) => { %>
                         <tr>
-                            <td> <%= productos.Producto %></td>
-                            <td> <%= productos.Precio %></td>
-                            <td> <%= productos.Tipo %></td>
-                            <td> 
-                                <a href="/AgregarHB1/<%= productos.id %>" type="button" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"> </a>
+                            <td><%= productos.Producto %></td>
+                            <td><%= productos.Precio %></td>
+                            <td><%= productos.Tipo %></td>
+                            <td>
+                                <form action="/AgregarHB1/<%= productos.id %>" method="post" style="display: flex; align-items: center;">
+                                    <input type="number" min="0" max="30" name="unidad" style="margin-right: 10px;">
+                                    <input type="hidden" name="producto_id" value="<%= productos.id %>">
+                                    <button type="submit" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"></button>
+                                </form>
                             </td>
                         </tr>
+                        
                    <% }) %>
                 </tbody>
             </table>
@@ -109,6 +114,7 @@
                     <thead>
                     <tr>
                         <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Usuario</th>
@@ -122,6 +128,7 @@
                     <% HB.forEach( (HB) => { %>
                         <tr>
                             <td> <%= HB.Producto %></td>
+                            <td> <%= HB.Cantidad %></td>
                             <td> <%= HB.Precio %></td>
                             <td> <%= HB.Tipo %></td>
                             <td> <%= HB.Usuario%></td>
@@ -136,11 +143,11 @@
                    <% }) %>
                    <tr>
                     <% if ( tipoUsuario === "admin") { %>
-                        <td colspan="5" style="text-align: right;"><strong>Total:</strong></td>
+                        <td colspan="6" style="text-align: right;"><strong>Total:</strong></td>
                         <td><%= totalPrecio %></td>
                         <%} %>
                         <% if ( tipoUsuario === "mesero") { %>
-                            <td colspan="4" style="text-align: right;"><strong>Total:</strong></td>
+                            <td colspan="5" style="text-align: right;"><strong>Total:</strong></td>
                             <td><%= totalPrecio %></td>
                             <%} %>
                     

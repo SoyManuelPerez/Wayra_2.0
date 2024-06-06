@@ -46,6 +46,7 @@ module.exports.mostrar = (req, res) => {
 //Guardar Productos
 module.exports.Crear = async (req, res) => {
   const id = req.params.id;
+  const unidad = req.body.unidad;
   let mesero = "";
   try {
     const producto = await Productos.findById(id).lean().exec();
@@ -84,7 +85,7 @@ module.exports.Crear = async (req, res) => {
       const Tipo = producto.Tipo;
       const Usuario = mesero;
       const Hora = hora + ":" + minutos;
-      const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      const cocina = new Cocina({ Mesa, Comanda,Producto,Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
       const ahora = new Date();
@@ -94,7 +95,8 @@ module.exports.Crear = async (req, res) => {
         Mesa : "HB-1",
         Comanda : "HB-1",
         Producto: producto.Producto,
-        Precio: producto.Precio,
+        Cantidad: unidad,
+        Precio: (unidad *producto.Precio),
         Usuario: mesero,
         Tipo: producto.Tipo,
         Hora: hora + ":" + minutos
