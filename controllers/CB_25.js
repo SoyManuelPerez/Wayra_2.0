@@ -162,7 +162,6 @@ module.exports.eliminar = async (req, res) => {
         console.log(`Cantidad actualizada para el producto ${Nombre}: ${Cantidad}`);
         await HB.findByIdAndDelete({ _id: id })
       }
-      await HB.de
     }
   } catch (error) {
     console.log(error);

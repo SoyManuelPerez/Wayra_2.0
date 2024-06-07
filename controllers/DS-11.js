@@ -15,7 +15,7 @@ module.exports.mostrar = (req, res) => {
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        res.redirect("/");
+        return res.redirect("/");
       }
       usuario = decoded.user;
     });
@@ -54,6 +54,7 @@ module.exports.Crear = async (req, res) => {
       })
     }
   const id = req.params.id;
+  const unidad = req.body.unidad;
   try {
     const producto = await Productos.findById(id).lean().exec();
     if (!producto) {
@@ -62,58 +63,42 @@ module.exports.Crear = async (req, res) => {
     // Obtener la fecha actual en la zona horaria de Colombia
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
+    const ds = await DiasSol.findOne({ DS: "DS-11", Ingreso: Fecha });
+    const hora = ahora.getHours();
+    const minutos = ahora.getMinutes();
+    const Mesa = "DS-11";
+    const Comanda = ds.Comanda;
+    const Producto = producto.Producto;
+    const Precio = producto.Precio;
+    const Tipo = producto.Tipo;
+    const Cantidad = unidad
+    const Usuario = mesero;
+    const Hora = hora + ":" + minutos;
     if (producto.Tipo == "Bar") {
-      const ds = await DiasSol.findOne({ DS: "DS-11", Ingreso: Fecha });
-      if (!ds) {
-        return res.status(404).send("No se encontró el día de sol DS-11 para hoy");
-      }
-      const ahora = new Date();
-      const hora = ahora.getHours();
-      const minutos = ahora.getMinutes();
-      const Mesa = "DS-11";
-      const Comanda = ds.Comanda;
-      const Producto = producto.Producto;
-      const Precio = producto.Precio;
-      const Tipo = producto.Tipo;
-      const Usuario = mesero;
-      const Hora = hora + ":" + minutos;
-      const bar = new Bar({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();
     } else if (producto.Tipo == "Cocina") {
-      const ds = await DiasSol.findOne({ DS: "DS-11", Ingreso: Fecha });
-      const ahora = new Date();
-      const hora = ahora.getHours();
-      const minutos = ahora.getMinutes();
-      const Mesa = "DS-11";
-      const Comanda = ds.Comanda;
-      const Producto = producto.Producto;
-      const Precio = producto.Precio;
-      const Tipo = producto.Tipo;
-      const Usuario = mesero;
-      const Hora = hora + ":" + minutos;
-      const cocina = new Cocina({ Mesa, Comanda,Producto, Precio, Usuario, Tipo, Hora });
+      const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
-      const ds = await DiasSol.findOne({ DS: "DS-11", Ingreso: Fecha });
-      const ahora = new Date();
-      const hora = ahora.getHours();
-      const minutos = ahora.getMinutes();
-      const Producto= producto.Producto;
-      const Precio = producto.Precio;
-      const Usuario = mesero;
-      const Tipo = producto.Tipo;
-      const Hora = hora + ":" + minutos
-      const newUsuario = new DS({Producto, Precio, Usuario, Tipo, Hora });
+      const newUsuario = new DS({
+        Mesa: "DS-11",
+        Comanda: ds.Comanda,
+        Producto: producto.Producto,
+        Cantidad: unidad,
+        Precio: producto.Precio,
+        Usuario: mesero,
+        Tipo: producto.Tipo,
+        Hora: hora + ":" + minutos
+      });
       await newUsuario.save();
-
       // Actualizar la cantidad del producto en la colección Productos
       let Cantidad = producto.Cantidad;
       if (Cantidad > 0) {
-        Cantidad -= 1;
+        Cantidad -= unidad;
         await Productos.findByIdAndUpdate(producto._id, { Cantidad });
       }
     }
-
     res.redirect('/DS-11');
   } catch (err) {
     console.error(err);
@@ -164,17 +149,28 @@ module.exports.pagar = async (req, res) => {
   }
 }
 //Eliminar de la cuenta
-module.exports.eliminar = (req, res) => {
-  const id = req.params.id
-  DS.findByIdAndDelete({ _id: id }).exec()
-    .then(resultado => {
-      console.log("Objeto eliminado : ", resultado);
-    })
-    .catch(error => {
-      console.log(error)
-    });
-  res.redirect('/DS-11')
-}
+module.exports.eliminar = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const resultado = await HB.findById(id).exec();
+    console.log("Objeto eliminado: ", resultado);
+    if (resultado) {
+      const Nombre = resultado.Producto;
+      const producto = await Productos.findOne({ Producto: Nombre }).exec();
+      if (producto) {
+        let Cantidad = producto.Cantidad || 0;
+        Cantidad += resultado.Cantidad;
+        await Productos.findByIdAndUpdate(producto._id, { Cantidad });
+        console.log(`Cantidad actualizada para el producto ${Nombre}: ${Cantidad}`);
+        await HB.findByIdAndDelete({ _id: id })
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect('/DS-11');
+};
+
 //Agregar al dia de sol
 module.exports.agregar = async (req, res) => {
   const DS = req.body.DS
