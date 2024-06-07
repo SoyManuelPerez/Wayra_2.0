@@ -74,83 +74,90 @@
             <h3>Habitacion: HB-10</h3>
             <h3>Huesped:<%= Nombre %></h3>
         </div>
-<div class="row ">
-    <div class="col-12 col-md-6">
-        <h2>Productos</h2>
-        <div class="container" >
-            <table id="productos" class="table table-dark table-responsive " style="width: 100%;">
-                    <thead>
-                    <tr>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% let totalPrecio = 0; %>
-                    <% productos.forEach( (productos) => { %>
-                        <tr>
-                            <td> <%= productos.Producto %></td>
-                            <td> <%= productos.Precio %></td>
-                            <td> <%= productos.Tipo %></td>
-                            <td> 
-                                <a href="/AgregarHB10/<%= productos.id %>" type="button" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"> </a>
-                            </td>
-                        </tr>
-                   <% }) %>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="col-12 col-md-6">
-        <h2>Cuenta</h2>
-        <div class="container contenedor-tabla" >
-            <table id="Cuenta" class="table table-dark "  >
-                    <thead>
-                    <tr>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Hora</th>
-                        <% if ( tipoUsuario === "admin") { %>
-                            <th scope="col">Opciones</th>
-                        <%} %>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% HB.forEach( (HB) => { %>
-                        <tr>
-                            <td> <%= HB.Producto %></td>
-                            <td> <%= HB.Precio %></td>
-                            <td> <%= HB.Tipo %></td>
-                            <td> <%= HB.Usuario%></td>
-                            <td> <%= HB.Hora %></td>
+        <div class="row ">
+            <div class="col-12 col-md-6">
+                <h2>Productos</h2>
+                <div class="container" >
+                    <table id="productos" class="table table-dark table-responsive " style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% let totalPrecio = 0; %>
+                            <% productos.forEach( (productos) => { %>
+                                <tr>
+                                    <td><%= productos.Producto %></td>
+                                    <td><%= productos.Precio %></td>
+                                    <td><%= productos.Tipo %></td>
+                                    <td>
+                                        <form action="/AgregarHB10/<%= productos.id %>" method="post" style="display: flex; align-items: center;">
+                                            <input type="number" min="1" max="30" name="unidad" style="margin-right: 10px;" value="1">
+                                            <input type="hidden" name="producto_id" value="<%= productos.id %>">
+                                            <button type="submit" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                           <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <h2>Cuenta</h2>
+                <div class="container contenedor-tabla" >
+                    <table id="Cuenta" class="table table-dark "  >
+                            <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Valor Unitario</th>
+                                <th scope="col">Valor total</th>
+                                <th scope="col">Usuario</th>
+                                <th scope="col">Hora</th>
+                                <% if ( tipoUsuario === "admin") { %>
+                                    <th scope="col">Opciones</th>
+                                <%} %>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% HB.forEach( (HB) => { %>
+                                <% let valort = HB.Cantidad * HB.Precio %>
+                                <tr>
+                                    <td> <%= HB.Producto %></td>
+                                    <td> <%= HB.Cantidad %></td>
+                                    <td> <%= HB.Precio %></td>
+                                    <td> <%= valort %></td>
+                                    <td> <%= HB.Usuario%></td>
+                                    <td> <%= HB.Hora %></td>
+                                    <% if ( tipoUsuario === "admin") { %>
+                                    <td> 
+                                            <a href="/eliminarHB10/<%= HB.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
+                                    </td>
+                                    <%} %>
+                                    <% totalPrecio += valort %> <!-- Suma el precio del producto al total -->
+                                </tr>
+                           <% }) %>
+                           <tr>
                             <% if ( tipoUsuario === "admin") { %>
-                            <td> 
-                                    <a href="/eliminarHB10/<%= HB.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
-                            </td>
-                            <%} %>
-                            <% totalPrecio += HB.Precio; %> <!-- Suma el precio del producto al total -->
+                                <td colspan="6" style="text-align: right;"><strong>Total:</strong></td>
+                                <td><%= totalPrecio %></td>
+                                <%} %>
+                                <% if ( tipoUsuario === "mesero") { %>
+                                    <td colspan="5" style="text-align: right;"><strong>Total:</strong></td>
+                                    <td><%= totalPrecio %></td>
+                                    <%} %>
+                            
                         </tr>
-                   <% }) %>
-                   <tr>
-                    <% if ( tipoUsuario === "admin") { %>
-                        <td colspan="5" style="text-align: right;"><strong>Total:</strong></td>
-                        <td><%= totalPrecio %></td>
-                        <%} %>
-                        <% if ( tipoUsuario === "mesero") { %>
-                            <td colspan="4" style="text-align: right;"><strong>Total:</strong></td>
-                            <td><%= totalPrecio %></td>
-                            <%} %>
-                    
-                </tr>
-                </tbody>
-            </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
    <!-- ventana modal -->
    <div id="modalIngreso" class="modal fade" tabindex="-1" aria-labelledby="modalIngreso" aria-hidden="true">
     <div class="modal-dialog">
