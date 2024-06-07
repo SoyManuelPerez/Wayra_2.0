@@ -15,7 +15,7 @@ module.exports.mostrar = (req, res) => {
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        res.redirect("/");
+        return res.redirect("/");
       }
       usuario = decoded.user;
     });
