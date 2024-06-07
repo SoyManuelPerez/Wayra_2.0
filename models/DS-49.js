@@ -5,6 +5,6 @@ const DS = new mongoose.Schema ({
     Cantidad:Number,
     Usuario: String,
     Tipo: String,
-    Hora: String, s
+    Hora: String, 
 })
 module.exports = mongoose.model('DS49', DS)
