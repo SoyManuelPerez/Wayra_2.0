@@ -95,7 +95,7 @@
                             <td><%= productos.Tipo %></td>
                             <td>
                                 <form action="/AgregarHB1/<%= productos.id %>" method="post" style="display: flex; align-items: center;">
-                                    <input type="number" min="0" max="30" name="unidad" style="margin-right: 10px;">
+                                    <input type="number" min="0" max="30" name="unidad" style="margin-right: 10px;" value="1">
                                     <input type="hidden" name="producto_id" value="<%= productos.id %>">
                                     <button type="submit" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"></button>
                                 </form>

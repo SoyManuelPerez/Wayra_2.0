@@ -7,6 +7,7 @@ const Cocina = require('../models/Cocina');
 const jsonwebtoken = require('jsonwebtoken');
 const Usuario = require('../models/Usuarios');
 const Pago = require('../models/Pagos');
+const DS = require ('../models/DS')
 
 // Mostrar productos
 module.exports.mostrar = (req, res) => {

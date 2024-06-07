@@ -121,18 +121,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% HB.forEach( (HB) => { %>
-                        <% let valort = HB.Cantidad * HB.Precio %>
+                    <% DS.forEach( (DS) => { %>
+                        <% let valort = DS.Cantidad * DS.Precio %>
                         <tr>
-                            <td> <%= HB.Producto %></td>
-                            <td> <%= HB.Cantidad %></td>
-                            <td> <%= HB.Precio %></td>
+                            <td> <%= DS.Producto %></td>
+                            <td> <%= DS.Cantidad %></td>
+                            <td> <%= DS.Precio %></td>
                             <td> <%= valort %></td>
-                            <td> <%= HB.Usuario%></td>
-                            <td> <%= HB.Hora %></td>
+                            <td> <%= DS.Usuario%></td>
+                            <td> <%= DS.Hora %></td>
                             <% if ( tipoUsuario === "admin") { %>
                             <td> 
-                                    <a href="/eliminarDS4/<%= HB.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
+                                    <a href="/eliminarDS4/<%= DS.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
                             </td>
                             <%} %>
                             <% totalPrecio += valort %> <!-- Suma el precio del producto al total -->
