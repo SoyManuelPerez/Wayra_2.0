@@ -63,7 +63,7 @@ module.exports.Crear = async (req, res) => {
         usuario = decoded.user;
       });
     }
-    const ahora = new Date();
+    const ahora = moment().tz('America/Bogota');
     const hora = ahora.getHours();
     const minutos = ahora.getMinutes();
     const Mesa = "HB-1";
@@ -74,6 +74,7 @@ module.exports.Crear = async (req, res) => {
     const Cantidad = unidad
     const Usuario = usuario;
     const Hora = hora + ":" + minutos;
+    console.log(Hora)
     if (producto.Tipo == "Bar") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();
