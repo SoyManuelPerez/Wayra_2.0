@@ -76,7 +76,6 @@ module.exports.Crear = async (req, res) => {
     const Cantidad = unidad
     const Usuario = usuario;
     const Hora = hora + ":" + minutos;
-    console.log(Hora)
     if (producto.Tipo == "Bar") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();

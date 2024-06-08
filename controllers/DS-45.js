@@ -64,8 +64,9 @@ module.exports.Crear = async (req, res) => {
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
     const ds = await DiasSol.findOne({ DS: "DS-45", Ingreso: Fecha });
-    const hora = ahora.getHours();
-    const minutos = ahora.getMinutes();
+    if(ds){
+    const hora = ahora.hours();
+    const minutos = ahora.minutes();
     const Mesa = "DS-45";
     const Comanda = ds.Comanda;
     const Producto = producto.Producto;
@@ -98,6 +99,9 @@ module.exports.Crear = async (req, res) => {
         Cantidad -= unidad;
         await Productos.findByIdAndUpdate(producto._id, { Cantidad });
       }
+    }}
+    else{
+      return res.send("Dia de sol no creado")
     }
     res.redirect('/DS-45');
   } catch (err) {

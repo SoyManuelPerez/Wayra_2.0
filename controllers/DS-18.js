@@ -25,12 +25,12 @@ module.exports.mostrar = (req, res) => {
     Productos.find({}),
     Usuario.find({ user: usuario }),
     DiasSol.find({
-      DS: 'DS-18'
+      DS: 'DS-188'
     })
   ])
   .then(([DS, Productos, Usuario, DiasSol]) => {
     const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-    res.render('DS-18', {
+    res.render('DS-188', {
       DS: DS,
       productos: Productos,
       tipoUsuario: tipoUsuario,
@@ -64,8 +64,9 @@ module.exports.Crear = async (req, res) => {
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
     const ds = await DiasSol.findOne({ DS: "DS-18", Ingreso: Fecha });
-    const hora = ahora.getHours();
-    const minutos = ahora.getMinutes();
+    if(ds){
+    const hora = ahora.hours();
+    const minutos = ahora.minutes();
     const Mesa = "DS-18";
     const Comanda = ds.Comanda;
     const Producto = producto.Producto;
@@ -98,6 +99,9 @@ module.exports.Crear = async (req, res) => {
         Cantidad -= unidad;
         await Productos.findByIdAndUpdate(producto._id, { Cantidad });
       }
+    }}
+    else{
+      return res.send("Dia de sol no creado")
     }
     res.redirect('/DS-18');
   } catch (err) {
@@ -140,9 +144,9 @@ module.exports.pagar = async (req, res) => {
      await nuevoDocumento.save();
      productosVendidosIds.push(producto._id);
    }
-   await DiasSol.deleteOne({DS:"DS-18"})
+   await DiasSol.deleteOne({DS:"DS-188"})
    await DS.deleteMany({ _id: { $in: productosVendidosIds } });
-   res.redirect('/DS-18');
+   res.redirect('/DS-188');
   } catch (error) {
    console.error(error);
    res.status(500).send('Error interno del servidor');
@@ -168,7 +172,7 @@ module.exports.eliminar = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  res.redirect('/DS-18');
+  res.redirect('/DS-188');
 };
 
 //Agregar al dia de sol

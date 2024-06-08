@@ -62,9 +62,10 @@ module.exports.Crear = async (req, res) => {
         usuario = decoded.user;
       });
     }
-    const ahora = new Date();
-    const hora = ahora.getHours();
-    const minutos = ahora.getMinutes();
+    const moment = require('moment-timezone');
+    const ahora = moment().tz('America/Bogota');
+    const hora = ahora.hours();
+    const minutos = ahora.minutes();
     const Mesa = "ECB-24";
     const Comanda = "CB-124";
     const Producto = producto.Producto;

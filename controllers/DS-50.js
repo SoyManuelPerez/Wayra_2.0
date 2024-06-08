@@ -62,12 +62,10 @@ module.exports.Crear = async (req, res) => {
     }
     // Obtener la fecha actual en la zona horaria de Colombia
     const ahora = moment().tz('America/Bogota');
-    const Fecha = ahora.format('YYYY-MM-DD');
-    const ds = await DiasSol.findOne({ DS: "DS-50", Ingreso: Fecha });
-    const hora = ahora.getHours();
-    const minutos = ahora.getMinutes();
+    const hora = ahora.hours();
+    const minutos = ahora.minutes();
     const Mesa = "DS-50";
-    const Comanda = ds.Comanda;
+    const Comanda = "Bodega";
     const Producto = producto.Producto;
     const Precio = producto.Precio;
     const Tipo = producto.Tipo;
@@ -83,7 +81,7 @@ module.exports.Crear = async (req, res) => {
     } else {
       const newUsuario = new DS({
         Mesa: "DS-50",
-        Comanda: ds.Comanda,
+        Comanda: "Bodega",
         Producto: producto.Producto,
         Cantidad: unidad,
         Precio: producto.Precio,
