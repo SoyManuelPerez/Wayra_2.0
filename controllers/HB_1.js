@@ -8,7 +8,7 @@ const jsonwebtoken = require('jsonwebtoken');
 const Usuario = require('../models/Usuarios');
 const Pago = require('../models/Pagos');
 const DS = require ('../models/DS')
-const moment = require('moment-timezone');
+
 
 // Mostrar productos
 module.exports.mostrar = (req, res) => {
@@ -64,9 +64,10 @@ module.exports.Crear = async (req, res) => {
         usuario = decoded.user;
       });
     }
+    const moment = require('moment-timezone');
     const ahora = moment().tz('America/Bogota');
-    const hora = ahora.getHours();
-    const minutos = ahora.getMinutes();
+    const hora = ahora.hours();
+    const minutos = ahora.minutes();
     const Mesa = "HB-1";
     const Comanda = "HB-1";
     const Producto = producto.Producto;
