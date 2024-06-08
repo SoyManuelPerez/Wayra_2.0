@@ -25,12 +25,12 @@ module.exports.mostrar = (req, res) => {
     Productos.find({}),
     Usuario.find({ user: usuario }),
     DiasSol.find({
-      DS: 'DS-166'
+      DS: 'DS-16'
     })
   ])
   .then(([DS, Productos, Usuario, DiasSol]) => {
     const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-    res.render('DS-166', {
+    res.render('DS-16', {
       DS: DS,
       productos: Productos,
       tipoUsuario: tipoUsuario,

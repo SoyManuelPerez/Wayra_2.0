@@ -1,4 +1,4 @@
-const DS = require('../models/DS-10')
+const DS = require('../models/DS-1')
 const Productos = require('../models/Producto')
 const ventas = require('../models/ventas')
 const Bar = require('../models/Bar')
@@ -25,12 +25,12 @@ module.exports.mostrar = (req, res) => {
     Productos.find({}),
     Usuario.find({ user: usuario }),
     DiasSol.find({
-      DS: 'DS-100'
+      DS: 'DS-10'
     })
   ])
   .then(([DS, Productos, Usuario, DiasSol]) => {
     const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-    res.render('DS-100', {
+    res.render('DS-10', {
       DS: DS,
       productos: Productos,
       tipoUsuario: tipoUsuario,
