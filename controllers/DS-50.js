@@ -150,7 +150,7 @@ module.exports.pagar = async (req, res) => {
 module.exports.eliminar = async (req, res) => {
   const id = req.params.id;
   try {
-    const resultado = await HB.findById(id).exec();
+    const resultado = await DS.findById(id).exec();
     console.log("Objeto eliminado: ", resultado);
     if (resultado) {
       const Nombre = resultado.Producto;
@@ -160,7 +160,7 @@ module.exports.eliminar = async (req, res) => {
         Cantidad += resultado.Cantidad;
         await Productos.findByIdAndUpdate(producto._id, { Cantidad });
         console.log(`Cantidad actualizada para el producto ${Nombre}: ${Cantidad}`);
-        await HB.findByIdAndDelete({ _id: id })
+        await DS.findByIdAndDelete({ _id: id })
       }
     }
   } catch (error) {
