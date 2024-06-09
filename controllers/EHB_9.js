@@ -65,7 +65,7 @@ module.exports.Crear = async (req, res) => {
     const moment = require('moment-timezone');
     const ahora = moment().tz('America/Bogota');
     const hora = ahora.hours();
-    const minutos = ahora.minutes();s
+    const minutos = ahora.minutes();
     const Mesa = "EHB-9";
     const Comanda = "HB-109";
     const Producto = producto.Producto;
