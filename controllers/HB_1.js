@@ -9,7 +9,6 @@ const Usuario = require('../models/Usuarios');
 const Pago = require('../models/Pagos');
 const DS = require ('../models/DS')
 
-
 // Mostrar productos
 module.exports.mostrar = (req, res) => {
   const token = req.cookies.jwt;
@@ -66,16 +65,21 @@ module.exports.Crear = async (req, res) => {
     }
     const moment = require('moment-timezone');
     const ahora = moment().tz('America/Bogota');
-    const hora = ahora.hours();
+    const Fecha = ahora.format('DD-MM-YYYY');
+    let hora = ahora.hours();
     const minutos = ahora.minutes();
+    let Hora = hora + ":" + minutos +"am "+Fecha;
     const Mesa = "HB-1";
     const Comanda = "HB-1";
     const Producto = producto.Producto;
     const Precio = producto.Precio;
     const Tipo = producto.Tipo;
-    const Cantidad = unidad
+    const Cantidad = unidad;
     const Usuario = usuario;
-    const Hora = hora + ":" + minutos;
+    if(hora>12){
+      hora = hora-12;
+      Hora = hora + ":" + minutos +"pm "+Fecha;
+    } 
     if (producto.Tipo == "Bar") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();
@@ -83,16 +87,7 @@ module.exports.Crear = async (req, res) => {
       const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
-      const newUsuario = new HB({
-        Mesa: "HB-1",
-        Comanda: "HB-1",
-        Producto: producto.Producto,
-        Cantidad: unidad,
-        Precio: producto.Precio,
-        Usuario: usuario,
-        Tipo: producto.Tipo,
-        Hora: hora + ":" + minutos
-      });
+      const newUsuario = new HB({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await newUsuario.save();
       // Actualizar la cantidad del producto en la colección Productos
       let Cantidad = producto.Cantidad;
@@ -172,7 +167,6 @@ module.exports.eliminar = async (req, res) => {
   }
   res.redirect('/HB-1');
 };
-
 
 // Agregar Huesped
 module.exports.agregar = async (req, res) => {

@@ -1,4 +1,4 @@
-const HB = require('../models/HB-12');
+const HB = require('../models/HB-2');
 const Productos = require('../models/Producto');
 const Bar = require('../models/Bar');
 const Huesped = require('../models/Hospedaje');
@@ -25,12 +25,12 @@ module.exports.mostrar = (req, res) => {
     Productos.find({}),
     Usuario.find({ user: usuario }),
     Huesped.find({
-      HB: 'HB-12'
+      HB: 'HB-2'
     })
   ])
     .then(([HB, Productos, Usuario, Huesped]) => {
       const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-      res.render('HB-12', {
+      res.render('HB-2', {
         HB: HB,
         productos: Productos,
         tipoUsuario: tipoUsuario,
@@ -64,16 +64,21 @@ module.exports.Crear = async (req, res) => {
     }
     const moment = require('moment-timezone');
     const ahora = moment().tz('America/Bogota');
-    const hora = ahora.hours();
+    const Fecha = ahora.format('DD-MM-YYYY');
+    let hora = ahora.hours();
     const minutos = ahora.minutes();
-    const Mesa = "HB-12";
-    const Comanda = "HB-12";
+    let Hora = hora + ":" + minutos +"am "+Fecha;
+    const Mesa = "HB-2";
+    const Comanda = "HB-2";
     const Producto = producto.Producto;
     const Precio = producto.Precio;
     const Tipo = producto.Tipo;
     const Cantidad = unidad
     const Usuario = usuario;
-    const Hora = hora + ":" + minutos;
+    if(hora>2){
+      hora = hora-2;
+      Hora = hora + ":" + minutos +"pm "+Fecha;
+    } 
     if (producto.Tipo == "Bar") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();
@@ -81,16 +86,7 @@ module.exports.Crear = async (req, res) => {
       const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
-      const newUsuario = new HB({
-        Mesa: "HB-12",
-        Comanda: "HB-12",
-        Producto: producto.Producto,
-        Cantidad: unidad,
-        Precio: producto.Precio,
-        Usuario: usuario,
-        Tipo: producto.Tipo,
-        Hora: hora + ":" + minutos
-      });
+      const newUsuario = new HB({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora});
       await newUsuario.save();
       // Actualizar la cantidad del producto en la colección Productos
       let Cantidad = producto.Cantidad;
@@ -99,7 +95,7 @@ module.exports.Crear = async (req, res) => {
         await Productos.findByIdAndUpdate(producto._id, { Cantidad });
       }
     }
-    res.redirect('/HB-12');
+    res.redirect('/HB-2');
   } catch (err) {
     console.error(err);
     res.status(500).send("Error interno del servidor");
@@ -139,9 +135,9 @@ module.exports.pagar = async (req, res) => {
       await nuevoDocumento.save();
       productosVendidosIds.push(producto._id);
     }
-    await Huesped.deleteOne({ HB: 'HB-12' })
+    await Huesped.deleteOne({ HB: 'HB-2' })
     await HB.deleteMany({ _id: { $in: productosVendidosIds } });
-    res.redirect('/HB-12');
+    res.redirect('/HB-2');
   } catch (error) {
     console.error(error);
     res.status(500).send('Error interno del servidor');
@@ -168,7 +164,7 @@ module.exports.eliminar = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  res.redirect('/HB-12');
+  res.redirect('/HB-2');
 };
 
 
@@ -183,5 +179,5 @@ module.exports.agregar = async (req, res) => {
   const Salida = req.body.Salida;
   const newUsuario = new Huesped({ HB, Nombre, Adultos, Niños, Bebes, Ingreso, Salida });
   await newUsuario.save();
-  res.redirect('/HB-12');
+  res.redirect('/HB-2');
 };

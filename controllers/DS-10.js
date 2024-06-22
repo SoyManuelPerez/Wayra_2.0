@@ -65,8 +65,13 @@ module.exports.Crear = async (req, res) => {
     const Fecha = ahora.format('YYYY-MM-DD');
     const ds = await DiasSol.findOne({ DS: "DS-10", Ingreso: Fecha });
     if(ds){
-    const hora = ahora.hours();
+    let hora = ahora.hours();
     const minutos = ahora.minutes();
+    let Hora = hora + ":" + minutos +"am";
+    if(hora>12){
+      hora = hora-12;
+      Hora = hora + ":" + minutos +"pm";
+    } 
     const Mesa = "DS-10";
     const Comanda = ds.Comanda;
     const Producto = producto.Producto;
@@ -74,7 +79,6 @@ module.exports.Crear = async (req, res) => {
     const Tipo = producto.Tipo;
     const Cantidad = unidad
     const Usuario = mesero;
-    const Hora = hora + ":" + minutos;
     if (producto.Tipo == "Bar") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();
@@ -82,16 +86,7 @@ module.exports.Crear = async (req, res) => {
       const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
-      const newUsuario = new DS({
-        Mesa: "DS-10",
-        Comanda: ds.Comanda,
-        Producto: producto.Producto,
-        Cantidad: unidad,
-        Precio: producto.Precio,
-        Usuario: mesero,
-        Tipo: producto.Tipo,
-        Hora: hora + ":" + minutos
-      });
+      const newUsuario = new DS({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora});
       await newUsuario.save();
       // Actualizar la cantidad del producto en la colección Productos
       let Cantidad = producto.Cantidad;
@@ -144,9 +139,9 @@ module.exports.pagar = async (req, res) => {
      await nuevoDocumento.save();
      productosVendidosIds.push(producto._id);
    }
-   await DiasSol.deleteOne({DS:"DS-100"})
+   await DiasSol.deleteOne({DS:"DS-10"})
    await DS.deleteMany({ _id: { $in: productosVendidosIds } });
-   res.redirect('/DS-100');
+   res.redirect('/DS-10');
   } catch (error) {
    console.error(error);
    res.status(500).send('Error interno del servidor');
@@ -172,7 +167,7 @@ module.exports.eliminar = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  res.redirect('/DS-100');
+  res.redirect('/DS-10');
 };
 
 //Agregar al dia de sol
