@@ -89,10 +89,10 @@ module.exports.Crear = async (req, res) => {
       const newUsuario = new HB({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora});
       await newUsuario.save();
       // Actualizar la cantidad del producto en la colección Productos
-      let Cantidad = producto.Cantidad;
-      if (Cantidad > 0) {
-        Cantidad -= unidad;
-        await Productos.findByIdAndUpdate(producto._id, { Cantidad });
+      let CantidadP = producto.Cantidad;
+      if (CantidadP > 0) {
+       CantidadP -= unidad;
+        await Productos.findByIdAndUpdate(producto._id, { CantidadP });
       }
     }
     res.redirect('/HB-6');

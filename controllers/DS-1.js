@@ -88,12 +88,12 @@ module.exports.Crear = async (req, res) => {
     } else {
       const newUsuario = new DS({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora});
       await newUsuario.save();
-      // Actualizar la cantidad del producto en la colección Productos
-      let Cantidad = producto.Cantidad;
-      if (Cantidad > 0) {
-        Cantidad -= unidad;
-        await Productos.findByIdAndUpdate(producto._id, { Cantidad });
-      }
+         // Actualizar la cantidad del producto en la colección Productos
+         let CantidadP = producto.Cantidad;
+         if (CantidadP > 0) {
+          CantidadP -= unidad;
+           await Productos.findByIdAndUpdate(producto._id, { CantidadP });
+         }
     }}
     else{
       return res.send("Dia de sol no creado")
