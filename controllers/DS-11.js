@@ -172,7 +172,7 @@ module.exports.eliminar = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  res.redirect('/DS-111');
+  res.redirect('/DS-11');
 };
 
 //Agregar al dia de sol
