@@ -141,7 +141,7 @@ module.exports.pagar = async (req, res) => {
    }
    await DiasSol.deleteOne({DS:"DS-177"})
    await DS.deleteMany({ _id: { $in: productosVendidosIds } });
-   res.redirect('/DS-177');
+   res.redirect('/DS-17');
   } catch (error) {
    console.error(error);
    res.status(500).send('Error interno del servidor');
@@ -167,7 +167,7 @@ module.exports.eliminar = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  res.redirect('/DS-177');
+  res.redirect('/DS-17');
 };
 
 //Agregar al dia de sol
