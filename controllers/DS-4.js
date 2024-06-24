@@ -68,10 +68,7 @@ module.exports.Crear = async (req, res) => {
     let hora = ahora.hours();
     const minutos = ahora.minutes();
     let Hora = hora + ":" + minutos +"am";
-    if(hora>12){
-      hora = hora-12;
-      Hora = hora + ":" + minutos +"pm";
-    } 
+   v
     const Mesa = "DS-4";
     const Comanda = ds.Comanda;
     const Producto = producto.Producto;
