@@ -75,9 +75,12 @@ module.exports.Crear = async (req, res) => {
     const Tipo = producto.Tipo;
     const Cantidad = unidad
     const Usuario = usuario;
-    if(hora>2){
-      hora = hora-2;
-      Hora = hora + ":" + minutos +"pm "+Fecha;
+    if(hora = 12){
+      Hora = hora + ":" + minutos +"pm";
+    }
+    else if(hora>12){
+      hora = hora-12;
+      Hora = hora + ":" + minutos +"pm";
     } 
     if (producto.Tipo == "Bar") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
