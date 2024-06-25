@@ -170,7 +170,6 @@ module.exports.eliminar = async (req, res) => {
   res.redirect('/ECB-25');
 };
 
-
 // Agregar Huesped
 module.exports.agregar = async (req, res) => {
   const HB = req.body.Habitacion;

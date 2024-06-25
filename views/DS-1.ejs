@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 <link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 <title>Dia de sol</title>
 </head>
@@ -68,7 +70,7 @@
                 comanda =ds.Comanda
             }}) %>
     <h3>Comanda:<%= comanda %> </h3>
-    <h3>Cliente:<%= Nombre %></h3>
+    <h3 id="titulo">Cliente:<%= Nombre %></h3>
 </div>
 <div class="row ">
     <div class="col-12 col-md-6">
@@ -242,6 +244,7 @@
         </div>
 </div>
 <script src="js/ModalDS.js"></script>
+<script src="js/pdf.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
