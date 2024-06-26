@@ -54,10 +54,17 @@ function guardarComoPDF() {
         datosTablaPDF.push(filaPDF);
     }
 
+    // Añadir el texto del cliente y la fecha
+    const fechaActual = new Date().toLocaleDateString();
+    doc.text(`Cliente: ${titulo}`, 10, 10);
+    doc.text(`Fecha: ${fechaActual}`, 10, 20);
+
+    // Añadir la tabla
     doc.autoTable({
         head: [datosTablaPDF.shift()],
-        body: datosTablaPDF 
+        body: datosTablaPDF,
+        startY: 30 // Ajustar según sea necesario para que la tabla no se superponga con el texto anterior
     });
     
-    doc.save(`${titulo}.pdf`);
+    doc.save(`Cliente_${titulo}.pdf`);
 }

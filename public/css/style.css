@@ -9,6 +9,10 @@
 .logo{
     border-radius: 10px;
 }
+.inline {
+    display: inline-block;
+    margin-right: 10px; /* Ajusta este valor según el espacio que desees entre los elementos */
+}
 .Pagos{
     border-radius: 30%;
     margin-right: 20px
