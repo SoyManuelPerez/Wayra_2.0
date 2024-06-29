@@ -187,6 +187,10 @@ module.exports.agregar = async (req, res) => {
 
 //Mostrar Hospedaje
 module.exports.mostrarH = (req, res) => {
+  const moment = require('moment-timezone');
+  const ahora = moment().tz('America/Bogota');
+  let hora = ahora.hours();
+  const Fecha = ahora.format('YYYY-MM-DD');
   const token = req.cookies.jwt;
   let mesero = "";
   if (token) {
@@ -205,7 +209,7 @@ module.exports.mostrarH = (req, res) => {
     .then(([Huesped, DS, Usuario]) => {
       // Extraer el tipo de usuario (type) del objeto Usuario
       const tipoUsuario = Usuario.length > 0 ? Usuario[0].type : null;
-      res.render('hospedaje', { Huesped: Huesped, DS: DS, tipoUsuario: tipoUsuario });
+      res.render('hospedaje', { Huesped: Huesped, DS: DS, tipoUsuario: tipoUsuario ,Hora:hora,Fecha:Fecha});
     })
     .catch(err => console.log(err, 'Error mostrando datos'));
 };
