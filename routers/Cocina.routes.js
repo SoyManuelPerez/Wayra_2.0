@@ -5,6 +5,9 @@ const Cocina = require('../controllers/Cocina_Controllers')
 router.get('/Cocina',Cocina.mostrar,(req,res)=>{
     res.render('Cocina')
 })
+router.get('/Cenas',(req,res)=>{
+    res.render('cenas')
+})
 //Eliminar
 //Eliminar de la CCcuentaHB1
 router.get('/eliminarCocina/:id',Cocina.eliminar);
