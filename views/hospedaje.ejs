@@ -388,35 +388,30 @@
             </div>
           </a>
         </div>
-      </div>
-      <div class="container espacio">       
-        <%
-        let cantidadAdultos = 0;
-        let cantidadNiños = 0;
-        let cantidadBebes = 0;
-        
-        Huesped.forEach((huesped) => {
-
-                cantidadAdultos += huesped.Adultos;
-                cantidadNiños += huesped.Niños;
-                cantidadBebes += huesped.Bebes;
-                cantidadAdultos += huesped.Adultos;
-                cantidadNiños += huesped.Niños;
-                cantidadBebes += huesped.Bebes;
-            
-        });
-    %>
-        <%
-        let fechaIngresoDS = ""
-        let cantidadAdultosD = 0;
-        let cantidadNiñosD = 0;
-        let cantidadBebesD = 0;
-        DS.forEach((DS) => {
-                cantidadAdultosD += DS.Adultos;
-                cantidadNiñosD += DS.Niños;
-                cantidadBebesD += DS.Bebes;
+      </div>     
+        <div class="container espacio">       
+          <%
+          let cantidadAdultos = 0;
+          let cantidadNiños = 0;
+          let cantidadBebes = 0;
+          Huesped.forEach((Huesped) => {
+                  cantidadAdultos += Huesped.Adultos;
+                  cantidadNiños += Huesped.Niños;
+                  cantidadBebes += Huesped.Bebes;
           });
-        %>
+      %>
+          <%
+          let fechaIngresoDS = ""
+          let cantidadAdultosD = 0;
+          let cantidadNiñosD = 0;
+          let cantidadBebesD = 0;
+          DS.forEach((DS) => {
+          
+                      cantidadAdultosD += DS.Adultos;
+                      cantidadNiñosD += DS.Niños;
+                      cantidadBebesD += DS.Bebes;
+          });
+          %>
     <h5 class="anuncio">Hospedaje</h5>
     <h5 class="anuncio">Adultos:<%= cantidadAdultos %>  Niños:<%= cantidadNiños %> Bebes: <%= cantidadBebes %></h5>
     <h5 class="anuncio">Dias de sol</h5>

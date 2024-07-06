@@ -55,13 +55,6 @@
     let cantidadAdultos = 0;
     let cantidadNiños = 0;
     let cantidadBebes = 0;
-    
-    // Configurar la zona horaria para Bogotá
-    const timeZoneOffset = -5 * 60; // Bogotá tiene una diferencia de -5 horas respecto a UTC
-    const fechaHoy = new Date(new Date().getTime() + timeZoneOffset * 60 * 1000); // Fecha actual en Bogotá
-    const fechaHoyStr = fechaHoy.toISOString().split('T')[0];
-    const horaActual = new Date().toLocaleString("es-CO", { timeZone: "America/Bogota", hour: "numeric", hour12: false }); // Obtener la hora actual en Bogotá
-    let fechaSalidaStr = ""
     Huesped.forEach((Huesped) => {
             cantidadAdultos += Huesped.Adultos;
             cantidadNiños += Huesped.Niños;
