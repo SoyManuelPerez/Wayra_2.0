@@ -64,7 +64,6 @@ module.exports.Crear = async (req, res) => {
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
     const ds = await DiasSol.findOne({ DS: "DS-6", Ingreso: Fecha });
-    if(ds){
     let hora = ahora.hours();
     const minutos = ahora.minutes();
     let Hora = hora + ":" + minutos +"am";
@@ -97,9 +96,6 @@ module.exports.Crear = async (req, res) => {
        CantidadP -= unidad;
         await Productos.findByIdAndUpdate(producto._id, { CantidadP });
       }
-    }}
-    else{
-      return res.send("Dia de sol no creado")
     }
     res.redirect('/DS-6');
   } catch (err) {
