@@ -5,7 +5,7 @@ const Cocina = require('../controllers/Cocina_Controllers')
 router.get('/Cocina',Cocina.mostrar,(req,res)=>{
     res.render('Cocina')
 })
-router.get('/Cenas',(req,res)=>{
+router.get('/Cenas',Cocina.mostrarCenas,(req,res)=>{
     res.render('cenas')
 })
 //Eliminar

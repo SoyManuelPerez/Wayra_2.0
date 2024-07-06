@@ -65,7 +65,7 @@
         <% productos.forEach( (productos) => { %>
           <tr>
               <td> <%= productos.Producto %></td>
-              <td> <%= productos.Precio %></td>
+              <td> <%= productos.Precio.toLocaleString('es-CO') %></td>
               <td> <%= productos.Tipo %></td>
               <td> <%= productos.Cantidad %></td>
               <td> 

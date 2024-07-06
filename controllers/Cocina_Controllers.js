@@ -119,6 +119,16 @@ module.exports.mostrar = (req, res) => {
       })
         .catch(err => console.log(err, 'Error mostrar producto no encontrado'))
 }
+//Mostrar productos
+module.exports.mostrarCenas = (req, res) => {
+    Promise.all([
+        Huesped.find({}),
+      ])
+      .then(([Huesped]) => {
+        res.render('cenas', { Huesped: Huesped});
+      })
+        .catch(err => console.log(err, 'Error mostrar producto no encontrado'))
+}
 //Elinar
 module.exports.eliminar = (req,res) =>{
     const id = req.params.id
