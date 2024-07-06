@@ -103,3 +103,5 @@ module.exports.Login =  (req,res)=>{
 module.exports.logout =(req,res)=>{
     res.render('login')
 }
+
+

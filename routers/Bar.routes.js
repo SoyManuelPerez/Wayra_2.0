@@ -6,6 +6,7 @@ router.get('/Bar',Bar.mostrar,(req,res)=>{
     res.render('bar')
 })
 //Eliminar Bar
+router.get('/eliminarDSTotal',Bar.eliminarDS);
 router.get('/eliminarBar/:id',Bar.eliminar);
 //Devolver a la cuenta De HB1
 router.get('/CuentaHB-1/:id',Bar.HB1)

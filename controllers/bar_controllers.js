@@ -2831,3 +2831,65 @@ module.exports.DS50 = async (req, res) => {
         res.status(500).send("Error interno del servidor");
     }
 };
+
+
+module.exports.eliminarDS = async (req, res) => {
+    try {
+        const deletePromises = [
+            DS1.deleteMany(),
+            DS2.deleteMany(),
+            DS3.deleteMany(),
+            DS4.deleteMany(),
+            DS5.deleteMany(),
+            DS6.deleteMany(),
+            DS7.deleteMany(),
+            DS8.deleteMany(),
+            DS9.deleteMany(),
+            DS10.deleteMany(),
+            DS11.deleteMany(),
+            DS12.deleteMany(),
+            DS13.deleteMany(),
+            DS14.deleteMany(),
+            DS15.deleteMany(),
+            DS16.deleteMany(),
+            DS17.deleteMany(),
+            DS18.deleteMany(),
+            DS19.deleteMany(),
+            DS20.deleteMany(),
+            DS21.deleteMany(),
+            DS22.deleteMany(),
+            DS23.deleteMany(),
+            DS24.deleteMany(),
+            DS25.deleteMany(),
+            DS26.deleteMany(),
+            DS27.deleteMany(),
+            DS28.deleteMany(),
+            DS29.deleteMany(),
+            DS30.deleteMany(),
+            DS31.deleteMany(),
+            DS32.deleteMany(),
+            DS33.deleteMany(),
+            DS34.deleteMany(),
+            DS35.deleteMany(),
+            DS36.deleteMany(),
+            DS37.deleteMany(),
+            DS38.deleteMany(),
+            DS39.deleteMany(),
+            DS40.deleteMany(),
+            DS41.deleteMany(),
+            DS42.deleteMany(),
+            DS43.deleteMany(),
+            DS44.deleteMany(),
+            DS45.deleteMany(),
+            DS46.deleteMany(),
+            DS47.deleteMany(),
+            DS48.deleteMany()
+        ];
+        await Promise.all(deletePromises);
+        console.log("Dias de sol eliminados");
+        res.redirect('/hospedaje');
+    } catch (err) {
+        console.error('Error deleting DS records:', err);
+        res.status(500).send("Internal Server Error");
+    }
+};

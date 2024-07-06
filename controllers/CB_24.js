@@ -63,8 +63,10 @@ module.exports.Crear = async (req, res) => {
       });
     }
     const moment = require('moment-timezone');
+    const esLocale = require('moment/locale/es');
+    moment.locale('es', esLocale);
     const ahora = moment().tz('America/Bogota');
-    const Fecha = ahora.format('DD-MM-YYYY');
+    const Fecha = ahora.format('DD/MMM');
     let hora = ahora.hours();
     const minutos = ahora.minutes();
     let Hora = hora + ":" + minutos +"am "+Fecha;
@@ -75,12 +77,12 @@ module.exports.Crear = async (req, res) => {
     const Tipo = producto.Tipo;
     const Cantidad = unidad
     const Usuario = usuario;
-    if(hora = 12){
-      Hora = hora + ":" + minutos +"pm";
+    if(hora == 12){
+      Hora = hora + ":" + minutos +"pm "+Fecha;
     }
     else if(hora>12){
       hora = hora-12;
-      Hora = hora + ":" + minutos +"pm";
+      Hora = hora + ":" + minutos +"pm "+Fecha;
     } 
     if (producto.Tipo == "Bar") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });

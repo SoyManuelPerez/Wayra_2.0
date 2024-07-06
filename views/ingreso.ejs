@@ -38,9 +38,9 @@
                 <%  pagos.forEach((pago) => { %>
                     <tr>
                         <td> <%= pago.Cuenta %></td>
-                        <td> <%= pago.Monto %></td>
+                        <td> <%= pago.Monto.toLocaleString('es-CO') %></td>
                         <td> <%= pago.Tipo %></td>
-                        <td> <%= pago.Montoextra %></td>
+                        <td> <%= pago.Montoextra.toLocaleString('es-CO') %></td>
                         <td> <%= pago.Tipoextra %></td>
                         <td> <%= pago.Fecha %></td>
                     </tr>

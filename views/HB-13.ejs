@@ -69,7 +69,7 @@
                     <% productos.forEach( (productos) => { %>
                         <tr>
                             <td><%= productos.Producto %></td>
-                            <td><%= productos.Precio %></td>
+                            <td><%= productos.Precio.toLocaleString('es-CO') %></td>
                             <td><%= productos.Tipo %></td>
                             <td>
                                 <form action="/AgregarHB13/<%= productos.id %>" method="post" style="display: flex; align-items: center;">
@@ -107,8 +107,8 @@
                         <tr>
                             <td> <%= HB.Producto %></td>
                             <td> <%= HB.Cantidad %></td>
-                            <td> <%= HB.Precio %></td>
-                            <td> <%= valort %></td>
+                            <td> <%= HB.Precio.toLocaleString('es-CO') %></td>
+                            <td> <%= valort.toLocaleString('es-CO') %></td>
                             <td> <%= HB.Usuario%></td>
                             <td> <%= HB.Hora %></td>
                             <% if ( tipoUsuario === "admin") { %>
@@ -122,11 +122,11 @@
                    <tr>
                     <% if ( tipoUsuario === "admin") { %>
                         <td colspan="6" style="text-align: right;"><strong>Total:</strong></td>
-                        <td><%= totalPrecio %></td>
+                        <td><%= totalPrecio.toLocaleString('es-CO') %></td>
                         <%} %>
                         <% if ( tipoUsuario === "mesero") { %>
                             <td colspan="5" style="text-align: right;"><strong>Total:</strong></td>
-                            <td><%= totalPrecio %></td>
+                            <td><%= totalPrecio.toLocaleString('es-CO') %></td>
                             <%} %>
                     
                 </tr>
