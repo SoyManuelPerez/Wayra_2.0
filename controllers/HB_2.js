@@ -63,8 +63,10 @@ module.exports.Crear = async (req, res) => {
       });
     }
     const moment = require('moment-timezone');
+    const esLocale = require('moment/locale/es');
+    moment.locale('es', esLocale);
     const ahora = moment().tz('America/Bogota');
-    const Fecha = ahora.format('DD-MM');
+    const Fecha = ahora.format('DD/MMM');
     let hora = ahora.hours();
     const minutos = ahora.minutes();
     let Hora = hora + ":" + minutos +"am "+Fecha;

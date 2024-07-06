@@ -68,7 +68,7 @@ module.exports.Crear = async (req, res) => {
     let hora = ahora.hours();
     const minutos = ahora.minutes();
     let Hora = hora + ":" + minutos +"am";
-    if(hora = 12){
+    if(hora == 12){
       Hora = hora + ":" + minutos +"pm";
     }
     else if(hora>12){

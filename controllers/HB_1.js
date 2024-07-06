@@ -64,8 +64,10 @@ module.exports.Crear = async (req, res) => {
       });
     }
     const moment = require('moment-timezone');
+    const esLocale = require('moment/locale/es');
+    moment.locale('es', esLocale);
     const ahora = moment().tz('America/Bogota');
-    const Fecha = ahora.format('DD-MM-YYYY');
+    const Fecha = ahora.format('DD/MMM');
     let hora = ahora.hours();
     const minutos = ahora.minutes();
     let Hora = hora + ":" + minutos +"am "+Fecha;
@@ -74,9 +76,9 @@ module.exports.Crear = async (req, res) => {
     const Producto = producto.Producto;
     const Precio = producto.Precio;
     const Tipo = producto.Tipo;
-    const Cantidad = unidad;
+    const Cantidad = unidad
     const Usuario = usuario;
-    if(hora = 12){
+    if(hora == 12){
       Hora = hora + ":" + minutos +"pm "+Fecha;
     }
     else if(hora>12){
