@@ -61,33 +61,9 @@
     const horaActual = new Date().toLocaleString("es-CO", { timeZone: "America/Bogota", hour: "numeric", hour12: false }); // Obtener la hora actual en Bogotá
     let fechaSalidaStr = ""
     Huesped.forEach((Huesped) => {
-        const Ingreso = Huesped.Ingreso.split('-'); // Suponiendo que el formato es YYYY-MM-DD
-        const añoI = parseInt(Ingreso[0]);
-        const mesI = parseInt(Ingreso[1]) - 1; // Los meses en JavaScript van de 0 a 11
-        const diaI = parseInt(Ingreso[2]);
-        const fechaIngreso = new Date(añoI, mesI, diaI, 0, 0, 0, 0); // Fecha de ingreso en Bogotá
-        fechaIngreso.setTime(fechaIngreso.getTime() + timeZoneOffset * 60 * 1000); // Ajustar a la zona horaria de Bogotá
-        const fechaIngresoStr = fechaIngreso.toISOString().split('T')[0];
-        
-        const partesFecha = Huesped.Salida.split('-'); // Suponiendo que el formato es YYYY-MM-DD
-        const año = parseInt(partesFecha[0]);
-        const mes = parseInt(partesFecha[1]) - 1; // Los meses en JavaScript van de 0 a 11
-        const dia = parseInt(partesFecha[2]);
-        const fechaSalida = new Date(año, mes, dia, 23, 59, 59, 999); // Fecha de salida en Bogotá
-        fechaSalida.setTime(fechaSalida.getTime() + timeZoneOffset * 60 * 1000); // Ajustar a la zona horaria de Bogotá
-        fechaSalidaStr = fechaSalida.toISOString().split('T')[0];
-        
-        // Verificar si la fecha de salida del huésped es mayor o igual a la fecha de hoy
-        // y la hora de salida es antes de las 3:00 p. m.
-        if ((fechaSalidaStr >= fechaHoyStr) && (horaActual < 15) && (fechaIngresoStr <= fechaHoyStr)) {
             cantidadAdultos += Huesped.Adultos;
             cantidadNiños += Huesped.Niños;
             cantidadBebes += Huesped.Bebes;
-        } else if ((fechaIngresoStr <= fechaHoyStr) && (fechaSalidaStr > fechaHoyStr)) {
-            cantidadAdultos += Huesped.Adultos;
-            cantidadNiños += Huesped.Niños;
-            cantidadBebes += Huesped.Bebes;
-        }
     });
 %>
     <%
@@ -96,21 +72,10 @@
     let cantidadNiñosD = 0;
     let cantidadBebesD = 0;
     DS.forEach((DS) => {
-        fechaIngresoDS = new Date(DS.Ingreso);
-        const fechaHoy = new Date();
-        const horaActual = fechaHoy.getHours();
-        const partesFecha = DS.Ingreso.split('-'); // Suponiendo que el formato es YYYY-MM-DD
-        const año = parseInt(partesFecha[0]);
-        const mes = parseInt(partesFecha[1]) - 1; // Los meses en JavaScript van de 0 a 11
-        const dia = parseInt(partesFecha[2]);
-        fechaIngresoDS = new Date(año, mes, dia);
-        if (fechaIngresoDS.getFullYear() === fechaHoy.getFullYear() &&
-            fechaIngresoDS.getMonth() === fechaHoy.getMonth() &&
-            fechaIngresoDS.getDate() === fechaHoy.getDate() && horaActual < 17) {
+    
                 cantidadAdultosD += DS.Adultos;
                 cantidadNiñosD += DS.Niños;
                 cantidadBebesD += DS.Bebes;
-        }
     });
     %>
 <h5 class="anuncio">Hospedaje</h5>

@@ -396,35 +396,20 @@
         let cantidadBebes = 0;
         
         Huesped.forEach((huesped) => {
-            const fechaSalida = new Date(huesped.Salida); // Convertir Salida a objeto Date si no lo es
-            const fechahoy = new Date(Fecha)
-            // Comparar solo la fecha sin la hora para determinar si es el mismo día
-            const esMismoDia = fechaSalida.toISOString().split('T')[0] === fechahoy.toISOString().split('T')[0]
-        
-            if (Hora < 15 && esMismoDia) {
                 cantidadAdultos += huesped.Adultos;
                 cantidadNiños += huesped.Niños;
                 cantidadBebes += huesped.Bebes;
-            } else if (fechaSalida < fechahoy.toISOString().split('T')[0]) {
-                cantidadAdultos += huesped.Adultos;
-                cantidadNiños += huesped.Niños;
-                cantidadBebes += huesped.Bebes;
-            }
         });
         
         let cantidadAdultosD = 0;
         let cantidadNiñosD = 0;
         let cantidadBebesD = 0;
         DS.forEach((DS) => {
-            const fechaingreso= new Date(DS.Ingreso); // Convertir Salida a objeto Date si no lo es
-            const fechahoy = new Date(Fecha)
-            // Comparar solo la fecha sin la hora para determinar si es el mismo día
-            const esMismoDia = fechaingreso.toISOString().split('T')[0] === fechahoy.toISOString().split('T')[0]
-        if(Hora<17 && esMismoDia){
+        
                 cantidadAdultosD += DS.Adultos;
                 cantidadNiñosD += DS.Niños;
                 cantidadBebesD += DS.Bebes;
-            }});
+            });
         %>
 
 
