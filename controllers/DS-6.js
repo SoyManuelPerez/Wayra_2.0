@@ -64,40 +64,44 @@ module.exports.Crear = async (req, res) => {
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
     const ds = await DiasSol.findOne({ DS: "DS-6", Ingreso: Fecha });
-    let hora = ahora.hours();
-    const minutos = ahora.minutes();
-    let Hora = hora + ":" + minutos +"am";
-    if(hora == 12){
-      Hora = hora + ":" + minutos +"pm";
-    }
-    else if(hora>12){
-      hora = hora-12;
-      Hora = hora + ":" + minutos +"pm";
-    } 
-    const Mesa = "DS-6";
-    const Comanda = ds.Comanda;
-    const Producto = producto.Producto;
-    const Precio = producto.Precio;
-    const Tipo = producto.Tipo;
-    const Cantidad = unidad
-    const Usuario = mesero;
-    if (producto.Tipo == "Bar") {
-      const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
-      await bar.save();
-    } else if (producto.Tipo == "Cocina") {
-      const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
-      await cocina.save();
-    } else {
-      const newUsuario = new DS({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora});
-      await newUsuario.save();
-      // Actualizar la cantidad del producto en la colección Productos
-      let CantidadP = producto.Cantidad;
-      if (CantidadP > 0) {
-       CantidadP -= unidad;
-        await Productos.findByIdAndUpdate(producto._id, { CantidadP });
+    if(ds){
+      let hora = ahora.hours();
+      const minutos = ahora.minutes();
+      let Hora = hora + ":" + minutos +"am";
+      if(hora == 12){
+        Hora = hora + ":" + minutos +"pm";
       }
-    }
-    res.redirect('/DS-6');
+      else if(hora>12){
+        hora = hora-12;
+        Hora = hora + ":" + minutos +"pm";
+      } 
+      const Mesa = "DS-6";
+      const Comanda = ds.Comanda;
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Tipo;
+      const Cantidad = unidad
+      const Usuario = mesero;
+      if (producto.Tipo == "Bar") {
+        const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
+        await bar.save();
+      } else if (producto.Tipo == "Cocina") {
+        const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
+        await cocina.save();
+      } else {
+        const newUsuario = new DS({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora});
+        await newUsuario.save();
+        // Actualizar la cantidad del producto en la colección Productos
+        let CantidadP = producto.Cantidad;
+        if (CantidadP > 0) {
+         CantidadP -= unidad;
+          await Productos.findByIdAndUpdate(producto._id, { CantidadP });
+        }
+      }}
+      else{
+        return res.send("Dia de sol no creado")
+      }
+      res.redirect('/DS-6');
   } catch (err) {
     console.error(err);
     res.status(500).send("Error interno del servidor");
