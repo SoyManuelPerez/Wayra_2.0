@@ -122,26 +122,26 @@ module.exports.pagar = async (req, res) => {
     const Montoextra = req.body.Montoextra
     const Tipoextra = req.body.Metodoextra
     const ahora = moment().tz('America/Bogota');
-    const Fecha = ahora.format('YYYY-MM-DD');
-    const newpago =  new Pago({Cuenta,Monto,Tipo,Montoextra,Tipoextra,Fecha});
-    await newpago.save()
-   for (const producto of productos) {
-    const ahora = moment().tz('America/Bogota');
-    const Mesero = producto.Usuario;
-    const Producto = producto.Producto;
-    const Precio = producto.Precio;
-    const Tipo = producto.Tipo;
-    const Fecha = ahora.format('YYYY-MM-DD');
-    const nuevoDocumento = new ventas({
-      Mesero,
-      Producto,
-      Precio,
-      Tipo,
-      Fecha
-    });
-     await nuevoDocumento.save();
-     productosVendidosIds.push(producto._id);
-   }
+    const Fecha = ahora.format('DD-MM-YYYY');
+    const newpago = new Pago({ Cuenta, Monto, Tipo, Montoextra, Tipoextra, Fecha });
+    await newpago.save();
+    for (const producto of productos) {
+      const Mesero = producto.Usuario;
+      const Producto = producto.Producto;
+      const Precio = producto.Precio;
+      const Tipo = producto.Tipo;
+      const Cantidad = producto.Cantidad;
+      const nuevoDocumento = new ventas({
+        Mesero,
+        Producto,
+        Precio,
+        Tipo,
+        Cantidad,
+        Fecha
+      });
+      await nuevoDocumento.save();
+      productosVendidosIds.push(producto._id);
+    }
    await DiasSol.deleteOne({DS:"DS-32"})
    await DS.deleteMany({ _id: { $in: productosVendidosIds } });
    res.redirect('/DS-32');

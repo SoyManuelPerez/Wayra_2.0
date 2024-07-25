@@ -121,7 +121,7 @@ module.exports.pagar = async (req, res) => {
     const Montoextra = req.body.Montoextra;
     const Tipoextra = req.body.Metodoextra;
     const ahora = moment().tz('America/Bogota');
-    const Fecha = ahora.format('YYYY-MM-DD');
+    const Fecha = ahora.format('DD-MM-YYYY');
     const newpago = new Pago({ Cuenta, Monto, Tipo, Montoextra, Tipoextra, Fecha });
     await newpago.save();
     for (const producto of productos) {
