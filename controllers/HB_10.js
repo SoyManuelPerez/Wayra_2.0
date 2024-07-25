@@ -129,11 +129,13 @@ module.exports.pagar = async (req, res) => {
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
+      const Cantidad = producto.Cantidad;
       const nuevoDocumento = new ventas({
         Mesero,
         Producto,
         Precio,
         Tipo,
+        Cantidad,
         Fecha
       });
       await nuevoDocumento.save();

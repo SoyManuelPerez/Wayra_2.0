@@ -124,17 +124,18 @@ module.exports.pagar = async (req, res) => {
     const ahora = moment().tz('America/Bogota');
     const Fecha = ahora.format('YYYY-MM-DD');
     const newpago = new Pago({ Cuenta, Monto, Tipo, Montoextra, Tipoextra, Fecha });
-    await newpago.save();
     for (const producto of productos) {
       const Mesero = producto.Usuario;
       const Producto = producto.Producto;
       const Precio = producto.Precio;
       const Tipo = producto.Tipo;
+      const Cantidad = producto.Cantidad;
       const nuevoDocumento = new ventas({
         Mesero,
         Producto,
         Precio,
         Tipo,
+        Cantidad,
         Fecha
       });
       await nuevoDocumento.save();
