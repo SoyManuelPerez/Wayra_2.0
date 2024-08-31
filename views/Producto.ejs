@@ -63,16 +63,16 @@
       </thead>
       <tbody>
         <% productos.forEach( (productos) => { %>
-          <tr>
-              <td> <%= productos.Producto %></td>
-              <td> <%= productos.Precio.toLocaleString('es-CO') %></td>
-              <td> <%= productos.Tipo %></td>
-              <td> <%= productos.Cantidad %></td>
-              <td> 
-                  <a type="button" class="btnEditarProducto btn btn-outline-primary bi bi-pencil"> </a>
-                  <a href="/borrarProducto/<%= productos.id %>" class="btn btn-outline-danger bi bi-trash"> </a>
-              </td>
-          </tr>
+          <tr data-precio="<%= productos.Precio %>">
+            <td> <%= productos.Producto %></td>
+            <td> <%= productos.Precio.toLocaleString('es-CO') %></td>
+            <td> <%= productos.Tipo %></td>
+            <td> <%= productos.Cantidad %></td>
+            <td> 
+                <a type="button" class="btnEditarProducto btn btn-outline-primary bi bi-pencil"> </a>
+                <a href="/borrarProducto/<%= productos.id %>" class="btn btn-outline-danger bi bi-trash"> </a>
+            </td>
+        </tr>
      <% }) %>
       </tbody>
     </table>

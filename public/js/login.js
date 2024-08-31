@@ -15,7 +15,6 @@ document.getElementById("login").addEventListener("submit",async (e)=>{
       user,password
     })
   });
-  console.log(res)
   if(!res.ok) return mensajeError.classList.toggle("escondido",false);
   const resJson = await res.json();
   if(resJson.redirect){
