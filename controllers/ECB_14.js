@@ -25,7 +25,7 @@ module.exports.mostrar = (req, res) => {
     Productos.find({}),
     Usuario.find({ user: usuario }),
     Huesped.find({
-      HB: 'ECB-14'
+      HB: 'CB-114'
     })
   ])
     .then(([HB, Productos, Usuario, Huesped]) => {
