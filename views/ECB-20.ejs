@@ -148,26 +148,7 @@
                     <div class="mb-3">
                         <input type="text" name="Habitacion" value="CB-120" class="form-control" readonly>
                     </div>
-                    <div class="mb-3">
-                        <input id="Nombre" name="Nombre" type="text" class="form-control" placeholder="Nombre Completo" required>
-                    </div>
-                      <div class="mb-3">
-                        <input id="Adultos" name="Adultos" type="text" class="form-control" placeholder="Adultos" >
-                        <input id="Niños" name="Niños" type="text" class="form-control" placeholder="Niños" >
-                        <input id="Bebes" name="Bebes" type="text" class="form-control" placeholder="Bebes" >
-                      </div>
-                      <div class="mb-3">
-                        <label for="Fecha" class="col-form-label letra">Fecha Ingreso:</label>
-                        <input id="Fecha" name="Fecha" type="date" class="form-control" value="">
-                      </div>
-                      <div class="mb-3">
-                        <label for="Salida" class="col-form-label letra">Fecha Salida:</label>
-                        <input id="Salida" name="Salida" type="date" class="form-control" value="">
-                      </div>
-                    <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary">Ingresar</button>
-                      </div>
-                    </div>
+                    <%- include('modalCliente'); %>
                 </form>
             </div>
         </div>
