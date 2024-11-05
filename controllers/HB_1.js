@@ -200,10 +200,12 @@ module.exports.mostrarH = (req, res) => {
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        res.redirect("/");
+        return res.status(500).send('Error en encontrar usuario');
       }
-      mesero = decoded.user;
+      usuario = decoded.user;
     });
+  }else{
+    res.redirect("/");
   }
   Promise.all([
     Huesped.find({}),

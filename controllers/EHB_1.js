@@ -15,10 +15,12 @@ module.exports.mostrar = (req, res) => {
   if (token) {
     jsonwebtoken.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
-        return res.redirect("/");
+        return res.status(500).send('Error en encontrar usuario');
       }
       usuario = decoded.user;
     });
+  }else{
+    res.redirect("/");
   }
   Promise.all([
     HB.find({}),
@@ -173,7 +175,6 @@ module.exports.eliminar = async (req, res) => {
   }
   res.redirect('/EHB-1');
 };
-
 
 // Agregar Huesped
 module.exports.agregar = async (req, res) => {

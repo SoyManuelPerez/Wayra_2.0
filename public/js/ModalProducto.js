@@ -9,7 +9,6 @@ const onl =(element,event,selector,handler)=>{
 }
 onl(document,'click','.btnEditarProducto',e=>{
     const fila = e.target.parentNode.parentNode;
-    console.log(fila.children[0].innerHTML)
     ProductoE.value = fila.children[0].innerHTML;
     PrecioE.value = fila.getAttribute('data-precio'); // Usar el precio sin formato
     CantidadE.value = fila.children[3].innerHTML;
