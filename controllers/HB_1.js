@@ -202,7 +202,7 @@ module.exports.mostrarH = (req, res) => {
       if (err) {
         return res.status(500).send('Error en encontrar usuario');
       }
-      usuario = decoded.user;
+      mesero = decoded.user;
     });
   }else{
     res.redirect("/");
