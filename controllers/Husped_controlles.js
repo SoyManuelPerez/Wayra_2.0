@@ -20,24 +20,24 @@ module.exports.eliminar = (req, res) => {
 //Editar Producto
 module.exports.editar = (req, res) => {
 
-  const HB = req.body.Habitacion
-  const Nombre = req.body.Nombre
-  const Niños = req.body.Niños
-  const Bebes = req.body.Bebes
-  const Ingreso = req.body.Fecha
-  const Salida = req.body.Salida
+  const HB = req.body.Habitacion.trim();
+  const Nombre = req.body.Nombre;
+  const Adultos = req.body.Adultos; 
+  const Niños = req.body.Niños;
+  const Bebes = req.body.Bebes;
+  const Ingreso = req.body.Fecha;
+  const Salida = req.body.Salida;
 
-  Huesped.findOneAndUpdate({ 
-    $and: [
-      { Documento: Documento.trim() },
-      { HB: HB.trim() }
-    ]
-  }, { Nombre,Adultos,Niños,Bebes,Ingreso,Salida}).exec()
+  Huesped.findOneAndUpdate(
+    { HB }, 
+    { Nombre, Adultos, Niños, Bebes, Ingreso, Salida } 
+  ).exec()
     .then(resultado => {
-      console.log("Objeto Actualizado : ", resultado);
+      console.log("Objeto Actualizado: ", resultado);
+      res.redirect('/huespedes'); 
     })
     .catch(error => {
-      console.log(error)
-    })
-  res.redirect('/huespedes')
-}
+      console.log(error);
+      res.status(500).send("Error al actualizar el huésped");
+    });
+};

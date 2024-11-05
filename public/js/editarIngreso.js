@@ -9,8 +9,8 @@ const onl =(element,event,selector,handler)=>{
 }
 onl(document,'click','.btnEditarIngreso',e=>{
     const fila = e.target.parentNode.parentNode;
-    Habitacion.value = fila.children[0].innerHTML
-    Nombre.value = fila.children[1].innerHTML
+    Habitacion.value = fila.children[0].innerHTML.trim();
+    Nombre.value = fila.children[1].innerHTML.trim();
     Adultos.value = fila.children[2].innerHTML
     Niños.value = fila.children[3].innerHTML
     Bebes.value = fila.children[4].innerHTML
