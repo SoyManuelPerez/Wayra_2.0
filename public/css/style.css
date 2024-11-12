@@ -134,3 +134,47 @@ th, td {
 th {
     background-color: #3a3a3a;
 }
+    /* Estilos generales para las listas */
+    .list-group-item {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        background-color:rgb(0, 153, 255); 
+      }
+  
+      /* Ocultar todas las sublistas por defecto */
+      .list-group .list-group {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        z-index: 1000;
+        min-width: 180px;
+      }
+  
+      /* Mostrar sublistas al hacer hover */
+      .list-group-item:hover > .list-group {
+        display: block;
+      }
+  
+      /* Ajuste de las sublistas */
+      .list-group > .list-group-item {
+        position: relative;
+      }
+  
+      /* Estilos para subniveles */
+      .list-group-item a {
+        text-decoration: none;
+        color: inherit;
+        
+      }
+  
+      /* Ajuste de las posiciones de los niveles de las listas */
+      .container > .list-group {
+        position: relative;
+      }
+      #menu-list {
+        width: 200px; 
+        top: 10px;
+        left: 10px;
+        background-color:rgb(0, 153, 255); 
+    }
