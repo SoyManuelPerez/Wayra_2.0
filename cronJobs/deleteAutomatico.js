@@ -25,7 +25,7 @@ cron.schedule('0 23 * * *', () => {
 });
 
 // Configurar el cron job para ejecutarse todos los martes a las 11 PM
-cron.schedule('0 23 * * 2', async () => {
+cron.schedule('0 17 * * 2', async () => {
     try {
         const jobName = 'VentasEliminadasCadaDosSemanas';
         const now = new Date();

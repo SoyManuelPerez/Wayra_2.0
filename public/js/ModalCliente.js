@@ -38,11 +38,11 @@ function guardarComoPDF() {
         let filaPDF = [];
         
         if (i === 0) {
-            columnasAIncluir = [0, 1, 2, 3];
+            columnasAIncluir = [0, 1, 2, 3,4,5];
         } else if (i === filas.length - 1) {
             columnasAIncluir = [0, 1];
         } else {
-            columnasAIncluir = [0, 1, 2, 3];
+            columnasAIncluir = [0, 1, 2, 3,4,5];
         }
         
         columnasAIncluir.forEach(index => {

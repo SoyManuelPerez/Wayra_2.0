@@ -5,6 +5,7 @@ const ventas = require('../controllers/Ventas_controllers')
 const Huesped = require('../controllers/Husped_controlles')
 const Ds = require('../controllers/Ds_controllers')
 const Pagos = require('../controllers/Controllers_pagos')
+const Comisiones = require('../controllers/Comision')
 //Editar Huespedes
 router.post('/EditarIngreso',Huesped.editar)
 //Editar DS
@@ -23,6 +24,10 @@ router.get('/eliminarventas/:id',ventas.eliminar,(req,res)=>{
 //Inicio
 router.get('/hospedaje',HB.mostrarH,(req,res)=>{
     res.render('hospedaje')
+})
+//Comisiones
+router.get('/Comisiones',Comisiones.mostrar,(req,res)=>{
+    res.render('Comisiones')
 })
 //Dias de sol
 router.get('/DS',Ds.mostrar,(req,res)=>{

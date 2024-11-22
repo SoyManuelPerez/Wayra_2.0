@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-<title>CB-15</title>
+<title>CB-31</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
 </head>
@@ -48,7 +48,7 @@
         })
         %>
         <div class="container text-start espacio">
-            <h3 >Habitacion: CB-15</h3>
+            <h3 >Habitacion: CB-31</h3>
             <h3 class="inline">Huesped:</h3>
             <h3 id="titulo" class="inline"><%= Nombre %></h3>
         </div>
@@ -73,7 +73,7 @@
                                     <td><%= productos.Precio.toLocaleString('es-CO') %></td>
                                     <td><%= productos.Tipo %></td>
                                     <td>
-                                        <form action="/AgregarCB15/<%= productos.id %>" method="post" style="display: flex; align-items: center;">
+                                        <form action="/AgregarCB31/<%= productos.id %>" method="post" style="display: flex; align-items: center;">
                                             <input type="number" min="1" max="30" name="unidad" style="margin-right: 10px;" value="1">
                                             <input type="hidden" name="producto_id" value="<%= productos.id %>">
                                             <button type="submit" class="btnAgregarProducto btn btn-outline-primary bi bi-cart-plus"></button>
@@ -114,7 +114,7 @@
                                     <td> <%= HB.Hora %></td>
                                     <% if ( tipoUsuario === "admin") { %>
                                     <td> 
-                                            <a href="/eliminarCB15/<%= HB.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
+                                            <a href="/eliminarCB31/<%= HB.id %>" type="button" class="btnAgregarProducto btn btn-outline-danger  bi bi-cart-x"> </a>
                                     </td>
                                     <%} %>
                                     <% totalPrecio += valort %> <!-- Suma el precio del producto al total -->
@@ -145,9 +145,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/IngresarCliente15" method="POST">
+                <form action="/IngresarCliente19" method="POST">
                     <div class="mb-3">
-                        <input type="text" name="Habitacion" value="CB-15" class="form-control" readonly>
+                        <input type="text" name="Habitacion" value="CB-31" class="form-control" readonly>
                     </div>
                     <%- include('modalCliente'); %>
                 </form>
@@ -163,9 +163,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/PagarCB15" method="POST">
+                <form action="/PagarCB31" method="POST">
                     <div class="mb-3">
-                        <input type="text" name="Cuenta" value="CB-15" class="form-control" readonly>
+                        <input type="text" name="Cuenta" value="CB-31" class="form-control" readonly>
                     </div>
                     <div class="mb-3">
                       <input id="Monto" name="Monto" type="text" class="form-control" placeholder="Monto" value="<%= totalPrecio %>" required>
