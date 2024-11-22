@@ -34,18 +34,22 @@ router.get('/CuentaHB-11/:id',Bar.HB11)
 router.get('/CuentaHB-12/:id',Bar.HB12)
 //Devolver a la cuenta De HB13
 router.get('/CuentaHB-13/:id',Bar.HB13)
+//Devolver a la cuenta De HB13
+router.get('/CuentaHB-14/:id',Bar.HB14)
+//Devolver a la cuenta De HB13
+router.get('/CuentaHB-15/:id',Bar.HB15)
 //Devolver a la cuenta De CB14
-router.get('/CuentaCB-14/:id',Bar.CB14)
+router.get('/CuentaCB-26/:id',Bar.CB26)
 //Devolver a la cuenta De CB15
-router.get('/CuentaCB-15/:id',Bar.CB15)
+router.get('/CuentaCB-27/:id',Bar.CB27)
 //Devolver a la cuenta De CB16
-router.get('/CuentaCB-16/:id',Bar.CB16)
+router.get('/CuentaCB-28/:id',Bar.CB28)
 //Devolver a la cuenta De CB17
-router.get('/CuentaCB-17/:id',Bar.CB17)
+router.get('/CuentaCB-29/:id',Bar.CB29)
 //Devolver a la cuenta De CB18
-router.get('/CuentaCB-18/:id',Bar.CB18)
+router.get('/CuentaCB-30/:id',Bar.CB30)
 //Devolver a la cuenta De CB19
-router.get('/CuentaCB-19/:id',Bar.CB19)
+router.get('/CuentaCB-31/:id',Bar.CB31)
 //Devolver a la cuenta De CB20
 router.get('/CuentaCB-20/:id',Bar.CB20)
 //Devolver a la cuenta De CB21
@@ -85,18 +89,22 @@ router.get('/CuentaEHB-11/:id',Bar.EHB11)
 router.get('/CuentaEHB-12/:id',Bar.EHB12)
 //Devolver a la cuenta De HB13
 router.get('/CuentaEHB-13/:id',Bar.EHB13)
+//Devolver a la cuenta De HB13
+router.get('/CuentaEHB-14/:id',Bar.EHB14)
+//Devolver a la cuenta De HB13
+router.get('/CuentaEHB-15/:id',Bar.EHB15)
 //Devolver a la cuenta De CB14
-router.get('/CuentaECB-14/:id',Bar.ECB14)
+router.get('/CuentaECB-26/:id',Bar.ECB26)
 //Devolver a la cuenta De CB15
-router.get('/CuentaECB-15/:id',Bar.ECB15)
+router.get('/CuentaECB-27/:id',Bar.ECB27)
 //Devolver a la cuenta De CB16
-router.get('/CuentaECB-16/:id',Bar.ECB16)
+router.get('/CuentaECB-28/:id',Bar.ECB28)
 //Devolver a la cuenta De CB17
-router.get('/CuentaECB-17/:id',Bar.ECB17)
+router.get('/CuentaECB-29/:id',Bar.ECB29)
 //Devolver a la cuenta De CB18
-router.get('/CuentaECB-18/:id',Bar.ECB18)
+router.get('/CuentaECB-30/:id',Bar.ECB30)
 //Devolver a la cuenta De CB19
-router.get('/CuentaECB-19/:id',Bar.ECB19)
+router.get('/CuentaECB-31/:id',Bar.ECB31)
 //Devolver a la cuenta De CB20
 router.get('/CuentaECB-20/:id',Bar.ECB20)
 //Devolver a la cuenta De CB21

@@ -85,14 +85,14 @@ module.exports.Crear = async (req, res) => {
       hora = hora-12;
       Hora = hora + ":" + minutos +"pm "+Fecha;
     } 
-    if (producto.Tipo == "Bar") {
+    if (producto.Tipo == "Bar"||producto.Tipo == "Coctel"|| producto.Tipo == "Vino") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();
-    } else if (producto.Tipo == "Cocina") {
+    } else if (producto.Tipo == "Cocina"|| producto.Tipo == "Plato") {
       const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {
-      const newUsuario = new HB({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
+      const newUsuario = new HB({Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora});
       await newUsuario.save();
       // Actualizar la cantidad del producto en la colección Productos
       let CantidadP = producto.Cantidad;

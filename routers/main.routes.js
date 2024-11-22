@@ -29,6 +29,9 @@ router.get('/hospedaje',HB.mostrarH,(req,res)=>{
 router.get('/Comisiones',Comisiones.mostrar,(req,res)=>{
     res.render('Comisiones')
 })
+router.get('/eliminarComision/:id',Comisiones.eliminar,(req,res)=>{
+    res.render('Ventas')
+})
 //Dias de sol
 router.get('/DS',Ds.mostrar,(req,res)=>{
     res.render('DS')

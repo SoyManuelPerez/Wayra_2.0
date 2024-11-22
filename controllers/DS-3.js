@@ -81,10 +81,10 @@ module.exports.Crear = async (req, res) => {
     const Tipo = producto.Tipo;
     const Cantidad = unidad
     const Usuario = mesero;
-    if (producto.Tipo == "Bar") {
+    if (producto.Tipo == "Bar"||producto.Tipo == "Coctel"|| producto.Tipo == "Vino") {
       const bar = new Bar({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await bar.save();
-    } else if (producto.Tipo == "Cocina") {
+    } else if (producto.Tipo == "Cocina"|| producto.Tipo == "Plato") {
       const cocina = new Cocina({ Mesa, Comanda, Producto, Cantidad, Precio, Usuario, Tipo, Hora });
       await cocina.save();
     } else {

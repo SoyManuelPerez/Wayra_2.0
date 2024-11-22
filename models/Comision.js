@@ -4,6 +4,5 @@ const Comision = new mongoose.Schema ({
     Coctel: Number,
     Vino: Number,
     Plato:Number,
-    Fecha:String,
 })
 module.exports = mongoose.model('Comision', Comision)
