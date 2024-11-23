@@ -120,7 +120,7 @@ module.exports.mostrar = (req, res) => {
         Bar.find({})
       ])
       .then(([Huesped, DS, Bar]) => {
-        res.render('Bar', { Huesped: Huesped, DS: DS, bar: Bar });
+        res.render('bar', { Huesped: Huesped, DS: DS, bar: Bar });
       })
         .catch(err => console.log(err, 'Error mostrar producto no encontrado'))
 }
