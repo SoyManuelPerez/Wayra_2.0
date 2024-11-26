@@ -2146,18 +2146,24 @@ module.exports.ECB26 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB26({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2185,18 +2191,24 @@ module.exports.ECB27 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB27({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2224,18 +2236,24 @@ module.exports.ECB28 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB28({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2263,18 +2281,24 @@ module.exports.ECB29 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB29({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2302,18 +2326,24 @@ module.exports.ECB30 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB30({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2341,18 +2371,24 @@ module.exports.ECB31 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB31({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2380,18 +2416,24 @@ module.exports.ECB20 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB20({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2419,18 +2461,24 @@ module.exports.ECB21 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB21({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2458,18 +2506,24 @@ module.exports.ECB22 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB22({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2497,18 +2551,24 @@ module.exports.ECB23 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB23({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2536,18 +2596,24 @@ module.exports.ECB24 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB24({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2575,18 +2641,24 @@ module.exports.ECB25 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new ECB25({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2617,18 +2689,24 @@ module.exports.DS1 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS1({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2656,18 +2734,24 @@ module.exports.DS2 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS2({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2695,18 +2779,24 @@ module.exports.DS3 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS3({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2734,18 +2824,24 @@ module.exports.DS4 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS4({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2773,18 +2869,24 @@ module.exports.DS5 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS5({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2812,18 +2914,24 @@ module.exports.DS6 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS6({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2851,18 +2959,24 @@ module.exports.DS7 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS7({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2890,18 +3004,24 @@ module.exports.DS8 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS8({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2929,18 +3049,24 @@ module.exports.DS9 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS9({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -2968,18 +3094,24 @@ module.exports.DS10 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS10({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3007,18 +3139,24 @@ module.exports.DS11 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS11({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3046,18 +3184,24 @@ module.exports.DS12 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS12({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3085,18 +3229,24 @@ module.exports.DS13 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS13({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3124,18 +3274,24 @@ module.exports.DS14 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS14({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3163,18 +3319,24 @@ module.exports.DS15 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS15({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3202,18 +3364,24 @@ module.exports.DS16 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS16({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3241,18 +3409,24 @@ module.exports.DS17 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS17({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3280,18 +3454,24 @@ module.exports.DS18 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS18({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3319,18 +3499,24 @@ module.exports.DS19 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS19({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3358,18 +3544,24 @@ module.exports.DS20 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS20({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3397,18 +3589,24 @@ module.exports.DS21 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS21({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3436,18 +3634,24 @@ module.exports.DS22 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS22({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3475,18 +3679,24 @@ module.exports.DS23 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS23({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3514,18 +3724,24 @@ module.exports.DS24 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS24({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3553,18 +3769,24 @@ module.exports.DS25 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS25({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3592,18 +3814,24 @@ module.exports.DS26 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS26({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3631,18 +3859,24 @@ module.exports.DS27 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS27({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3670,18 +3904,24 @@ module.exports.DS28 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS28({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3709,18 +3949,24 @@ module.exports.DS29 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS29({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3748,18 +3994,24 @@ module.exports.DS30 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS30({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3787,18 +4039,24 @@ module.exports.DS31 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS31({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3826,18 +4084,24 @@ module.exports.DS32 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS32({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3865,18 +4129,24 @@ module.exports.DS33 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS33({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3904,18 +4174,24 @@ module.exports.DS34 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS34({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3943,18 +4219,24 @@ module.exports.DS35 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS35({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -3982,18 +4264,24 @@ module.exports.DS36 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS36({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4021,18 +4309,24 @@ module.exports.DS37 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS37({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4060,18 +4354,24 @@ module.exports.DS38 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS38({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4099,18 +4399,24 @@ module.exports.DS39 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS39({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4138,18 +4444,24 @@ module.exports.DS40 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS40({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4177,18 +4489,24 @@ module.exports.DS41 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS41({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4216,18 +4534,24 @@ module.exports.DS42 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS42({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4255,18 +4579,24 @@ module.exports.DS43 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS43({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4294,18 +4624,24 @@ module.exports.DS44 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS44({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4333,18 +4669,24 @@ module.exports.DS45 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS45({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4372,18 +4714,24 @@ module.exports.DS46 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS46({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4411,18 +4759,24 @@ module.exports.DS47 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS47({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4450,18 +4804,24 @@ module.exports.DS48 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS48({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4489,18 +4849,24 @@ module.exports.DS49 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS49({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
@@ -4528,18 +4894,24 @@ module.exports.DS50 = async (req, res) => {
         const Cantidad = producto.Cantidad;
         const Usuario = producto.Usuario;
         const Hora = producto.Hora;
-                // Crear o actualizar un documento en la colección comision
-                if (Tipo === "vino"|| Tipo ==="Coctel") {
-                    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
-                    if (comisionExistente) {
-                        // Si existe, incrementar el valor de Plato
-                        await comicion.updateOne({ Mesero: Usuario }, { $inc: { Plato: 1 } });
-                    } else {
-                        // Si no existe, crear un nuevo documento con Plato: 1
-                        const nuevaComision = new comicion({ Mesero: Usuario, Coctel: 0, Vino: 0, Plato: 1 });
-                        await nuevaComision.save();
-                    }
-                }
+               if (Tipo === "Vino" || Tipo === "Coctel") {
+    const comisionExistente = await comicion.findOne({ Mesero: Usuario });
+
+    if (comisionExistente) {
+        // Si el documento existe, incrementar el campo correspondiente según el tipo
+        const campoActualizar = Tipo === "Vino" ? "Vino" : "Coctel";
+        await comicion.updateOne({ Mesero: Usuario }, { $inc: { [campoActualizar]: 1 } });
+    } else {
+        // Si no existe, crear un nuevo documento con el campo adecuado incrementado
+        const nuevaComision = new comicion({
+            Mesero: Usuario,
+            Coctel: Tipo === "Coctel" ? 1 : 0,
+            Vino: Tipo === "Vino" ? 1 : 0,
+            Plato: 0
+        });
+        await nuevaComision.save();
+    }
+}
         // Crear un nuevo documento en la colección
         const newUuario = new DS0({ Producto, Precio,Cantidad, Usuario, Tipo, Hora });
         await newUuario.save()
