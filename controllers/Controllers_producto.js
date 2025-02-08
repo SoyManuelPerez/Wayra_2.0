@@ -27,11 +27,10 @@ module.exports.eliminar = (req,res) =>{
 //Editar Producto
 module.exports.editar = (req,res) =>{
     const producto = req.body.ProductoE
-    const Tipo = req.body.TipoE
     const Cantidad = req.body.CantidadE
     const Precio = req.body.PrecioE
     console.log(Cantidad)
-    Productos.findOneAndUpdate({Producto:producto.trim()},{Precio,Cantidad,Tipo}).exec()
+    Productos.findOneAndUpdate({Producto:producto.trim()},{Precio,Cantidad}).exec()
     .then(resultado=>{
         console.log("Objeto Actualizado : ", resultado); 
     })
